@@ -9,11 +9,64 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WeitereProdukteRouteImport } from './routes/weitere-produkte'
+import { Route as PoolueberdachungenRouteImport } from './routes/poolueberdachungen'
+import { Route as PoolabdeckungenRouteImport } from './routes/poolabdeckungen'
+import { Route as PoolChlorfreiRouteImport } from './routes/pool-chlorfrei'
 import { Route as KontaktRouteImport } from './routes/kontakt'
 import { Route as ImpressumRouteImport } from './routes/impressum'
 import { Route as DatenschutzRouteImport } from './routes/datenschutz'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as WeitereProdukteSolaranlageRouteImport } from './routes/weitere-produkte.solaranlage'
+import { Route as WeitereProdukteReinigungsroboterRouteImport } from './routes/weitere-produkte.reinigungsroboter'
+import { Route as PoolueberdachungenVisualRouteImport } from './routes/poolueberdachungen.visual'
+import { Route as PoolueberdachungenTechnischeDetailsRouteImport } from './routes/poolueberdachungen.technische-details'
+import { Route as PoolueberdachungenSunSkyRouteImport } from './routes/poolueberdachungen.sun-sky'
+import { Route as PoolueberdachungenStarStarPlusRouteImport } from './routes/poolueberdachungen.star-star-plus'
+import { Route as PoolueberdachungenRondoRouteImport } from './routes/poolueberdachungen.rondo'
+import { Route as PoolueberdachungenPracticRouteImport } from './routes/poolueberdachungen.practic'
+import { Route as PoolueberdachungenOrion5RouteImport } from './routes/poolueberdachungen.orion5'
+import { Route as PoolueberdachungenOrionRouteImport } from './routes/poolueberdachungen.orion'
+import { Route as PoolueberdachungenHorizonRouteImport } from './routes/poolueberdachungen.horizon'
+import { Route as PoolueberdachungenHarmonieRouteImport } from './routes/poolueberdachungen.harmonie'
+import { Route as PoolueberdachungenGalaxyRouteImport } from './routes/poolueberdachungen.galaxy'
+import { Route as PoolueberdachungenCreativRouteImport } from './routes/poolueberdachungen.creativ'
+import { Route as PoolueberdachungenCharismaFlatRouteImport } from './routes/poolueberdachungen.charisma-flat'
+import { Route as PoolueberdachungenCharismaRouteImport } from './routes/poolueberdachungen.charisma'
+import { Route as PoolabdeckungenSchutzWinterSicherheitsnetzRouteImport } from './routes/poolabdeckungen.schutz-winter-sicherheitsnetz'
+import { Route as PoolabdeckungenSchaumabdeckungRouteImport } from './routes/poolabdeckungen.schaumabdeckung'
+import { Route as PoolabdeckungenRolloabdeckungenRouteImport } from './routes/poolabdeckungen.rolloabdeckungen'
+import { Route as PoolabdeckungenRandaufliegendeAbdeckungRouteImport } from './routes/poolabdeckungen.randaufliegende-abdeckung'
+import { Route as PoolabdeckungenLuftpolsterabdeckungRouteImport } from './routes/poolabdeckungen.luftpolsterabdeckung'
+import { Route as PoolabdeckungenAircoverWinterabdeckungRouteImport } from './routes/poolabdeckungen.aircover-winterabdeckung'
+import { Route as PoolChlorfreiFaqIonisierungRouteImport } from './routes/pool-chlorfrei.faq-ionisierung'
+import { Route as PoolabdeckungenRolloabdeckungenWasIstEineRolloabdeckungRouteImport } from './routes/poolabdeckungen.rolloabdeckungen.was-ist-eine-rolloabdeckung'
+import { Route as PoolabdeckungenRolloabdeckungenUnterfluranlagenRouteImport } from './routes/poolabdeckungen.rolloabdeckungen.unterfluranlagen'
+import { Route as PoolabdeckungenRolloabdeckungenUnfallschutzRouteImport } from './routes/poolabdeckungen.rolloabdeckungen.unfallschutz'
+import { Route as PoolabdeckungenRolloabdeckungenRollladenprofileRouteImport } from './routes/poolabdeckungen.rolloabdeckungen.rollladenprofile'
+import { Route as PoolabdeckungenRolloabdeckungenOberfluranlagenRouteImport } from './routes/poolabdeckungen.rolloabdeckungen.oberfluranlagen'
+import { Route as PoolabdeckungenRolloabdeckungenEnergieeinsparungRouteImport } from './routes/poolabdeckungen.rolloabdeckungen.energieeinsparung'
 
+const WeitereProdukteRoute = WeitereProdukteRouteImport.update({
+  id: '/weitere-produkte',
+  path: '/weitere-produkte',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PoolueberdachungenRoute = PoolueberdachungenRouteImport.update({
+  id: '/poolueberdachungen',
+  path: '/poolueberdachungen',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PoolabdeckungenRoute = PoolabdeckungenRouteImport.update({
+  id: '/poolabdeckungen',
+  path: '/poolabdeckungen',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PoolChlorfreiRoute = PoolChlorfreiRouteImport.update({
+  id: '/pool-chlorfrei',
+  path: '/pool-chlorfrei',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const KontaktRoute = KontaktRouteImport.update({
   id: '/kontakt',
   path: '/kontakt',
@@ -34,18 +87,256 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const WeitereProdukteSolaranlageRoute =
+  WeitereProdukteSolaranlageRouteImport.update({
+    id: '/solaranlage',
+    path: '/solaranlage',
+    getParentRoute: () => WeitereProdukteRoute,
+  } as any)
+const WeitereProdukteReinigungsroboterRoute =
+  WeitereProdukteReinigungsroboterRouteImport.update({
+    id: '/reinigungsroboter',
+    path: '/reinigungsroboter',
+    getParentRoute: () => WeitereProdukteRoute,
+  } as any)
+const PoolueberdachungenVisualRoute =
+  PoolueberdachungenVisualRouteImport.update({
+    id: '/visual',
+    path: '/visual',
+    getParentRoute: () => PoolueberdachungenRoute,
+  } as any)
+const PoolueberdachungenTechnischeDetailsRoute =
+  PoolueberdachungenTechnischeDetailsRouteImport.update({
+    id: '/technische-details',
+    path: '/technische-details',
+    getParentRoute: () => PoolueberdachungenRoute,
+  } as any)
+const PoolueberdachungenSunSkyRoute =
+  PoolueberdachungenSunSkyRouteImport.update({
+    id: '/sun-sky',
+    path: '/sun-sky',
+    getParentRoute: () => PoolueberdachungenRoute,
+  } as any)
+const PoolueberdachungenStarStarPlusRoute =
+  PoolueberdachungenStarStarPlusRouteImport.update({
+    id: '/star-star-plus',
+    path: '/star-star-plus',
+    getParentRoute: () => PoolueberdachungenRoute,
+  } as any)
+const PoolueberdachungenRondoRoute = PoolueberdachungenRondoRouteImport.update({
+  id: '/rondo',
+  path: '/rondo',
+  getParentRoute: () => PoolueberdachungenRoute,
+} as any)
+const PoolueberdachungenPracticRoute =
+  PoolueberdachungenPracticRouteImport.update({
+    id: '/practic',
+    path: '/practic',
+    getParentRoute: () => PoolueberdachungenRoute,
+  } as any)
+const PoolueberdachungenOrion5Route =
+  PoolueberdachungenOrion5RouteImport.update({
+    id: '/orion5',
+    path: '/orion5',
+    getParentRoute: () => PoolueberdachungenRoute,
+  } as any)
+const PoolueberdachungenOrionRoute = PoolueberdachungenOrionRouteImport.update({
+  id: '/orion',
+  path: '/orion',
+  getParentRoute: () => PoolueberdachungenRoute,
+} as any)
+const PoolueberdachungenHorizonRoute =
+  PoolueberdachungenHorizonRouteImport.update({
+    id: '/horizon',
+    path: '/horizon',
+    getParentRoute: () => PoolueberdachungenRoute,
+  } as any)
+const PoolueberdachungenHarmonieRoute =
+  PoolueberdachungenHarmonieRouteImport.update({
+    id: '/harmonie',
+    path: '/harmonie',
+    getParentRoute: () => PoolueberdachungenRoute,
+  } as any)
+const PoolueberdachungenGalaxyRoute =
+  PoolueberdachungenGalaxyRouteImport.update({
+    id: '/galaxy',
+    path: '/galaxy',
+    getParentRoute: () => PoolueberdachungenRoute,
+  } as any)
+const PoolueberdachungenCreativRoute =
+  PoolueberdachungenCreativRouteImport.update({
+    id: '/creativ',
+    path: '/creativ',
+    getParentRoute: () => PoolueberdachungenRoute,
+  } as any)
+const PoolueberdachungenCharismaFlatRoute =
+  PoolueberdachungenCharismaFlatRouteImport.update({
+    id: '/charisma-flat',
+    path: '/charisma-flat',
+    getParentRoute: () => PoolueberdachungenRoute,
+  } as any)
+const PoolueberdachungenCharismaRoute =
+  PoolueberdachungenCharismaRouteImport.update({
+    id: '/charisma',
+    path: '/charisma',
+    getParentRoute: () => PoolueberdachungenRoute,
+  } as any)
+const PoolabdeckungenSchutzWinterSicherheitsnetzRoute =
+  PoolabdeckungenSchutzWinterSicherheitsnetzRouteImport.update({
+    id: '/schutz-winter-sicherheitsnetz',
+    path: '/schutz-winter-sicherheitsnetz',
+    getParentRoute: () => PoolabdeckungenRoute,
+  } as any)
+const PoolabdeckungenSchaumabdeckungRoute =
+  PoolabdeckungenSchaumabdeckungRouteImport.update({
+    id: '/schaumabdeckung',
+    path: '/schaumabdeckung',
+    getParentRoute: () => PoolabdeckungenRoute,
+  } as any)
+const PoolabdeckungenRolloabdeckungenRoute =
+  PoolabdeckungenRolloabdeckungenRouteImport.update({
+    id: '/rolloabdeckungen',
+    path: '/rolloabdeckungen',
+    getParentRoute: () => PoolabdeckungenRoute,
+  } as any)
+const PoolabdeckungenRandaufliegendeAbdeckungRoute =
+  PoolabdeckungenRandaufliegendeAbdeckungRouteImport.update({
+    id: '/randaufliegende-abdeckung',
+    path: '/randaufliegende-abdeckung',
+    getParentRoute: () => PoolabdeckungenRoute,
+  } as any)
+const PoolabdeckungenLuftpolsterabdeckungRoute =
+  PoolabdeckungenLuftpolsterabdeckungRouteImport.update({
+    id: '/luftpolsterabdeckung',
+    path: '/luftpolsterabdeckung',
+    getParentRoute: () => PoolabdeckungenRoute,
+  } as any)
+const PoolabdeckungenAircoverWinterabdeckungRoute =
+  PoolabdeckungenAircoverWinterabdeckungRouteImport.update({
+    id: '/aircover-winterabdeckung',
+    path: '/aircover-winterabdeckung',
+    getParentRoute: () => PoolabdeckungenRoute,
+  } as any)
+const PoolChlorfreiFaqIonisierungRoute =
+  PoolChlorfreiFaqIonisierungRouteImport.update({
+    id: '/faq-ionisierung',
+    path: '/faq-ionisierung',
+    getParentRoute: () => PoolChlorfreiRoute,
+  } as any)
+const PoolabdeckungenRolloabdeckungenWasIstEineRolloabdeckungRoute =
+  PoolabdeckungenRolloabdeckungenWasIstEineRolloabdeckungRouteImport.update({
+    id: '/was-ist-eine-rolloabdeckung',
+    path: '/was-ist-eine-rolloabdeckung',
+    getParentRoute: () => PoolabdeckungenRolloabdeckungenRoute,
+  } as any)
+const PoolabdeckungenRolloabdeckungenUnterfluranlagenRoute =
+  PoolabdeckungenRolloabdeckungenUnterfluranlagenRouteImport.update({
+    id: '/unterfluranlagen',
+    path: '/unterfluranlagen',
+    getParentRoute: () => PoolabdeckungenRolloabdeckungenRoute,
+  } as any)
+const PoolabdeckungenRolloabdeckungenUnfallschutzRoute =
+  PoolabdeckungenRolloabdeckungenUnfallschutzRouteImport.update({
+    id: '/unfallschutz',
+    path: '/unfallschutz',
+    getParentRoute: () => PoolabdeckungenRolloabdeckungenRoute,
+  } as any)
+const PoolabdeckungenRolloabdeckungenRollladenprofileRoute =
+  PoolabdeckungenRolloabdeckungenRollladenprofileRouteImport.update({
+    id: '/rollladenprofile',
+    path: '/rollladenprofile',
+    getParentRoute: () => PoolabdeckungenRolloabdeckungenRoute,
+  } as any)
+const PoolabdeckungenRolloabdeckungenOberfluranlagenRoute =
+  PoolabdeckungenRolloabdeckungenOberfluranlagenRouteImport.update({
+    id: '/oberfluranlagen',
+    path: '/oberfluranlagen',
+    getParentRoute: () => PoolabdeckungenRolloabdeckungenRoute,
+  } as any)
+const PoolabdeckungenRolloabdeckungenEnergieeinsparungRoute =
+  PoolabdeckungenRolloabdeckungenEnergieeinsparungRouteImport.update({
+    id: '/energieeinsparung',
+    path: '/energieeinsparung',
+    getParentRoute: () => PoolabdeckungenRolloabdeckungenRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/datenschutz': typeof DatenschutzRoute
   '/impressum': typeof ImpressumRoute
   '/kontakt': typeof KontaktRoute
+  '/pool-chlorfrei': typeof PoolChlorfreiRouteWithChildren
+  '/poolabdeckungen': typeof PoolabdeckungenRouteWithChildren
+  '/poolueberdachungen': typeof PoolueberdachungenRouteWithChildren
+  '/weitere-produkte': typeof WeitereProdukteRouteWithChildren
+  '/pool-chlorfrei/faq-ionisierung': typeof PoolChlorfreiFaqIonisierungRoute
+  '/poolabdeckungen/aircover-winterabdeckung': typeof PoolabdeckungenAircoverWinterabdeckungRoute
+  '/poolabdeckungen/luftpolsterabdeckung': typeof PoolabdeckungenLuftpolsterabdeckungRoute
+  '/poolabdeckungen/randaufliegende-abdeckung': typeof PoolabdeckungenRandaufliegendeAbdeckungRoute
+  '/poolabdeckungen/rolloabdeckungen': typeof PoolabdeckungenRolloabdeckungenRouteWithChildren
+  '/poolabdeckungen/schaumabdeckung': typeof PoolabdeckungenSchaumabdeckungRoute
+  '/poolabdeckungen/schutz-winter-sicherheitsnetz': typeof PoolabdeckungenSchutzWinterSicherheitsnetzRoute
+  '/poolueberdachungen/charisma': typeof PoolueberdachungenCharismaRoute
+  '/poolueberdachungen/charisma-flat': typeof PoolueberdachungenCharismaFlatRoute
+  '/poolueberdachungen/creativ': typeof PoolueberdachungenCreativRoute
+  '/poolueberdachungen/galaxy': typeof PoolueberdachungenGalaxyRoute
+  '/poolueberdachungen/harmonie': typeof PoolueberdachungenHarmonieRoute
+  '/poolueberdachungen/horizon': typeof PoolueberdachungenHorizonRoute
+  '/poolueberdachungen/orion': typeof PoolueberdachungenOrionRoute
+  '/poolueberdachungen/orion5': typeof PoolueberdachungenOrion5Route
+  '/poolueberdachungen/practic': typeof PoolueberdachungenPracticRoute
+  '/poolueberdachungen/rondo': typeof PoolueberdachungenRondoRoute
+  '/poolueberdachungen/star-star-plus': typeof PoolueberdachungenStarStarPlusRoute
+  '/poolueberdachungen/sun-sky': typeof PoolueberdachungenSunSkyRoute
+  '/poolueberdachungen/technische-details': typeof PoolueberdachungenTechnischeDetailsRoute
+  '/poolueberdachungen/visual': typeof PoolueberdachungenVisualRoute
+  '/weitere-produkte/reinigungsroboter': typeof WeitereProdukteReinigungsroboterRoute
+  '/weitere-produkte/solaranlage': typeof WeitereProdukteSolaranlageRoute
+  '/poolabdeckungen/rolloabdeckungen/energieeinsparung': typeof PoolabdeckungenRolloabdeckungenEnergieeinsparungRoute
+  '/poolabdeckungen/rolloabdeckungen/oberfluranlagen': typeof PoolabdeckungenRolloabdeckungenOberfluranlagenRoute
+  '/poolabdeckungen/rolloabdeckungen/rollladenprofile': typeof PoolabdeckungenRolloabdeckungenRollladenprofileRoute
+  '/poolabdeckungen/rolloabdeckungen/unfallschutz': typeof PoolabdeckungenRolloabdeckungenUnfallschutzRoute
+  '/poolabdeckungen/rolloabdeckungen/unterfluranlagen': typeof PoolabdeckungenRolloabdeckungenUnterfluranlagenRoute
+  '/poolabdeckungen/rolloabdeckungen/was-ist-eine-rolloabdeckung': typeof PoolabdeckungenRolloabdeckungenWasIstEineRolloabdeckungRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/datenschutz': typeof DatenschutzRoute
   '/impressum': typeof ImpressumRoute
   '/kontakt': typeof KontaktRoute
+  '/pool-chlorfrei': typeof PoolChlorfreiRouteWithChildren
+  '/poolabdeckungen': typeof PoolabdeckungenRouteWithChildren
+  '/poolueberdachungen': typeof PoolueberdachungenRouteWithChildren
+  '/weitere-produkte': typeof WeitereProdukteRouteWithChildren
+  '/pool-chlorfrei/faq-ionisierung': typeof PoolChlorfreiFaqIonisierungRoute
+  '/poolabdeckungen/aircover-winterabdeckung': typeof PoolabdeckungenAircoverWinterabdeckungRoute
+  '/poolabdeckungen/luftpolsterabdeckung': typeof PoolabdeckungenLuftpolsterabdeckungRoute
+  '/poolabdeckungen/randaufliegende-abdeckung': typeof PoolabdeckungenRandaufliegendeAbdeckungRoute
+  '/poolabdeckungen/rolloabdeckungen': typeof PoolabdeckungenRolloabdeckungenRouteWithChildren
+  '/poolabdeckungen/schaumabdeckung': typeof PoolabdeckungenSchaumabdeckungRoute
+  '/poolabdeckungen/schutz-winter-sicherheitsnetz': typeof PoolabdeckungenSchutzWinterSicherheitsnetzRoute
+  '/poolueberdachungen/charisma': typeof PoolueberdachungenCharismaRoute
+  '/poolueberdachungen/charisma-flat': typeof PoolueberdachungenCharismaFlatRoute
+  '/poolueberdachungen/creativ': typeof PoolueberdachungenCreativRoute
+  '/poolueberdachungen/galaxy': typeof PoolueberdachungenGalaxyRoute
+  '/poolueberdachungen/harmonie': typeof PoolueberdachungenHarmonieRoute
+  '/poolueberdachungen/horizon': typeof PoolueberdachungenHorizonRoute
+  '/poolueberdachungen/orion': typeof PoolueberdachungenOrionRoute
+  '/poolueberdachungen/orion5': typeof PoolueberdachungenOrion5Route
+  '/poolueberdachungen/practic': typeof PoolueberdachungenPracticRoute
+  '/poolueberdachungen/rondo': typeof PoolueberdachungenRondoRoute
+  '/poolueberdachungen/star-star-plus': typeof PoolueberdachungenStarStarPlusRoute
+  '/poolueberdachungen/sun-sky': typeof PoolueberdachungenSunSkyRoute
+  '/poolueberdachungen/technische-details': typeof PoolueberdachungenTechnischeDetailsRoute
+  '/poolueberdachungen/visual': typeof PoolueberdachungenVisualRoute
+  '/weitere-produkte/reinigungsroboter': typeof WeitereProdukteReinigungsroboterRoute
+  '/weitere-produkte/solaranlage': typeof WeitereProdukteSolaranlageRoute
+  '/poolabdeckungen/rolloabdeckungen/energieeinsparung': typeof PoolabdeckungenRolloabdeckungenEnergieeinsparungRoute
+  '/poolabdeckungen/rolloabdeckungen/oberfluranlagen': typeof PoolabdeckungenRolloabdeckungenOberfluranlagenRoute
+  '/poolabdeckungen/rolloabdeckungen/rollladenprofile': typeof PoolabdeckungenRolloabdeckungenRollladenprofileRoute
+  '/poolabdeckungen/rolloabdeckungen/unfallschutz': typeof PoolabdeckungenRolloabdeckungenUnfallschutzRoute
+  '/poolabdeckungen/rolloabdeckungen/unterfluranlagen': typeof PoolabdeckungenRolloabdeckungenUnterfluranlagenRoute
+  '/poolabdeckungen/rolloabdeckungen/was-ist-eine-rolloabdeckung': typeof PoolabdeckungenRolloabdeckungenWasIstEineRolloabdeckungRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -53,13 +344,158 @@ export interface FileRoutesById {
   '/datenschutz': typeof DatenschutzRoute
   '/impressum': typeof ImpressumRoute
   '/kontakt': typeof KontaktRoute
+  '/pool-chlorfrei': typeof PoolChlorfreiRouteWithChildren
+  '/poolabdeckungen': typeof PoolabdeckungenRouteWithChildren
+  '/poolueberdachungen': typeof PoolueberdachungenRouteWithChildren
+  '/weitere-produkte': typeof WeitereProdukteRouteWithChildren
+  '/pool-chlorfrei/faq-ionisierung': typeof PoolChlorfreiFaqIonisierungRoute
+  '/poolabdeckungen/aircover-winterabdeckung': typeof PoolabdeckungenAircoverWinterabdeckungRoute
+  '/poolabdeckungen/luftpolsterabdeckung': typeof PoolabdeckungenLuftpolsterabdeckungRoute
+  '/poolabdeckungen/randaufliegende-abdeckung': typeof PoolabdeckungenRandaufliegendeAbdeckungRoute
+  '/poolabdeckungen/rolloabdeckungen': typeof PoolabdeckungenRolloabdeckungenRouteWithChildren
+  '/poolabdeckungen/schaumabdeckung': typeof PoolabdeckungenSchaumabdeckungRoute
+  '/poolabdeckungen/schutz-winter-sicherheitsnetz': typeof PoolabdeckungenSchutzWinterSicherheitsnetzRoute
+  '/poolueberdachungen/charisma': typeof PoolueberdachungenCharismaRoute
+  '/poolueberdachungen/charisma-flat': typeof PoolueberdachungenCharismaFlatRoute
+  '/poolueberdachungen/creativ': typeof PoolueberdachungenCreativRoute
+  '/poolueberdachungen/galaxy': typeof PoolueberdachungenGalaxyRoute
+  '/poolueberdachungen/harmonie': typeof PoolueberdachungenHarmonieRoute
+  '/poolueberdachungen/horizon': typeof PoolueberdachungenHorizonRoute
+  '/poolueberdachungen/orion': typeof PoolueberdachungenOrionRoute
+  '/poolueberdachungen/orion5': typeof PoolueberdachungenOrion5Route
+  '/poolueberdachungen/practic': typeof PoolueberdachungenPracticRoute
+  '/poolueberdachungen/rondo': typeof PoolueberdachungenRondoRoute
+  '/poolueberdachungen/star-star-plus': typeof PoolueberdachungenStarStarPlusRoute
+  '/poolueberdachungen/sun-sky': typeof PoolueberdachungenSunSkyRoute
+  '/poolueberdachungen/technische-details': typeof PoolueberdachungenTechnischeDetailsRoute
+  '/poolueberdachungen/visual': typeof PoolueberdachungenVisualRoute
+  '/weitere-produkte/reinigungsroboter': typeof WeitereProdukteReinigungsroboterRoute
+  '/weitere-produkte/solaranlage': typeof WeitereProdukteSolaranlageRoute
+  '/poolabdeckungen/rolloabdeckungen/energieeinsparung': typeof PoolabdeckungenRolloabdeckungenEnergieeinsparungRoute
+  '/poolabdeckungen/rolloabdeckungen/oberfluranlagen': typeof PoolabdeckungenRolloabdeckungenOberfluranlagenRoute
+  '/poolabdeckungen/rolloabdeckungen/rollladenprofile': typeof PoolabdeckungenRolloabdeckungenRollladenprofileRoute
+  '/poolabdeckungen/rolloabdeckungen/unfallschutz': typeof PoolabdeckungenRolloabdeckungenUnfallschutzRoute
+  '/poolabdeckungen/rolloabdeckungen/unterfluranlagen': typeof PoolabdeckungenRolloabdeckungenUnterfluranlagenRoute
+  '/poolabdeckungen/rolloabdeckungen/was-ist-eine-rolloabdeckung': typeof PoolabdeckungenRolloabdeckungenWasIstEineRolloabdeckungRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/datenschutz' | '/impressum' | '/kontakt'
+  fullPaths:
+    | '/'
+    | '/datenschutz'
+    | '/impressum'
+    | '/kontakt'
+    | '/pool-chlorfrei'
+    | '/poolabdeckungen'
+    | '/poolueberdachungen'
+    | '/weitere-produkte'
+    | '/pool-chlorfrei/faq-ionisierung'
+    | '/poolabdeckungen/aircover-winterabdeckung'
+    | '/poolabdeckungen/luftpolsterabdeckung'
+    | '/poolabdeckungen/randaufliegende-abdeckung'
+    | '/poolabdeckungen/rolloabdeckungen'
+    | '/poolabdeckungen/schaumabdeckung'
+    | '/poolabdeckungen/schutz-winter-sicherheitsnetz'
+    | '/poolueberdachungen/charisma'
+    | '/poolueberdachungen/charisma-flat'
+    | '/poolueberdachungen/creativ'
+    | '/poolueberdachungen/galaxy'
+    | '/poolueberdachungen/harmonie'
+    | '/poolueberdachungen/horizon'
+    | '/poolueberdachungen/orion'
+    | '/poolueberdachungen/orion5'
+    | '/poolueberdachungen/practic'
+    | '/poolueberdachungen/rondo'
+    | '/poolueberdachungen/star-star-plus'
+    | '/poolueberdachungen/sun-sky'
+    | '/poolueberdachungen/technische-details'
+    | '/poolueberdachungen/visual'
+    | '/weitere-produkte/reinigungsroboter'
+    | '/weitere-produkte/solaranlage'
+    | '/poolabdeckungen/rolloabdeckungen/energieeinsparung'
+    | '/poolabdeckungen/rolloabdeckungen/oberfluranlagen'
+    | '/poolabdeckungen/rolloabdeckungen/rollladenprofile'
+    | '/poolabdeckungen/rolloabdeckungen/unfallschutz'
+    | '/poolabdeckungen/rolloabdeckungen/unterfluranlagen'
+    | '/poolabdeckungen/rolloabdeckungen/was-ist-eine-rolloabdeckung'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/datenschutz' | '/impressum' | '/kontakt'
-  id: '__root__' | '/' | '/datenschutz' | '/impressum' | '/kontakt'
+  to:
+    | '/'
+    | '/datenschutz'
+    | '/impressum'
+    | '/kontakt'
+    | '/pool-chlorfrei'
+    | '/poolabdeckungen'
+    | '/poolueberdachungen'
+    | '/weitere-produkte'
+    | '/pool-chlorfrei/faq-ionisierung'
+    | '/poolabdeckungen/aircover-winterabdeckung'
+    | '/poolabdeckungen/luftpolsterabdeckung'
+    | '/poolabdeckungen/randaufliegende-abdeckung'
+    | '/poolabdeckungen/rolloabdeckungen'
+    | '/poolabdeckungen/schaumabdeckung'
+    | '/poolabdeckungen/schutz-winter-sicherheitsnetz'
+    | '/poolueberdachungen/charisma'
+    | '/poolueberdachungen/charisma-flat'
+    | '/poolueberdachungen/creativ'
+    | '/poolueberdachungen/galaxy'
+    | '/poolueberdachungen/harmonie'
+    | '/poolueberdachungen/horizon'
+    | '/poolueberdachungen/orion'
+    | '/poolueberdachungen/orion5'
+    | '/poolueberdachungen/practic'
+    | '/poolueberdachungen/rondo'
+    | '/poolueberdachungen/star-star-plus'
+    | '/poolueberdachungen/sun-sky'
+    | '/poolueberdachungen/technische-details'
+    | '/poolueberdachungen/visual'
+    | '/weitere-produkte/reinigungsroboter'
+    | '/weitere-produkte/solaranlage'
+    | '/poolabdeckungen/rolloabdeckungen/energieeinsparung'
+    | '/poolabdeckungen/rolloabdeckungen/oberfluranlagen'
+    | '/poolabdeckungen/rolloabdeckungen/rollladenprofile'
+    | '/poolabdeckungen/rolloabdeckungen/unfallschutz'
+    | '/poolabdeckungen/rolloabdeckungen/unterfluranlagen'
+    | '/poolabdeckungen/rolloabdeckungen/was-ist-eine-rolloabdeckung'
+  id:
+    | '__root__'
+    | '/'
+    | '/datenschutz'
+    | '/impressum'
+    | '/kontakt'
+    | '/pool-chlorfrei'
+    | '/poolabdeckungen'
+    | '/poolueberdachungen'
+    | '/weitere-produkte'
+    | '/pool-chlorfrei/faq-ionisierung'
+    | '/poolabdeckungen/aircover-winterabdeckung'
+    | '/poolabdeckungen/luftpolsterabdeckung'
+    | '/poolabdeckungen/randaufliegende-abdeckung'
+    | '/poolabdeckungen/rolloabdeckungen'
+    | '/poolabdeckungen/schaumabdeckung'
+    | '/poolabdeckungen/schutz-winter-sicherheitsnetz'
+    | '/poolueberdachungen/charisma'
+    | '/poolueberdachungen/charisma-flat'
+    | '/poolueberdachungen/creativ'
+    | '/poolueberdachungen/galaxy'
+    | '/poolueberdachungen/harmonie'
+    | '/poolueberdachungen/horizon'
+    | '/poolueberdachungen/orion'
+    | '/poolueberdachungen/orion5'
+    | '/poolueberdachungen/practic'
+    | '/poolueberdachungen/rondo'
+    | '/poolueberdachungen/star-star-plus'
+    | '/poolueberdachungen/sun-sky'
+    | '/poolueberdachungen/technische-details'
+    | '/poolueberdachungen/visual'
+    | '/weitere-produkte/reinigungsroboter'
+    | '/weitere-produkte/solaranlage'
+    | '/poolabdeckungen/rolloabdeckungen/energieeinsparung'
+    | '/poolabdeckungen/rolloabdeckungen/oberfluranlagen'
+    | '/poolabdeckungen/rolloabdeckungen/rollladenprofile'
+    | '/poolabdeckungen/rolloabdeckungen/unfallschutz'
+    | '/poolabdeckungen/rolloabdeckungen/unterfluranlagen'
+    | '/poolabdeckungen/rolloabdeckungen/was-ist-eine-rolloabdeckung'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -67,10 +503,42 @@ export interface RootRouteChildren {
   DatenschutzRoute: typeof DatenschutzRoute
   ImpressumRoute: typeof ImpressumRoute
   KontaktRoute: typeof KontaktRoute
+  PoolChlorfreiRoute: typeof PoolChlorfreiRouteWithChildren
+  PoolabdeckungenRoute: typeof PoolabdeckungenRouteWithChildren
+  PoolueberdachungenRoute: typeof PoolueberdachungenRouteWithChildren
+  WeitereProdukteRoute: typeof WeitereProdukteRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/weitere-produkte': {
+      id: '/weitere-produkte'
+      path: '/weitere-produkte'
+      fullPath: '/weitere-produkte'
+      preLoaderRoute: typeof WeitereProdukteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/poolueberdachungen': {
+      id: '/poolueberdachungen'
+      path: '/poolueberdachungen'
+      fullPath: '/poolueberdachungen'
+      preLoaderRoute: typeof PoolueberdachungenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/poolabdeckungen': {
+      id: '/poolabdeckungen'
+      path: '/poolabdeckungen'
+      fullPath: '/poolabdeckungen'
+      preLoaderRoute: typeof PoolabdeckungenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pool-chlorfrei': {
+      id: '/pool-chlorfrei'
+      path: '/pool-chlorfrei'
+      fullPath: '/pool-chlorfrei'
+      preLoaderRoute: typeof PoolChlorfreiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/kontakt': {
       id: '/kontakt'
       path: '/kontakt'
@@ -99,14 +567,342 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/weitere-produkte/solaranlage': {
+      id: '/weitere-produkte/solaranlage'
+      path: '/solaranlage'
+      fullPath: '/weitere-produkte/solaranlage'
+      preLoaderRoute: typeof WeitereProdukteSolaranlageRouteImport
+      parentRoute: typeof WeitereProdukteRoute
+    }
+    '/weitere-produkte/reinigungsroboter': {
+      id: '/weitere-produkte/reinigungsroboter'
+      path: '/reinigungsroboter'
+      fullPath: '/weitere-produkte/reinigungsroboter'
+      preLoaderRoute: typeof WeitereProdukteReinigungsroboterRouteImport
+      parentRoute: typeof WeitereProdukteRoute
+    }
+    '/poolueberdachungen/visual': {
+      id: '/poolueberdachungen/visual'
+      path: '/visual'
+      fullPath: '/poolueberdachungen/visual'
+      preLoaderRoute: typeof PoolueberdachungenVisualRouteImport
+      parentRoute: typeof PoolueberdachungenRoute
+    }
+    '/poolueberdachungen/technische-details': {
+      id: '/poolueberdachungen/technische-details'
+      path: '/technische-details'
+      fullPath: '/poolueberdachungen/technische-details'
+      preLoaderRoute: typeof PoolueberdachungenTechnischeDetailsRouteImport
+      parentRoute: typeof PoolueberdachungenRoute
+    }
+    '/poolueberdachungen/sun-sky': {
+      id: '/poolueberdachungen/sun-sky'
+      path: '/sun-sky'
+      fullPath: '/poolueberdachungen/sun-sky'
+      preLoaderRoute: typeof PoolueberdachungenSunSkyRouteImport
+      parentRoute: typeof PoolueberdachungenRoute
+    }
+    '/poolueberdachungen/star-star-plus': {
+      id: '/poolueberdachungen/star-star-plus'
+      path: '/star-star-plus'
+      fullPath: '/poolueberdachungen/star-star-plus'
+      preLoaderRoute: typeof PoolueberdachungenStarStarPlusRouteImport
+      parentRoute: typeof PoolueberdachungenRoute
+    }
+    '/poolueberdachungen/rondo': {
+      id: '/poolueberdachungen/rondo'
+      path: '/rondo'
+      fullPath: '/poolueberdachungen/rondo'
+      preLoaderRoute: typeof PoolueberdachungenRondoRouteImport
+      parentRoute: typeof PoolueberdachungenRoute
+    }
+    '/poolueberdachungen/practic': {
+      id: '/poolueberdachungen/practic'
+      path: '/practic'
+      fullPath: '/poolueberdachungen/practic'
+      preLoaderRoute: typeof PoolueberdachungenPracticRouteImport
+      parentRoute: typeof PoolueberdachungenRoute
+    }
+    '/poolueberdachungen/orion5': {
+      id: '/poolueberdachungen/orion5'
+      path: '/orion5'
+      fullPath: '/poolueberdachungen/orion5'
+      preLoaderRoute: typeof PoolueberdachungenOrion5RouteImport
+      parentRoute: typeof PoolueberdachungenRoute
+    }
+    '/poolueberdachungen/orion': {
+      id: '/poolueberdachungen/orion'
+      path: '/orion'
+      fullPath: '/poolueberdachungen/orion'
+      preLoaderRoute: typeof PoolueberdachungenOrionRouteImport
+      parentRoute: typeof PoolueberdachungenRoute
+    }
+    '/poolueberdachungen/horizon': {
+      id: '/poolueberdachungen/horizon'
+      path: '/horizon'
+      fullPath: '/poolueberdachungen/horizon'
+      preLoaderRoute: typeof PoolueberdachungenHorizonRouteImport
+      parentRoute: typeof PoolueberdachungenRoute
+    }
+    '/poolueberdachungen/harmonie': {
+      id: '/poolueberdachungen/harmonie'
+      path: '/harmonie'
+      fullPath: '/poolueberdachungen/harmonie'
+      preLoaderRoute: typeof PoolueberdachungenHarmonieRouteImport
+      parentRoute: typeof PoolueberdachungenRoute
+    }
+    '/poolueberdachungen/galaxy': {
+      id: '/poolueberdachungen/galaxy'
+      path: '/galaxy'
+      fullPath: '/poolueberdachungen/galaxy'
+      preLoaderRoute: typeof PoolueberdachungenGalaxyRouteImport
+      parentRoute: typeof PoolueberdachungenRoute
+    }
+    '/poolueberdachungen/creativ': {
+      id: '/poolueberdachungen/creativ'
+      path: '/creativ'
+      fullPath: '/poolueberdachungen/creativ'
+      preLoaderRoute: typeof PoolueberdachungenCreativRouteImport
+      parentRoute: typeof PoolueberdachungenRoute
+    }
+    '/poolueberdachungen/charisma-flat': {
+      id: '/poolueberdachungen/charisma-flat'
+      path: '/charisma-flat'
+      fullPath: '/poolueberdachungen/charisma-flat'
+      preLoaderRoute: typeof PoolueberdachungenCharismaFlatRouteImport
+      parentRoute: typeof PoolueberdachungenRoute
+    }
+    '/poolueberdachungen/charisma': {
+      id: '/poolueberdachungen/charisma'
+      path: '/charisma'
+      fullPath: '/poolueberdachungen/charisma'
+      preLoaderRoute: typeof PoolueberdachungenCharismaRouteImport
+      parentRoute: typeof PoolueberdachungenRoute
+    }
+    '/poolabdeckungen/schutz-winter-sicherheitsnetz': {
+      id: '/poolabdeckungen/schutz-winter-sicherheitsnetz'
+      path: '/schutz-winter-sicherheitsnetz'
+      fullPath: '/poolabdeckungen/schutz-winter-sicherheitsnetz'
+      preLoaderRoute: typeof PoolabdeckungenSchutzWinterSicherheitsnetzRouteImport
+      parentRoute: typeof PoolabdeckungenRoute
+    }
+    '/poolabdeckungen/schaumabdeckung': {
+      id: '/poolabdeckungen/schaumabdeckung'
+      path: '/schaumabdeckung'
+      fullPath: '/poolabdeckungen/schaumabdeckung'
+      preLoaderRoute: typeof PoolabdeckungenSchaumabdeckungRouteImport
+      parentRoute: typeof PoolabdeckungenRoute
+    }
+    '/poolabdeckungen/rolloabdeckungen': {
+      id: '/poolabdeckungen/rolloabdeckungen'
+      path: '/rolloabdeckungen'
+      fullPath: '/poolabdeckungen/rolloabdeckungen'
+      preLoaderRoute: typeof PoolabdeckungenRolloabdeckungenRouteImport
+      parentRoute: typeof PoolabdeckungenRoute
+    }
+    '/poolabdeckungen/randaufliegende-abdeckung': {
+      id: '/poolabdeckungen/randaufliegende-abdeckung'
+      path: '/randaufliegende-abdeckung'
+      fullPath: '/poolabdeckungen/randaufliegende-abdeckung'
+      preLoaderRoute: typeof PoolabdeckungenRandaufliegendeAbdeckungRouteImport
+      parentRoute: typeof PoolabdeckungenRoute
+    }
+    '/poolabdeckungen/luftpolsterabdeckung': {
+      id: '/poolabdeckungen/luftpolsterabdeckung'
+      path: '/luftpolsterabdeckung'
+      fullPath: '/poolabdeckungen/luftpolsterabdeckung'
+      preLoaderRoute: typeof PoolabdeckungenLuftpolsterabdeckungRouteImport
+      parentRoute: typeof PoolabdeckungenRoute
+    }
+    '/poolabdeckungen/aircover-winterabdeckung': {
+      id: '/poolabdeckungen/aircover-winterabdeckung'
+      path: '/aircover-winterabdeckung'
+      fullPath: '/poolabdeckungen/aircover-winterabdeckung'
+      preLoaderRoute: typeof PoolabdeckungenAircoverWinterabdeckungRouteImport
+      parentRoute: typeof PoolabdeckungenRoute
+    }
+    '/pool-chlorfrei/faq-ionisierung': {
+      id: '/pool-chlorfrei/faq-ionisierung'
+      path: '/faq-ionisierung'
+      fullPath: '/pool-chlorfrei/faq-ionisierung'
+      preLoaderRoute: typeof PoolChlorfreiFaqIonisierungRouteImport
+      parentRoute: typeof PoolChlorfreiRoute
+    }
+    '/poolabdeckungen/rolloabdeckungen/was-ist-eine-rolloabdeckung': {
+      id: '/poolabdeckungen/rolloabdeckungen/was-ist-eine-rolloabdeckung'
+      path: '/was-ist-eine-rolloabdeckung'
+      fullPath: '/poolabdeckungen/rolloabdeckungen/was-ist-eine-rolloabdeckung'
+      preLoaderRoute: typeof PoolabdeckungenRolloabdeckungenWasIstEineRolloabdeckungRouteImport
+      parentRoute: typeof PoolabdeckungenRolloabdeckungenRoute
+    }
+    '/poolabdeckungen/rolloabdeckungen/unterfluranlagen': {
+      id: '/poolabdeckungen/rolloabdeckungen/unterfluranlagen'
+      path: '/unterfluranlagen'
+      fullPath: '/poolabdeckungen/rolloabdeckungen/unterfluranlagen'
+      preLoaderRoute: typeof PoolabdeckungenRolloabdeckungenUnterfluranlagenRouteImport
+      parentRoute: typeof PoolabdeckungenRolloabdeckungenRoute
+    }
+    '/poolabdeckungen/rolloabdeckungen/unfallschutz': {
+      id: '/poolabdeckungen/rolloabdeckungen/unfallschutz'
+      path: '/unfallschutz'
+      fullPath: '/poolabdeckungen/rolloabdeckungen/unfallschutz'
+      preLoaderRoute: typeof PoolabdeckungenRolloabdeckungenUnfallschutzRouteImport
+      parentRoute: typeof PoolabdeckungenRolloabdeckungenRoute
+    }
+    '/poolabdeckungen/rolloabdeckungen/rollladenprofile': {
+      id: '/poolabdeckungen/rolloabdeckungen/rollladenprofile'
+      path: '/rollladenprofile'
+      fullPath: '/poolabdeckungen/rolloabdeckungen/rollladenprofile'
+      preLoaderRoute: typeof PoolabdeckungenRolloabdeckungenRollladenprofileRouteImport
+      parentRoute: typeof PoolabdeckungenRolloabdeckungenRoute
+    }
+    '/poolabdeckungen/rolloabdeckungen/oberfluranlagen': {
+      id: '/poolabdeckungen/rolloabdeckungen/oberfluranlagen'
+      path: '/oberfluranlagen'
+      fullPath: '/poolabdeckungen/rolloabdeckungen/oberfluranlagen'
+      preLoaderRoute: typeof PoolabdeckungenRolloabdeckungenOberfluranlagenRouteImport
+      parentRoute: typeof PoolabdeckungenRolloabdeckungenRoute
+    }
+    '/poolabdeckungen/rolloabdeckungen/energieeinsparung': {
+      id: '/poolabdeckungen/rolloabdeckungen/energieeinsparung'
+      path: '/energieeinsparung'
+      fullPath: '/poolabdeckungen/rolloabdeckungen/energieeinsparung'
+      preLoaderRoute: typeof PoolabdeckungenRolloabdeckungenEnergieeinsparungRouteImport
+      parentRoute: typeof PoolabdeckungenRolloabdeckungenRoute
+    }
   }
 }
+
+interface PoolChlorfreiRouteChildren {
+  PoolChlorfreiFaqIonisierungRoute: typeof PoolChlorfreiFaqIonisierungRoute
+}
+
+const PoolChlorfreiRouteChildren: PoolChlorfreiRouteChildren = {
+  PoolChlorfreiFaqIonisierungRoute: PoolChlorfreiFaqIonisierungRoute,
+}
+
+const PoolChlorfreiRouteWithChildren = PoolChlorfreiRoute._addFileChildren(
+  PoolChlorfreiRouteChildren,
+)
+
+interface PoolabdeckungenRolloabdeckungenRouteChildren {
+  PoolabdeckungenRolloabdeckungenEnergieeinsparungRoute: typeof PoolabdeckungenRolloabdeckungenEnergieeinsparungRoute
+  PoolabdeckungenRolloabdeckungenOberfluranlagenRoute: typeof PoolabdeckungenRolloabdeckungenOberfluranlagenRoute
+  PoolabdeckungenRolloabdeckungenRollladenprofileRoute: typeof PoolabdeckungenRolloabdeckungenRollladenprofileRoute
+  PoolabdeckungenRolloabdeckungenUnfallschutzRoute: typeof PoolabdeckungenRolloabdeckungenUnfallschutzRoute
+  PoolabdeckungenRolloabdeckungenUnterfluranlagenRoute: typeof PoolabdeckungenRolloabdeckungenUnterfluranlagenRoute
+  PoolabdeckungenRolloabdeckungenWasIstEineRolloabdeckungRoute: typeof PoolabdeckungenRolloabdeckungenWasIstEineRolloabdeckungRoute
+}
+
+const PoolabdeckungenRolloabdeckungenRouteChildren: PoolabdeckungenRolloabdeckungenRouteChildren =
+  {
+    PoolabdeckungenRolloabdeckungenEnergieeinsparungRoute:
+      PoolabdeckungenRolloabdeckungenEnergieeinsparungRoute,
+    PoolabdeckungenRolloabdeckungenOberfluranlagenRoute:
+      PoolabdeckungenRolloabdeckungenOberfluranlagenRoute,
+    PoolabdeckungenRolloabdeckungenRollladenprofileRoute:
+      PoolabdeckungenRolloabdeckungenRollladenprofileRoute,
+    PoolabdeckungenRolloabdeckungenUnfallschutzRoute:
+      PoolabdeckungenRolloabdeckungenUnfallschutzRoute,
+    PoolabdeckungenRolloabdeckungenUnterfluranlagenRoute:
+      PoolabdeckungenRolloabdeckungenUnterfluranlagenRoute,
+    PoolabdeckungenRolloabdeckungenWasIstEineRolloabdeckungRoute:
+      PoolabdeckungenRolloabdeckungenWasIstEineRolloabdeckungRoute,
+  }
+
+const PoolabdeckungenRolloabdeckungenRouteWithChildren =
+  PoolabdeckungenRolloabdeckungenRoute._addFileChildren(
+    PoolabdeckungenRolloabdeckungenRouteChildren,
+  )
+
+interface PoolabdeckungenRouteChildren {
+  PoolabdeckungenAircoverWinterabdeckungRoute: typeof PoolabdeckungenAircoverWinterabdeckungRoute
+  PoolabdeckungenLuftpolsterabdeckungRoute: typeof PoolabdeckungenLuftpolsterabdeckungRoute
+  PoolabdeckungenRandaufliegendeAbdeckungRoute: typeof PoolabdeckungenRandaufliegendeAbdeckungRoute
+  PoolabdeckungenRolloabdeckungenRoute: typeof PoolabdeckungenRolloabdeckungenRouteWithChildren
+  PoolabdeckungenSchaumabdeckungRoute: typeof PoolabdeckungenSchaumabdeckungRoute
+  PoolabdeckungenSchutzWinterSicherheitsnetzRoute: typeof PoolabdeckungenSchutzWinterSicherheitsnetzRoute
+}
+
+const PoolabdeckungenRouteChildren: PoolabdeckungenRouteChildren = {
+  PoolabdeckungenAircoverWinterabdeckungRoute:
+    PoolabdeckungenAircoverWinterabdeckungRoute,
+  PoolabdeckungenLuftpolsterabdeckungRoute:
+    PoolabdeckungenLuftpolsterabdeckungRoute,
+  PoolabdeckungenRandaufliegendeAbdeckungRoute:
+    PoolabdeckungenRandaufliegendeAbdeckungRoute,
+  PoolabdeckungenRolloabdeckungenRoute:
+    PoolabdeckungenRolloabdeckungenRouteWithChildren,
+  PoolabdeckungenSchaumabdeckungRoute: PoolabdeckungenSchaumabdeckungRoute,
+  PoolabdeckungenSchutzWinterSicherheitsnetzRoute:
+    PoolabdeckungenSchutzWinterSicherheitsnetzRoute,
+}
+
+const PoolabdeckungenRouteWithChildren = PoolabdeckungenRoute._addFileChildren(
+  PoolabdeckungenRouteChildren,
+)
+
+interface PoolueberdachungenRouteChildren {
+  PoolueberdachungenCharismaRoute: typeof PoolueberdachungenCharismaRoute
+  PoolueberdachungenCharismaFlatRoute: typeof PoolueberdachungenCharismaFlatRoute
+  PoolueberdachungenCreativRoute: typeof PoolueberdachungenCreativRoute
+  PoolueberdachungenGalaxyRoute: typeof PoolueberdachungenGalaxyRoute
+  PoolueberdachungenHarmonieRoute: typeof PoolueberdachungenHarmonieRoute
+  PoolueberdachungenHorizonRoute: typeof PoolueberdachungenHorizonRoute
+  PoolueberdachungenOrionRoute: typeof PoolueberdachungenOrionRoute
+  PoolueberdachungenOrion5Route: typeof PoolueberdachungenOrion5Route
+  PoolueberdachungenPracticRoute: typeof PoolueberdachungenPracticRoute
+  PoolueberdachungenRondoRoute: typeof PoolueberdachungenRondoRoute
+  PoolueberdachungenStarStarPlusRoute: typeof PoolueberdachungenStarStarPlusRoute
+  PoolueberdachungenSunSkyRoute: typeof PoolueberdachungenSunSkyRoute
+  PoolueberdachungenTechnischeDetailsRoute: typeof PoolueberdachungenTechnischeDetailsRoute
+  PoolueberdachungenVisualRoute: typeof PoolueberdachungenVisualRoute
+}
+
+const PoolueberdachungenRouteChildren: PoolueberdachungenRouteChildren = {
+  PoolueberdachungenCharismaRoute: PoolueberdachungenCharismaRoute,
+  PoolueberdachungenCharismaFlatRoute: PoolueberdachungenCharismaFlatRoute,
+  PoolueberdachungenCreativRoute: PoolueberdachungenCreativRoute,
+  PoolueberdachungenGalaxyRoute: PoolueberdachungenGalaxyRoute,
+  PoolueberdachungenHarmonieRoute: PoolueberdachungenHarmonieRoute,
+  PoolueberdachungenHorizonRoute: PoolueberdachungenHorizonRoute,
+  PoolueberdachungenOrionRoute: PoolueberdachungenOrionRoute,
+  PoolueberdachungenOrion5Route: PoolueberdachungenOrion5Route,
+  PoolueberdachungenPracticRoute: PoolueberdachungenPracticRoute,
+  PoolueberdachungenRondoRoute: PoolueberdachungenRondoRoute,
+  PoolueberdachungenStarStarPlusRoute: PoolueberdachungenStarStarPlusRoute,
+  PoolueberdachungenSunSkyRoute: PoolueberdachungenSunSkyRoute,
+  PoolueberdachungenTechnischeDetailsRoute:
+    PoolueberdachungenTechnischeDetailsRoute,
+  PoolueberdachungenVisualRoute: PoolueberdachungenVisualRoute,
+}
+
+const PoolueberdachungenRouteWithChildren =
+  PoolueberdachungenRoute._addFileChildren(PoolueberdachungenRouteChildren)
+
+interface WeitereProdukteRouteChildren {
+  WeitereProdukteReinigungsroboterRoute: typeof WeitereProdukteReinigungsroboterRoute
+  WeitereProdukteSolaranlageRoute: typeof WeitereProdukteSolaranlageRoute
+}
+
+const WeitereProdukteRouteChildren: WeitereProdukteRouteChildren = {
+  WeitereProdukteReinigungsroboterRoute: WeitereProdukteReinigungsroboterRoute,
+  WeitereProdukteSolaranlageRoute: WeitereProdukteSolaranlageRoute,
+}
+
+const WeitereProdukteRouteWithChildren = WeitereProdukteRoute._addFileChildren(
+  WeitereProdukteRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DatenschutzRoute: DatenschutzRoute,
   ImpressumRoute: ImpressumRoute,
   KontaktRoute: KontaktRoute,
+  PoolChlorfreiRoute: PoolChlorfreiRouteWithChildren,
+  PoolabdeckungenRoute: PoolabdeckungenRouteWithChildren,
+  PoolueberdachungenRoute: PoolueberdachungenRouteWithChildren,
+  WeitereProdukteRoute: WeitereProdukteRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
