@@ -698,7 +698,7 @@ const ENCLOSURE_DETAILS: Record<string, { subtitle: string; description: string[
 
 function modelLineup(arr: [string, string, string][]) {
   return arr.map(([slug, name, claim]) => {
-    const detail = ENCLOSURE_DETAILS[slug];
+    const detail = getEnclosureDetail(slug);
     return make(
       slug,
       `${name}: ${claim}`,
@@ -805,7 +805,7 @@ const ASEKO_DETAILS: Record<string, { subtitle: string; description: string[]; f
 
 function asekoLineup(arr: [string, string, string][]) {
   return arr.map(([slug, name, claim]) => {
-    const detail = ASEKO_DETAILS[slug];
+    const detail = getAsekoDetail(slug);
     return make(
       slug,
       `${name}: ${claim}`,
