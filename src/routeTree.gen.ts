@@ -17,6 +17,8 @@ import { Route as KontaktRouteImport } from './routes/kontakt'
 import { Route as ImpressumRouteImport } from './routes/impressum'
 import { Route as DatenschutzRouteImport } from './routes/datenschutz'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as WeitereProdukteIndexRouteImport } from './routes/weitere-produkte.index'
+import { Route as PoolabdeckungenIndexRouteImport } from './routes/poolabdeckungen.index'
 import { Route as WeitereProdukteWasserbehandlungRouteImport } from './routes/weitere-produkte.wasserbehandlung'
 import { Route as WeitereProdukteWaermepumpenRouteImport } from './routes/weitere-produkte.waermepumpen'
 import { Route as WeitereProdukteUmwaelzpumpenRouteImport } from './routes/weitere-produkte.umwaelzpumpen'
@@ -46,6 +48,7 @@ import { Route as PoolabdeckungenRandaufliegendeAbdeckungRouteImport } from './r
 import { Route as PoolabdeckungenLuftpolsterabdeckungRouteImport } from './routes/poolabdeckungen.luftpolsterabdeckung'
 import { Route as PoolabdeckungenAircoverWinterabdeckungRouteImport } from './routes/poolabdeckungen.aircover-winterabdeckung'
 import { Route as PoolChlorfreiFaqIonisierungRouteImport } from './routes/pool-chlorfrei.faq-ionisierung'
+import { Route as WeitereProdukteWasserbehandlungIndexRouteImport } from './routes/weitere-produkte.wasserbehandlung.index'
 import { Route as WeitereProdukteWasserbehandlungPp60PhRouteImport } from './routes/weitere-produkte.wasserbehandlung.pp-60-ph'
 import { Route as WeitereProdukteWasserbehandlungPp10FlocCRouteImport } from './routes/weitere-produkte.wasserbehandlung.pp-10-floc-c'
 import { Route as WeitereProdukteWasserbehandlungAsinSaltRouteImport } from './routes/weitere-produkte.wasserbehandlung.asin-salt'
@@ -99,6 +102,16 @@ const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
+} as any)
+const WeitereProdukteIndexRoute = WeitereProdukteIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => WeitereProdukteRoute,
+} as any)
+const PoolabdeckungenIndexRoute = PoolabdeckungenIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => PoolabdeckungenRoute,
 } as any)
 const WeitereProdukteWasserbehandlungRoute =
   WeitereProdukteWasserbehandlungRouteImport.update({
@@ -271,6 +284,12 @@ const PoolChlorfreiFaqIonisierungRoute =
     path: '/faq-ionisierung',
     getParentRoute: () => PoolChlorfreiRoute,
   } as any)
+const WeitereProdukteWasserbehandlungIndexRoute =
+  WeitereProdukteWasserbehandlungIndexRouteImport.update({
+    id: '/',
+    path: '/',
+    getParentRoute: () => WeitereProdukteWasserbehandlungRoute,
+  } as any)
 const WeitereProdukteWasserbehandlungPp60PhRoute =
   WeitereProdukteWasserbehandlungPp60PhRouteImport.update({
     id: '/pp-60-ph',
@@ -388,6 +407,8 @@ export interface FileRoutesByFullPath {
   '/weitere-produkte/umwaelzpumpen': typeof WeitereProdukteUmwaelzpumpenRoute
   '/weitere-produkte/waermepumpen': typeof WeitereProdukteWaermepumpenRoute
   '/weitere-produkte/wasserbehandlung': typeof WeitereProdukteWasserbehandlungRouteWithChildren
+  '/poolabdeckungen/': typeof PoolabdeckungenIndexRoute
+  '/weitere-produkte/': typeof WeitereProdukteIndexRoute
   '/poolabdeckungen/rolloabdeckungen/energieeinsparung': typeof PoolabdeckungenRolloabdeckungenEnergieeinsparungRoute
   '/poolabdeckungen/rolloabdeckungen/oberfluranlagen': typeof PoolabdeckungenRolloabdeckungenOberfluranlagenRoute
   '/poolabdeckungen/rolloabdeckungen/rollladenprofile': typeof PoolabdeckungenRolloabdeckungenRollladenprofileRoute
@@ -401,6 +422,7 @@ export interface FileRoutesByFullPath {
   '/weitere-produkte/wasserbehandlung/asin-salt': typeof WeitereProdukteWasserbehandlungAsinSaltRoute
   '/weitere-produkte/wasserbehandlung/pp-10-floc-c': typeof WeitereProdukteWasserbehandlungPp10FlocCRoute
   '/weitere-produkte/wasserbehandlung/pp-60-ph': typeof WeitereProdukteWasserbehandlungPp60PhRoute
+  '/weitere-produkte/wasserbehandlung/': typeof WeitereProdukteWasserbehandlungIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -408,9 +430,7 @@ export interface FileRoutesByTo {
   '/impressum': typeof ImpressumRoute
   '/kontakt': typeof KontaktRoute
   '/pool-chlorfrei': typeof PoolChlorfreiRouteWithChildren
-  '/poolabdeckungen': typeof PoolabdeckungenRouteWithChildren
   '/poolueberdachungen': typeof PoolueberdachungenRouteWithChildren
-  '/weitere-produkte': typeof WeitereProdukteRouteWithChildren
   '/pool-chlorfrei/faq-ionisierung': typeof PoolChlorfreiFaqIonisierungRoute
   '/poolabdeckungen/aircover-winterabdeckung': typeof PoolabdeckungenAircoverWinterabdeckungRoute
   '/poolabdeckungen/luftpolsterabdeckung': typeof PoolabdeckungenLuftpolsterabdeckungRoute
@@ -439,7 +459,8 @@ export interface FileRoutesByTo {
   '/weitere-produkte/solaranlage': typeof WeitereProdukteSolaranlageRoute
   '/weitere-produkte/umwaelzpumpen': typeof WeitereProdukteUmwaelzpumpenRoute
   '/weitere-produkte/waermepumpen': typeof WeitereProdukteWaermepumpenRoute
-  '/weitere-produkte/wasserbehandlung': typeof WeitereProdukteWasserbehandlungRouteWithChildren
+  '/poolabdeckungen': typeof PoolabdeckungenIndexRoute
+  '/weitere-produkte': typeof WeitereProdukteIndexRoute
   '/poolabdeckungen/rolloabdeckungen/energieeinsparung': typeof PoolabdeckungenRolloabdeckungenEnergieeinsparungRoute
   '/poolabdeckungen/rolloabdeckungen/oberfluranlagen': typeof PoolabdeckungenRolloabdeckungenOberfluranlagenRoute
   '/poolabdeckungen/rolloabdeckungen/rollladenprofile': typeof PoolabdeckungenRolloabdeckungenRollladenprofileRoute
@@ -453,6 +474,7 @@ export interface FileRoutesByTo {
   '/weitere-produkte/wasserbehandlung/asin-salt': typeof WeitereProdukteWasserbehandlungAsinSaltRoute
   '/weitere-produkte/wasserbehandlung/pp-10-floc-c': typeof WeitereProdukteWasserbehandlungPp10FlocCRoute
   '/weitere-produkte/wasserbehandlung/pp-60-ph': typeof WeitereProdukteWasserbehandlungPp60PhRoute
+  '/weitere-produkte/wasserbehandlung': typeof WeitereProdukteWasserbehandlungIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -493,6 +515,8 @@ export interface FileRoutesById {
   '/weitere-produkte/umwaelzpumpen': typeof WeitereProdukteUmwaelzpumpenRoute
   '/weitere-produkte/waermepumpen': typeof WeitereProdukteWaermepumpenRoute
   '/weitere-produkte/wasserbehandlung': typeof WeitereProdukteWasserbehandlungRouteWithChildren
+  '/poolabdeckungen/': typeof PoolabdeckungenIndexRoute
+  '/weitere-produkte/': typeof WeitereProdukteIndexRoute
   '/poolabdeckungen/rolloabdeckungen/energieeinsparung': typeof PoolabdeckungenRolloabdeckungenEnergieeinsparungRoute
   '/poolabdeckungen/rolloabdeckungen/oberfluranlagen': typeof PoolabdeckungenRolloabdeckungenOberfluranlagenRoute
   '/poolabdeckungen/rolloabdeckungen/rollladenprofile': typeof PoolabdeckungenRolloabdeckungenRollladenprofileRoute
@@ -506,6 +530,7 @@ export interface FileRoutesById {
   '/weitere-produkte/wasserbehandlung/asin-salt': typeof WeitereProdukteWasserbehandlungAsinSaltRoute
   '/weitere-produkte/wasserbehandlung/pp-10-floc-c': typeof WeitereProdukteWasserbehandlungPp10FlocCRoute
   '/weitere-produkte/wasserbehandlung/pp-60-ph': typeof WeitereProdukteWasserbehandlungPp60PhRoute
+  '/weitere-produkte/wasserbehandlung/': typeof WeitereProdukteWasserbehandlungIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -547,6 +572,8 @@ export interface FileRouteTypes {
     | '/weitere-produkte/umwaelzpumpen'
     | '/weitere-produkte/waermepumpen'
     | '/weitere-produkte/wasserbehandlung'
+    | '/poolabdeckungen/'
+    | '/weitere-produkte/'
     | '/poolabdeckungen/rolloabdeckungen/energieeinsparung'
     | '/poolabdeckungen/rolloabdeckungen/oberfluranlagen'
     | '/poolabdeckungen/rolloabdeckungen/rollladenprofile'
@@ -560,6 +587,7 @@ export interface FileRouteTypes {
     | '/weitere-produkte/wasserbehandlung/asin-salt'
     | '/weitere-produkte/wasserbehandlung/pp-10-floc-c'
     | '/weitere-produkte/wasserbehandlung/pp-60-ph'
+    | '/weitere-produkte/wasserbehandlung/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -567,9 +595,7 @@ export interface FileRouteTypes {
     | '/impressum'
     | '/kontakt'
     | '/pool-chlorfrei'
-    | '/poolabdeckungen'
     | '/poolueberdachungen'
-    | '/weitere-produkte'
     | '/pool-chlorfrei/faq-ionisierung'
     | '/poolabdeckungen/aircover-winterabdeckung'
     | '/poolabdeckungen/luftpolsterabdeckung'
@@ -598,7 +624,8 @@ export interface FileRouteTypes {
     | '/weitere-produkte/solaranlage'
     | '/weitere-produkte/umwaelzpumpen'
     | '/weitere-produkte/waermepumpen'
-    | '/weitere-produkte/wasserbehandlung'
+    | '/poolabdeckungen'
+    | '/weitere-produkte'
     | '/poolabdeckungen/rolloabdeckungen/energieeinsparung'
     | '/poolabdeckungen/rolloabdeckungen/oberfluranlagen'
     | '/poolabdeckungen/rolloabdeckungen/rollladenprofile'
@@ -612,6 +639,7 @@ export interface FileRouteTypes {
     | '/weitere-produkte/wasserbehandlung/asin-salt'
     | '/weitere-produkte/wasserbehandlung/pp-10-floc-c'
     | '/weitere-produkte/wasserbehandlung/pp-60-ph'
+    | '/weitere-produkte/wasserbehandlung'
   id:
     | '__root__'
     | '/'
@@ -651,6 +679,8 @@ export interface FileRouteTypes {
     | '/weitere-produkte/umwaelzpumpen'
     | '/weitere-produkte/waermepumpen'
     | '/weitere-produkte/wasserbehandlung'
+    | '/poolabdeckungen/'
+    | '/weitere-produkte/'
     | '/poolabdeckungen/rolloabdeckungen/energieeinsparung'
     | '/poolabdeckungen/rolloabdeckungen/oberfluranlagen'
     | '/poolabdeckungen/rolloabdeckungen/rollladenprofile'
@@ -664,6 +694,7 @@ export interface FileRouteTypes {
     | '/weitere-produkte/wasserbehandlung/asin-salt'
     | '/weitere-produkte/wasserbehandlung/pp-10-floc-c'
     | '/weitere-produkte/wasserbehandlung/pp-60-ph'
+    | '/weitere-produkte/wasserbehandlung/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -734,6 +765,20 @@ declare module '@tanstack/react-router' {
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/weitere-produkte/': {
+      id: '/weitere-produkte/'
+      path: '/'
+      fullPath: '/weitere-produkte/'
+      preLoaderRoute: typeof WeitereProdukteIndexRouteImport
+      parentRoute: typeof WeitereProdukteRoute
+    }
+    '/poolabdeckungen/': {
+      id: '/poolabdeckungen/'
+      path: '/'
+      fullPath: '/poolabdeckungen/'
+      preLoaderRoute: typeof PoolabdeckungenIndexRouteImport
+      parentRoute: typeof PoolabdeckungenRoute
     }
     '/weitere-produkte/wasserbehandlung': {
       id: '/weitere-produkte/wasserbehandlung'
@@ -938,6 +983,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PoolChlorfreiFaqIonisierungRouteImport
       parentRoute: typeof PoolChlorfreiRoute
     }
+    '/weitere-produkte/wasserbehandlung/': {
+      id: '/weitere-produkte/wasserbehandlung/'
+      path: '/'
+      fullPath: '/weitere-produkte/wasserbehandlung/'
+      preLoaderRoute: typeof WeitereProdukteWasserbehandlungIndexRouteImport
+      parentRoute: typeof WeitereProdukteWasserbehandlungRoute
+    }
     '/weitere-produkte/wasserbehandlung/pp-60-ph': {
       id: '/weitere-produkte/wasserbehandlung/pp-60-ph'
       path: '/pp-60-ph'
@@ -1081,6 +1133,7 @@ interface PoolabdeckungenRouteChildren {
   PoolabdeckungenRolloabdeckungenRoute: typeof PoolabdeckungenRolloabdeckungenRouteWithChildren
   PoolabdeckungenSchaumabdeckungRoute: typeof PoolabdeckungenSchaumabdeckungRoute
   PoolabdeckungenSchutzWinterSicherheitsnetzRoute: typeof PoolabdeckungenSchutzWinterSicherheitsnetzRoute
+  PoolabdeckungenIndexRoute: typeof PoolabdeckungenIndexRoute
 }
 
 const PoolabdeckungenRouteChildren: PoolabdeckungenRouteChildren = {
@@ -1095,6 +1148,7 @@ const PoolabdeckungenRouteChildren: PoolabdeckungenRouteChildren = {
   PoolabdeckungenSchaumabdeckungRoute: PoolabdeckungenSchaumabdeckungRoute,
   PoolabdeckungenSchutzWinterSicherheitsnetzRoute:
     PoolabdeckungenSchutzWinterSicherheitsnetzRoute,
+  PoolabdeckungenIndexRoute: PoolabdeckungenIndexRoute,
 }
 
 const PoolabdeckungenRouteWithChildren = PoolabdeckungenRoute._addFileChildren(
@@ -1147,6 +1201,7 @@ interface WeitereProdukteWasserbehandlungRouteChildren {
   WeitereProdukteWasserbehandlungAsinSaltRoute: typeof WeitereProdukteWasserbehandlungAsinSaltRoute
   WeitereProdukteWasserbehandlungPp10FlocCRoute: typeof WeitereProdukteWasserbehandlungPp10FlocCRoute
   WeitereProdukteWasserbehandlungPp60PhRoute: typeof WeitereProdukteWasserbehandlungPp60PhRoute
+  WeitereProdukteWasserbehandlungIndexRoute: typeof WeitereProdukteWasserbehandlungIndexRoute
 }
 
 const WeitereProdukteWasserbehandlungRouteChildren: WeitereProdukteWasserbehandlungRouteChildren =
@@ -1165,6 +1220,8 @@ const WeitereProdukteWasserbehandlungRouteChildren: WeitereProdukteWasserbehandl
       WeitereProdukteWasserbehandlungPp10FlocCRoute,
     WeitereProdukteWasserbehandlungPp60PhRoute:
       WeitereProdukteWasserbehandlungPp60PhRoute,
+    WeitereProdukteWasserbehandlungIndexRoute:
+      WeitereProdukteWasserbehandlungIndexRoute,
   }
 
 const WeitereProdukteWasserbehandlungRouteWithChildren =
@@ -1181,6 +1238,7 @@ interface WeitereProdukteRouteChildren {
   WeitereProdukteUmwaelzpumpenRoute: typeof WeitereProdukteUmwaelzpumpenRoute
   WeitereProdukteWaermepumpenRoute: typeof WeitereProdukteWaermepumpenRoute
   WeitereProdukteWasserbehandlungRoute: typeof WeitereProdukteWasserbehandlungRouteWithChildren
+  WeitereProdukteIndexRoute: typeof WeitereProdukteIndexRoute
 }
 
 const WeitereProdukteRouteChildren: WeitereProdukteRouteChildren = {
@@ -1194,6 +1252,7 @@ const WeitereProdukteRouteChildren: WeitereProdukteRouteChildren = {
   WeitereProdukteWaermepumpenRoute: WeitereProdukteWaermepumpenRoute,
   WeitereProdukteWasserbehandlungRoute:
     WeitereProdukteWasserbehandlungRouteWithChildren,
+  WeitereProdukteIndexRoute: WeitereProdukteIndexRoute,
 }
 
 const WeitereProdukteRouteWithChildren = WeitereProdukteRoute._addFileChildren(
