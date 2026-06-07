@@ -398,6 +398,28 @@ export const CONTENT: Record<string, ProductContent> = Object.fromEntries([
     [{ label: "Weitere Produkte" }],
   ),
   make(
+    "fahrbares-pooldeck",
+    "Fahrbares Pooldeck: Terrasse und Poolabdeckung in einem",
+    "Die spektakulärste Premiumlösung für moderne Gärten: Ihr Pool verschwindet unter einer nutzbaren Design-Terrasse.",
+    "Pooldeck",
+    [
+      "Ein fahrbares Pooldeck ist mehr als eine Abdeckung – es verwandelt die Wasserfläche auf Knopfdruck in wertvolle Nutzfläche. Besonders in München und Umgebung, wo Grundstücke oft hochwertig geplant werden, entsteht so ein maximal eleganter Mehrwert.",
+      "Das Deck läuft auf stabilen Schienen, wird millimetergenau auf Beckenform und Terrassenbelag abgestimmt und schützt den Pool zuverlässig vor Schmutz, UV-Strahlung und unbeaufsichtigtem Zugang.",
+      "POOLCAP plant das System mit Ihnen architektonisch sauber: Belag, Laufrichtung, Bedienung, Entwässerung und Sicherheitsdetails werden exakt auf Garten, Pool und Alltag abgestimmt.",
+    ],
+    [{ label: "Weitere Produkte", to: "/weitere-produkte" }, { label: "Fahrbares Pooldeck" }],
+    [
+      { label: "Pools (Einstück-Fertigbecken)", to: "/weitere-produkte/pools" },
+      { label: "Poolabdeckungen", to: "/poolabdeckungen" },
+      { label: "Pool kaufen – Angebote", to: "/weitere-produkte/pool-kaufen-angebote" },
+    ],
+    [
+      { q: "Ist ein fahrbares Pooldeck begehbar?", a: "Ja. Es wird als stabile Nutzfläche geplant und kann – je nach Konstruktion – wie eine Terrasse genutzt werden." },
+      { q: "Eignet sich das auch für Bestandsbecken?", a: "Oft ja. Entscheidend sind Beckenrand, Platz für die Laufschienen und die gewünschte Parkposition des Decks." },
+      { q: "Welche Beläge sind möglich?", a: "Typisch sind WPC, Holz, Steinoptik oder keramische Beläge – passend zur bestehenden Terrasse." },
+    ],
+  ),
+  make(
     "solaranlage",
     "Pool Solaranlage: Kostenlose Sonnenwärme für Ihr Wasser",
     "Verlängern Sie die Saison spürbar – mit moderner Solartechnik, die in Bayern beste Erträge liefert.",
