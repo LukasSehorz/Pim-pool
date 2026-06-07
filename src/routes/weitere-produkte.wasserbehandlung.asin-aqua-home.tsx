@@ -2,14 +2,16 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ProductPage } from "@/components/ProductPage";
 import { CONTENT } from "@/lib/content";
 
-const c = CONTENT["asin-aqua-home"];
-
 export const Route = createFileRoute("/weitere-produkte/wasserbehandlung/asin-aqua-home")({
   head: () => ({
     meta: [
-      { title: `${c.title} – POOLCAP` },
-      { name: "description", content: c.subtitle },
+      { title: `${CONTENT["asin-aqua-home"].title} – POOLCAP` },
+      { name: "description", content: CONTENT["asin-aqua-home"].subtitle },
     ],
   }),
-  component: () => <ProductPage content={c} />,
+  component: RouteComponent,
 });
+
+function RouteComponent() {
+  return <ProductPage content={CONTENT["asin-aqua-home"]} />;
+}

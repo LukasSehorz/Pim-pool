@@ -2,14 +2,16 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ProductPage } from "@/components/ProductPage";
 import { CONTENT } from "@/lib/content";
 
-const c = CONTENT["ueberdachung-technische-details"];
-
 export const Route = createFileRoute("/poolueberdachungen/technische-details")({
   head: () => ({
     meta: [
-      { title: `${c.title} – POOLCAP` },
-      { name: "description", content: c.subtitle },
+      { title: `${CONTENT["ueberdachung-technische-details"].title} – POOLCAP` },
+      { name: "description", content: CONTENT["ueberdachung-technische-details"].subtitle },
     ],
   }),
-  component: () => <ProductPage content={c} />,
+  component: RouteComponent,
 });
+
+function RouteComponent() {
+  return <ProductPage content={CONTENT["ueberdachung-technische-details"]} />;
+}

@@ -2,14 +2,16 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ProductPage } from "@/components/ProductPage";
 import { CONTENT } from "@/lib/content";
 
-const c = CONTENT["unterfluranlagen"];
-
 export const Route = createFileRoute("/poolabdeckungen/rolloabdeckungen/unterfluranlagen")({
   head: () => ({
     meta: [
-      { title: `${c.title} – POOLCAP` },
-      { name: "description", content: c.subtitle },
+      { title: `${CONTENT["unterfluranlagen"].title} – POOLCAP` },
+      { name: "description", content: CONTENT["unterfluranlagen"].subtitle },
     ],
   }),
-  component: () => <ProductPage content={c} />,
+  component: RouteComponent,
 });
+
+function RouteComponent() {
+  return <ProductPage content={CONTENT["unterfluranlagen"]} />;
+}
