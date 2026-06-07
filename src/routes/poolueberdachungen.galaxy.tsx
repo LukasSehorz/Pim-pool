@@ -1,0 +1,15 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { ProductPage } from "@/components/ProductPage";
+import { CONTENT } from "@/lib/content";
+
+const c = CONTENT["galaxy"];
+
+export const Route = createFileRoute("/poolueberdachungen/galaxy")({
+  head: () => ({
+    meta: [
+      { title: `${c.title} – POOLCAP` },
+      { name: "description", content: c.subtitle },
+    ],
+  }),
+  component: () => <ProductPage content={c} />,
+});
