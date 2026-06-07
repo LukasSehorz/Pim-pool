@@ -74,6 +74,7 @@ export const NAV: NavChild[] = [
     label: "Weitere Produkte",
     to: "/weitere-produkte",
     children: [
+      { label: "Fahrbares Pooldeck", to: "/weitere-produkte/fahrbares-pooldeck" },
       { label: "Pool Solaranlage", to: "/weitere-produkte/solaranlage" },
       { label: "Pool Reinigungsroboter", to: "/weitere-produkte/reinigungsroboter" },
       { label: "Pools (Einstück-Fertigbecken)", to: "/weitere-produkte/pools" },

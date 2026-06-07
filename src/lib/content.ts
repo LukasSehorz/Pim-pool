@@ -7,6 +7,140 @@ const baseBenefits = [
   { title: "Werterhalt", text: "Schützt Wasser und Technik vor Schmutz, UV und Witterung – langfristig." },
 ];
 
+const PRODUCT_LABELS: Record<string, string> = {
+  poolabdeckungen: "Poolabdeckungen",
+  rolloabdeckungen: "Rolloabdeckungen",
+  unterfluranlagen: "Unterfluranlagen",
+  oberfluranlagen: "Oberfluranlagen",
+  unfallschutz: "Unfallschutz",
+  energieeinsparung: "Energieeinsparung",
+  rollladenprofile: "Rollladenprofile",
+  "was-ist-eine-rolloabdeckung": "Rolloabdeckungen",
+  schaumabdeckung: "Schaumabdeckung",
+  "randaufliegende-abdeckung": "randaufliegende Abdeckungen",
+  luftpolsterabdeckung: "Luftpolsterabdeckungen",
+  "schutz-winter-sicherheitsnetz": "Schutz-, Winter- und Sicherheitsnetze",
+  "aircover-winterabdeckung": "Aircover Winterabdeckungen",
+  horizon: "Horizon",
+  "star-star-plus": "Star & Star-Plus",
+  visual: "Visual",
+  "sun-sky": "Sun & Sky",
+  "charisma-flat": "Charisma flat",
+  harmonie: "Harmonie",
+  practic: "Practic",
+  creativ: "Creativ",
+  orion: "Orion",
+  charisma: "Charisma",
+  orion5: "Orion5",
+  galaxy: "Galaxy",
+  rondo: "Rondo",
+  "ueberdachung-technische-details": "Poolüberdachungen",
+  "pool-chlorfrei": "chlorfreie Pools",
+  "faq-ionisierung": "Ionisierung",
+  "weitere-produkte": "Pooltechnik",
+  "fahrbares-pooldeck": "fahrbare Pooldecks",
+  solaranlage: "Pool-Solaranlagen",
+  reinigungsroboter: "Pool-Reinigungsroboter",
+  pools: "Einstück-Fertigbecken",
+  "pool-kaufen-angebote": "Pool-Komplettangebote",
+  waermepumpen: "Wärmepumpen",
+  umwaelzpumpen: "Umwälzpumpen",
+  wasserbehandlung: "ASEKO Wasserbehandlung",
+  "asin-aqua-oxygen": "ASIN AQUA Oxygen",
+  "asin-aqua-home": "ASIN AQUA Home",
+  "asin-aqua-salt": "ASIN AQUA Salt",
+  "asin-salt": "ASIN Salt",
+  "asin-aqua-profi": "ASIN AQUA Profi",
+  "pp-60-ph": "PP 60 pH",
+  "pp-10-floc-c": "PP 10 Floc+C",
+};
+
+const SPECIFIC_BENEFITS: Record<string, ProductContent["benefits"]> = {
+  "fahrbares-pooldeck": [
+    { title: "Mehr Gartenfläche", text: "Der Pool verschwindet unter einer nutzbaren Terrasse – ideal für kompakte Grundstücke." },
+    { title: "Maximale Sicherheit", text: "Geschlossen entsteht eine stabile, harte Fläche statt offener Wasserfläche." },
+    { title: "Architektur-Effekt", text: "Holz, WPC oder Steinoptik machen das Deck zum Design-Statement." },
+    { title: "Weniger Schmutz", text: "Laub, Staub und UV-Strahlung bleiben draußen – Wasser und Folie werden geschützt." },
+  ],
+  solaranlage: [
+    { title: "Kostenlose Wärme", text: "Sonnenenergie erwärmt Ihr Poolwasser ohne laufende Energiekosten." },
+    { title: "Lange Saison", text: "In Bayern oft mehrere Wochen früher baden und länger im Herbst genießen." },
+    { title: "Robuste Absorber", text: "UV-stabile Solarabsorber arbeiten leise, wartungsarm und zuverlässig." },
+    { title: "Perfekte Kombination", text: "Ideal mit Wärmepumpe und Abdeckung für maximale Effizienz." },
+  ],
+  reinigungsroboter: [
+    { title: "Boden & Wand sauber", text: "Intelligente Programme reinigen Boden, Wände und Wasserlinie automatisch." },
+    { title: "Mehr Freizeit", text: "Kein Kescher, keine Bürste – der Roboter übernimmt die Routinearbeit." },
+    { title: "Feine Filterung", text: "Laub, Sand und Schwebstoffe werden im eigenen Filterkorb gesammelt." },
+    { title: "Passend zum Becken", text: "Wir empfehlen das Modell nach Poolform, Oberfläche und Verschmutzung." },
+  ],
+  pools: [
+    { title: "Schneller Einbau", text: "Ein Fertigbecken kann oft innerhalb eines Tages gesetzt werden." },
+    { title: "Glatte Oberfläche", text: "Hochwertige Beckenoberflächen sind angenehm, langlebig und pflegeleicht." },
+    { title: "Planbare Kosten", text: "Klare Pakete reduzieren Überraschungen bei Bauzeit und Budget." },
+    { title: "Technik aus einer Hand", text: "Abdeckung, Heizung und Wasseraufbereitung werden direkt mitgedacht." },
+  ],
+  "pool-kaufen-angebote": [
+    { title: "Komplettpaket", text: "Becken, Technik, Abdeckung und Zubehör werden sinnvoll vorkonfiguriert." },
+    { title: "Faire Auswahl", text: "Wir empfehlen nur, was zu Grundstück, Budget und Nutzung passt." },
+    { title: "München & Bayern", text: "Beratung, Lieferung und Montage mit regionaler Erfahrung." },
+    { title: "Schneller Vergleich", text: "Sie sehen sofort, welche Ausstattung wirklich Mehrwert bringt." },
+  ],
+  waermepumpen: [
+    { title: "Hoher COP", text: "Inverter-Technik gewinnt aus wenig Strom viel Wärme für Ihr Wasser." },
+    { title: "Leiser Betrieb", text: "Moderne Ventilatoren und Kompressoren arbeiten angenehm zurückhaltend." },
+    { title: "Automatisch geregelt", text: "Die Zieltemperatur wird konstant gehalten – ohne tägliches Nachstellen." },
+    { title: "Bayern-tauglich", text: "Auslegung passend zu Poolgröße, Abdeckung und lokaler Witterung." },
+  ],
+  umwaelzpumpen: [
+    { title: "Strom sparen", text: "Variable Drehzahlen senken den Verbrauch im Dauerbetrieb deutlich." },
+    { title: "Klares Wasser", text: "Stabile Umwälzung verbessert Filtration und Wasserhygiene." },
+    { title: "Leise Technik", text: "Premium-Pumpen laufen vibrationsarm und unauffällig." },
+    { title: "Smart steuerbar", text: "Laufzeiten lassen sich an Filter, Heizung und Dosierung anpassen." },
+  ],
+};
+
+function benefitsFor(slug: string): ProductContent["benefits"] {
+  if (SPECIFIC_BENEFITS[slug]) return SPECIFIC_BENEFITS[slug];
+  const label = PRODUCT_LABELS[slug] ?? "diese Lösung";
+  return baseBenefits.map((benefit) => ({
+    ...benefit,
+    text: `${benefit.text} Speziell ausgelegt für ${label} und Ihre Poolsituation in Bayern.`,
+  }));
+}
+
+function getEnclosureDetail(slug: string) {
+  const details: Record<string, { subtitle: string; description: string[]; faq: ProductContent["faq"] }> = {
+    horizon: { subtitle: "Ultraflach, elegant und fast unsichtbar – für minimalistische Architektur.", description: ["Horizon ist die richtige Wahl, wenn die Überdachung optisch so zurückhaltend wie möglich bleiben soll. Die flache Linienführung schützt den Pool, ohne Gartenarchitektur oder Sichtachsen zu dominieren.", "Durch die geringe Bauhöhe bleibt der Blick über die Wasserfläche frei. Gleichzeitig profitieren Sie von Wärmespeicherung, Schmutzschutz und längerer Badesaison.", "Empfohlen für moderne Neubauten, klare Terrassenanlagen und Eigentümer, die kompromisslos cleanes Design wünschen."], faq: [{ q: "Kann man unter Horizon schwimmen?", a: "Horizon ist bewusst ultraflach. Zum Schwimmen wird die Überdachung meist geöffnet." }] },
+    "star-star-plus": { subtitle: "Der beliebte Allrounder: mehr Höhe, mehr Komfort, mehr Spielraum für Familien.", description: ["Star & Star-Plus bieten deutlich mehr Innenraum als ultraflache Modelle und bleiben dennoch elegant. Ideal, wenn Kinder auch bei wechselhaftem Wetter spielen oder Sie den Pool häufiger teilgeschlossen nutzen möchten.", "Die Plus-Variante eignet sich für größere Spannweiten und anspruchsvollere Beckenbreiten. Türen und Klappen können alltagstauglich geplant werden.", "Eine sehr ausgewogene Lösung für Familienpools im Großraum München."], faq: [{ q: "Was unterscheidet Star und Star-Plus?", a: "Star-Plus bietet je nach Ausführung mehr Breite, Höhe und Stabilitätsreserven." }] },
+    visual: { subtitle: "Maximale Transparenz für Wasser, Garten und Licht ohne schwere Optik.", description: ["Visual setzt auf besonders klare Flächen und reduzierte Profile. Dadurch wirkt die Überdachung offen, hell und fast rahmenlos.", "Die Konstruktion schützt zuverlässig vor Wind und Schmutz, ohne den Blick aufs Wasser zu nehmen. Gerade bei Designpools ist Visual ein starker Kompromiss aus Schutz und Ästhetik.", "POOLCAP stimmt Flächen, Profilfarbe und Schienenführung harmonisch auf Ihr Grundstück ab."], faq: [{ q: "Bleibt die Überdachung lange klar?", a: "Mit passender Pflege behalten die transparenten Flächen dauerhaft ein hochwertiges Erscheinungsbild." }] },
+    "sun-sky": { subtitle: "Viel Licht, spürbarer Wärmeeintrag und ein helles Raumgefühl rund um Ihren Pool.", description: ["Sun & Sky ist für Poolbesitzer gemacht, die ein helles, offenes Badegefühl schätzen. Die großzügige Bauform fängt Sonnenwärme ein und schützt vor kühlem Wind.", "Unter der Überdachung entsteht ein geschützter Badebereich, der besonders in Frühjahr und Herbst deutlich mehr Komfort bietet.", "Optional planen wir Einstiege, Türen und Lüftungsmöglichkeiten passend zu Terrasse und Nutzung."], faq: [{ q: "Wird das Wasser wärmer?", a: "Ja, der Treibhauseffekt kann die Wassertemperatur spürbar erhöhen." }] },
+    "charisma-flat": { subtitle: "Flach, hochwertig und repräsentativ – die Designlinie für exklusive Privatpools.", description: ["Charisma flat verbindet die ruhige Optik einer Flachüberdachung mit besonders wertiger Linienführung. Sie passt zu modernen Villen, Naturstein-Terrassen und klar gestalteten Außenbereichen.", "Die niedrige Bauform reduziert den visuellen Eingriff, während Schmutzschutz, Sicherheitsgewinn und Wärmerückhalt voll erhalten bleiben.", "Bei POOLCAP erhalten Sie eine individuelle Abstimmung von Profilfarbe, Segmentaufteilung und Bedienkomfort."], faq: [{ q: "Passt sie zu Naturstein-Terrassen?", a: "Sehr gut. Die ruhige Linienführung wirkt besonders hochwertig neben Stein und Beton." }] },
+    harmonie: { subtitle: "Klassische Rundform mit ausgewogenen Proportionen – zeitlos, robust und familienfreundlich.", description: ["Harmonie ist die bewährte Wahl für Poolbesitzer, die eine weiche, klassische Form und zuverlässige Funktion suchen. Die Bogenform leitet Regen und Schnee gut ab.", "Die Anlage lässt sich einfach schieben, sicher verriegeln und in vielen Größen anpassen. Sie bietet guten Innenraum bei moderater Optik.", "Ideal für Bestandsbecken, Familiengärten und langlebige Alltagsnutzung."], faq: [{ q: "Ist Harmonie wintertauglich?", a: "Ja, bei korrekter Auslegung ist die Konstruktion auch für Schnee und Winterbetrieb geeignet." }] },
+    practic: { subtitle: "Die funktionale Lösung für zuverlässigen Schutz ohne unnötige Extras.", description: ["Practic konzentriert sich auf das Wesentliche: stabile Konstruktion, einfache Bedienung, guter Schmutzschutz und attraktive Wirtschaftlichkeit.", "Sie eignet sich besonders für Bestandsbecken, Ferienhäuser und Poolbesitzer, die eine robuste Überdachung mit fairem Preis-Leistungs-Verhältnis suchen.", "POOLCAP achtet trotzdem auf saubere Schienenführung, passende Dimensionierung und langlebige Materialien."], faq: [{ q: "Ist Practic eine Einstiegslösung?", a: "Ja – aber keine Billiglösung. Sie ist robust und bewusst funktional gehalten." }] },
+    creativ: { subtitle: "Für besondere Beckenformen, spezielle Terrassen und individuelle architektonische Wünsche.", description: ["Creativ ist die Lösung, wenn Standard nicht reicht. Ungewöhnliche Beckenformen, asymmetrische Terrassen oder besondere Schienenführungen werden individuell geplant.", "Statt Ihren Garten an die Überdachung anzupassen, passen wir die Überdachung an Ihren Garten an – technisch sauber und optisch stimmig.", "Gerade bei Sanierungen und hochwertigen Sonderprojekten ist Creativ oft die eleganteste Wahl."], faq: [{ q: "Sind Sonderformen möglich?", a: "Ja, Creativ ist genau für individuelle Geometrien gedacht." }] },
+    orion: { subtitle: "Die hohe Überdachung für echtes Raumgefühl – schwimmen, gehen und entspannen unter Dach.", description: ["Orion schafft einen geschützten Poolraum. Anders als flache Modelle erlaubt sie mehr Bewegungsfreiheit und eignet sich für alle, die den Pool auch bei kühlerem Wetter aktiv nutzen möchten.", "Die hohe Konstruktion schützt vor Wind, speichert Wärme und macht den Poolbereich fast zu einem Sommer-Wintergarten.", "Besonders attraktiv für Familien, Vielschwimmer und Grundstücke mit großzügiger Poolzone."], faq: [{ q: "Kann man unter Orion stehen?", a: "Je nach Ausführung ja – die Höhe wird passend zur Nutzung geplant." }] },
+    charisma: { subtitle: "Die repräsentative Premium-Überdachung für gehobene Poolanlagen.", description: ["Charisma ist die Designlinie für Poolbesitzer mit hohem Anspruch an Optik, Materialwirkung und Bedienkomfort. Sie wirkt weniger wie Zubehör – mehr wie ein architektonisches Element.", "Die Kombination aus klaren Profilen, hochwertigen Flächen und durchdachten Details macht Charisma zur starken Wahl für repräsentative Außenbereiche.", "Wir planen die Anlage so, dass sie Terrasse, Haus und Garten sichtbar aufwertet."], faq: [{ q: "Was macht Charisma besonders?", a: "Die hochwertige Gestaltung, Materialauswahl und klare Premium-Anmutung." }] },
+    orion5: { subtitle: "XL-Komfort: eine großzügige Poolhalle für Schwimmen, Aufenthalt und wettergeschützte Nutzung.", description: ["Orion5 erweitert die Idee der Poolüberdachung in Richtung Poolhalle. Mit zusätzlicher Höhe und Raumtiefe entsteht ein Bereich, der deutlich mehr Nutzung ermöglicht.", "Ideal, wenn Liegeflächen, Sitzbereiche oder ein ganzer Poolraum unter der Überdachung entstehen sollen.", "POOLCAP plant Zugänge, Lüftung, Schienen und Statik passend zur Größe und Schneelast in Bayern."], faq: [{ q: "Ist Orion5 für große Pools geeignet?", a: "Ja, sie ist für großzügige Spannweiten und Komfortnutzung ausgelegt." }] },
+    galaxy: { subtitle: "Maximaler Raum, viel Glaswirkung und luxuriöses Badegefühl – auch bei schlechtem Wetter.", description: ["Galaxy ist die große, repräsentative Überdachung für Kunden, die ihren Poolbereich wie einen hochwertigen Wellnessraum nutzen möchten.", "Die Konstruktion eignet sich für große Privatpools, Hotelanlagen oder anspruchsvolle Wellnessbereiche. Wärme bleibt länger erhalten, Wind und Regen verlieren ihren Schrecken.", "Mit passender Ausstattung entsteht ein Poolraum, der deutlich über die klassische Überdachung hinausgeht."], faq: [{ q: "Ist Galaxy eher eine Poolhalle?", a: "Ja, sie geht in Richtung großzügiger Poolraum mit hoher Aufenthaltsqualität." }] },
+    rondo: { subtitle: "Rund, elegant und ideal für Whirlpools, runde Becken oder besondere Garteninseln.", description: ["Rondo ist die passende Überdachung für runde oder organische Poolformen. Die Form wirkt weich, elegant und eignet sich hervorragend für Wellnessbereiche und Whirlpools.", "Durch die Kuppelwirkung entsteht ein angenehmes Raumgefühl, während Wasser und Technik zuverlässig vor Schmutz und Witterung geschützt werden.", "Eine starke Lösung, wenn Ihr Pool nicht rechteckig gedacht ist – sondern als Designobjekt im Garten."], faq: [{ q: "Passt Rondo für Whirlpools?", a: "Ja, besonders für Whirlpools und runde Becken ist Rondo sehr beliebt." }] },
+  };
+  return details[slug];
+}
+
+function getAsekoDetail(slug: string) {
+  const details: Record<string, { subtitle: string; description: string[]; faq: ProductContent["faq"] }> = {
+    "asin-aqua-oxygen": { subtitle: "Automatische Wasserpflege mit Aktivsauerstoff – besonders angenehm für Haut und Augen.", description: ["ASIN AQUA Oxygen ist ideal für Poolbesitzer, die möglichst chlorarm baden möchten. Das System misst und dosiert automatisch Aktivsauerstoff und pH-Regulierung.", "Das Ergebnis ist angenehm weiches Wasser ohne starken Chlorgeruch – perfekt für Familien, empfindliche Haut und hochwertige Privatpools.", "POOLCAP übernimmt Installation, Kalibrierung und Einweisung, damit die Wasserpflege dauerhaft zuverlässig läuft."], faq: [{ q: "Ist Oxygen komplett chlorfrei?", a: "Es arbeitet mit Aktivsauerstoff; je nach Belastung kann eine minimale Ergänzung sinnvoll sein." }] },
+    "asin-aqua-home": { subtitle: "Die smarte Komplettlösung für private Pools – messen, regeln, dosieren, entspannen.", description: ["ASIN AQUA Home überwacht wichtige Wasserwerte und dosiert automatisch die passende Menge Pflegemittel. Damit bleibt Ihr Poolwasser stabil, klar und hygienisch.", "Die Anlage ist kompakt, übersichtlich und für private Technikräume konzipiert. Sie reduziert Bedienfehler und sorgt für konstant hochwertige Wasserqualität.", "Ideal für Poolbesitzer, die zuverlässige Automatisierung wünschen, aber keine gewerbliche Profi-Anlage benötigen."], faq: [{ q: "Kann ich Werte per App prüfen?", a: "Je nach Ausstattung lassen sich Daten komfortabel überwachen." }] },
+    "asin-aqua-salt": { subtitle: "Salzelektrolyse plus automatische Regelung – weiches Wasser mit hohem Komfort.", description: ["ASIN AQUA Salt verbindet Salzelektrolyse mit intelligenter Mess- und Dosiertechnik. Aus leicht salzhaltigem Wasser wird Desinfektionswirkung direkt im System erzeugt.", "Das Wasser fühlt sich weicher an, der typische Chlorgeruch wird reduziert und die Nachdosierung läuft kontrolliert automatisch.", "Eine Premiumlösung für moderne Privatpools, bei denen Komfort und Wassergefühl gleichermaßen wichtig sind."], faq: [{ q: "Schmeckt das Wasser salzig?", a: "Nein, die Salzkonzentration ist deutlich niedriger als im Meer und kaum wahrnehmbar." }] },
+    "asin-salt": { subtitle: "Robuste Salzelektrolyse für einfache und zuverlässige Desinfektion.", description: ["ASIN Salt konzentriert sich auf die zuverlässige Erzeugung von Desinfektion über Salzelektrolyse. Das System ist robust, übersichtlich und eine starke Alternative zur klassischen Chlordosierung.", "Gerade bei bestehenden Pools kann ASIN Salt ein sinnvoller Modernisierungsschritt sein, wenn Wassergefühl und Bedienkomfort verbessert werden sollen.", "POOLCAP prüft dafür Beckenvolumen, vorhandene Technik und Kompatibilität Ihrer Ausstattung."], faq: [{ q: "Kann ASIN Salt nachgerüstet werden?", a: "In vielen Technikräumen ja – wir prüfen die hydraulische Einbindung vor Ort." }] },
+    "asin-aqua-profi": { subtitle: "Die leistungsstarke Dosierlösung für große Privatpools, Hotels und gewerbliche Anlagen.", description: ["ASIN AQUA Profi ist für anspruchsvolle Anwendungen gemacht: große Becken, höhere Nutzungsfrequenz, präzise Regelung und professionelle Betriebssicherheit.", "Das System misst kontinuierlich und dosiert exakt – wichtig für gleichbleibende Hygiene, Dokumentation und zuverlässigen Badebetrieb.", "POOLCAP übernimmt Planung, fachgerechte Integration und Einweisung für Betreiber und Hausmeisterservice."], faq: [{ q: "Für private Pools überdimensioniert?", a: "Für normale Privatpools meist ja; bei großen Anlagen kann Profi sinnvoll sein." }] },
+    "pp-60-ph": { subtitle: "Präzise pH-Dosierpumpe – die Basis für stabiles, klares Poolwasser.", description: ["PP 60 pH sorgt dafür, dass der pH-Wert Ihres Pools zuverlässig im optimalen Bereich bleibt. Das ist die Grundlage für wirksame Desinfektion und angenehmes Wassergefühl.", "Die Dosierpumpe eignet sich als gezielte Ergänzung bestehender Anlagen oder als Baustein in einer modernisierten Wassertechnik.", "POOLCAP dimensioniert Dosierleistung, Kanisterplatz und Einbindung passend zu Ihrem Technikraum."], faq: [{ q: "Warum ist pH-Regelung so wichtig?", a: "Nur im passenden pH-Bereich wirken Pflegemittel zuverlässig und das Wasser bleibt angenehm." }] },
+    "pp-10-floc-c": { subtitle: "Gezielte Dosierung von Flockungsmittel und Chlor – für sichtbar klareres Wasser.", description: ["PP 10 Floc+C unterstützt die Wasserpflege dort, wo feinste Trübstoffe oder zusätzliche Desinfektion präzise dosiert werden sollen. Flockungsmittel verbessert die Filterleistung sichtbar.", "Die Pumpe eignet sich für Pools mit hohem Klarheitsanspruch, stärkerer Nutzung oder als Ergänzung vorhandener Mess- und Regeltechnik.", "Wir stimmen Dosiermenge und Mittelwahl auf Filteranlage, Beckenvolumen und gewünschte Wasserqualität ab."], faq: [{ q: "Was bringt Flockungsmittel?", a: "Feinste Partikel werden gebunden und können vom Filter besser zurückgehalten werden." }] },
+  };
+  return details[slug];
+}
+
 const make = (
   slug: string,
   title: string,
@@ -23,7 +157,7 @@ const make = (
     title,
     subtitle,
     description,
-    benefits: baseBenefits,
+    benefits: benefitsFor(slug),
     crumbs,
     related,
     faq,
@@ -296,6 +430,28 @@ export const CONTENT: Record<string, ProductContent> = Object.fromEntries([
     [{ label: "Weitere Produkte" }],
   ),
   make(
+    "fahrbares-pooldeck",
+    "Fahrbares Pooldeck: Terrasse und Poolabdeckung in einem",
+    "Die spektakulärste Premiumlösung für moderne Gärten: Ihr Pool verschwindet unter einer nutzbaren Design-Terrasse.",
+    "Pooldeck",
+    [
+      "Ein fahrbares Pooldeck ist mehr als eine Abdeckung – es verwandelt die Wasserfläche auf Knopfdruck in wertvolle Nutzfläche. Besonders in München und Umgebung, wo Grundstücke oft hochwertig geplant werden, entsteht so ein maximal eleganter Mehrwert.",
+      "Das Deck läuft auf stabilen Schienen, wird millimetergenau auf Beckenform und Terrassenbelag abgestimmt und schützt den Pool zuverlässig vor Schmutz, UV-Strahlung und unbeaufsichtigtem Zugang.",
+      "POOLCAP plant das System mit Ihnen architektonisch sauber: Belag, Laufrichtung, Bedienung, Entwässerung und Sicherheitsdetails werden exakt auf Garten, Pool und Alltag abgestimmt.",
+    ],
+    [{ label: "Weitere Produkte", to: "/weitere-produkte" }, { label: "Fahrbares Pooldeck" }],
+    [
+      { label: "Pools (Einstück-Fertigbecken)", to: "/weitere-produkte/pools" },
+      { label: "Poolabdeckungen", to: "/poolabdeckungen" },
+      { label: "Pool kaufen – Angebote", to: "/weitere-produkte/pool-kaufen-angebote" },
+    ],
+    [
+      { q: "Ist ein fahrbares Pooldeck begehbar?", a: "Ja. Es wird als stabile Nutzfläche geplant und kann – je nach Konstruktion – wie eine Terrasse genutzt werden." },
+      { q: "Eignet sich das auch für Bestandsbecken?", a: "Oft ja. Entscheidend sind Beckenrand, Platz für die Laufschienen und die gewünschte Parkposition des Decks." },
+      { q: "Welche Beläge sind möglich?", a: "Typisch sind WPC, Holz, Steinoptik oder keramische Beläge – passend zur bestehenden Terrasse." },
+    ],
+  ),
+  make(
     "solaranlage",
     "Pool Solaranlage: Kostenlose Sonnenwärme für Ihr Wasser",
     "Verlängern Sie die Saison spürbar – mit moderner Solartechnik, die in Bayern beste Erträge liefert.",
@@ -382,37 +538,45 @@ export const CONTENT: Record<string, ProductContent> = Object.fromEntries([
 ]);
 
 function modelLineup(arr: [string, string, string][]) {
-  return arr.map(([slug, name, claim]) =>
-    make(
+  return arr.map(([slug, name, claim]) => {
+    const detail = getEnclosureDetail(slug);
+    return make(
       slug,
       `${name}: ${claim}`,
-      `Erleben Sie die ${name}-Überdachung – Premiumqualität, exakt für Ihren Pool konfiguriert.`,
+      detail.subtitle,
       name,
-      [
-        `Die ${name} kombiniert hochwertige Materialien mit durchdachtem Design. Sie schützt Ihren Pool, verlängert die Saison und wertet Ihren Garten optisch auf.`,
-        "Erhältlich in vielen Farben und Sondermaßen, optional mit Motorisierung, Seitentüren und Sicherheitsverriegelung.",
-      ],
+      detail.description,
       [{ label: "Poolüberdachungen", to: "/poolueberdachungen" }, { label: name }],
-    ),
-  );
+      [
+        { label: "Technische Details", to: "/poolueberdachungen/technische-details" },
+        { label: "Poolabdeckungen", to: "/poolabdeckungen" },
+        { label: "Kontakt aufnehmen", to: "/kontakt" },
+      ],
+      detail.faq,
+    );
+  });
 }
 
 function asekoLineup(arr: [string, string, string][]) {
-  return arr.map(([slug, name, claim]) =>
-    make(
+  return arr.map(([slug, name, claim]) => {
+    const detail = getAsekoDetail(slug);
+    return make(
       slug,
       `${name}: ${claim}`,
-      "Made in Czech – Profi-Wasseraufbereitung in privater Größe.",
+      detail.subtitle,
       "ASEKO",
-      [
-        `Die ${name} ist Teil der bewährten ASEKO-Produktfamilie. Robuste Sensorik, präzise Dosierung und einfache Bedienung machen sie zur idealen Wahl für Ihren Pool.`,
-        "Wir liefern, montieren und nehmen das System bei Ihnen vor Ort fachgerecht in Betrieb.",
-      ],
+      detail.description,
       [
         { label: "Weitere Produkte", to: "/weitere-produkte" },
         { label: "Wasserbehandlung", to: "/weitere-produkte/wasserbehandlung" },
         { label: name },
       ],
-    ),
-  );
+      [
+        { label: "Wasserbehandlung (ASEKO)", to: "/weitere-produkte/wasserbehandlung" },
+        { label: "Pool chlorfrei", to: "/pool-chlorfrei" },
+        { label: "Beratung anfragen", to: "/kontakt" },
+      ],
+      detail.faq,
+    );
+  });
 }
