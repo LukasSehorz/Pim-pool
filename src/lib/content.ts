@@ -7,6 +7,108 @@ const baseBenefits = [
   { title: "Werterhalt", text: "Schützt Wasser und Technik vor Schmutz, UV und Witterung – langfristig." },
 ];
 
+const PRODUCT_LABELS: Record<string, string> = {
+  poolabdeckungen: "Poolabdeckungen",
+  rolloabdeckungen: "Rolloabdeckungen",
+  unterfluranlagen: "Unterfluranlagen",
+  oberfluranlagen: "Oberfluranlagen",
+  unfallschutz: "Unfallschutz",
+  energieeinsparung: "Energieeinsparung",
+  rollladenprofile: "Rollladenprofile",
+  "was-ist-eine-rolloabdeckung": "Rolloabdeckungen",
+  schaumabdeckung: "Schaumabdeckung",
+  "randaufliegende-abdeckung": "randaufliegende Abdeckungen",
+  luftpolsterabdeckung: "Luftpolsterabdeckungen",
+  "schutz-winter-sicherheitsnetz": "Schutz-, Winter- und Sicherheitsnetze",
+  "aircover-winterabdeckung": "Aircover Winterabdeckungen",
+  horizon: "Horizon",
+  "star-star-plus": "Star & Star-Plus",
+  visual: "Visual",
+  "sun-sky": "Sun & Sky",
+  "charisma-flat": "Charisma flat",
+  harmonie: "Harmonie",
+  practic: "Practic",
+  creativ: "Creativ",
+  orion: "Orion",
+  charisma: "Charisma",
+  orion5: "Orion5",
+  galaxy: "Galaxy",
+  rondo: "Rondo",
+  "ueberdachung-technische-details": "Poolüberdachungen",
+  "pool-chlorfrei": "chlorfreie Pools",
+  "faq-ionisierung": "Ionisierung",
+  "weitere-produkte": "Pooltechnik",
+  "fahrbares-pooldeck": "fahrbare Pooldecks",
+  solaranlage: "Pool-Solaranlagen",
+  reinigungsroboter: "Pool-Reinigungsroboter",
+  pools: "Einstück-Fertigbecken",
+  "pool-kaufen-angebote": "Pool-Komplettangebote",
+  waermepumpen: "Wärmepumpen",
+  umwaelzpumpen: "Umwälzpumpen",
+  wasserbehandlung: "ASEKO Wasserbehandlung",
+  "asin-aqua-oxygen": "ASIN AQUA Oxygen",
+  "asin-aqua-home": "ASIN AQUA Home",
+  "asin-aqua-salt": "ASIN AQUA Salt",
+  "asin-salt": "ASIN Salt",
+  "asin-aqua-profi": "ASIN AQUA Profi",
+  "pp-60-ph": "PP 60 pH",
+  "pp-10-floc-c": "PP 10 Floc+C",
+};
+
+const SPECIFIC_BENEFITS: Record<string, ProductContent["benefits"]> = {
+  "fahrbares-pooldeck": [
+    { title: "Mehr Gartenfläche", text: "Der Pool verschwindet unter einer nutzbaren Terrasse – ideal für kompakte Grundstücke." },
+    { title: "Maximale Sicherheit", text: "Geschlossen entsteht eine stabile, harte Fläche statt offener Wasserfläche." },
+    { title: "Architektur-Effekt", text: "Holz, WPC oder Steinoptik machen das Deck zum Design-Statement." },
+    { title: "Weniger Schmutz", text: "Laub, Staub und UV-Strahlung bleiben draußen – Wasser und Folie werden geschützt." },
+  ],
+  solaranlage: [
+    { title: "Kostenlose Wärme", text: "Sonnenenergie erwärmt Ihr Poolwasser ohne laufende Energiekosten." },
+    { title: "Lange Saison", text: "In Bayern oft mehrere Wochen früher baden und länger im Herbst genießen." },
+    { title: "Robuste Absorber", text: "UV-stabile Solarabsorber arbeiten leise, wartungsarm und zuverlässig." },
+    { title: "Perfekte Kombination", text: "Ideal mit Wärmepumpe und Abdeckung für maximale Effizienz." },
+  ],
+  reinigungsroboter: [
+    { title: "Boden & Wand sauber", text: "Intelligente Programme reinigen Boden, Wände und Wasserlinie automatisch." },
+    { title: "Mehr Freizeit", text: "Kein Kescher, keine Bürste – der Roboter übernimmt die Routinearbeit." },
+    { title: "Feine Filterung", text: "Laub, Sand und Schwebstoffe werden im eigenen Filterkorb gesammelt." },
+    { title: "Passend zum Becken", text: "Wir empfehlen das Modell nach Poolform, Oberfläche und Verschmutzung." },
+  ],
+  pools: [
+    { title: "Schneller Einbau", text: "Ein Fertigbecken kann oft innerhalb eines Tages gesetzt werden." },
+    { title: "Glatte Oberfläche", text: "Hochwertige Beckenoberflächen sind angenehm, langlebig und pflegeleicht." },
+    { title: "Planbare Kosten", text: "Klare Pakete reduzieren Überraschungen bei Bauzeit und Budget." },
+    { title: "Technik aus einer Hand", text: "Abdeckung, Heizung und Wasseraufbereitung werden direkt mitgedacht." },
+  ],
+  "pool-kaufen-angebote": [
+    { title: "Komplettpaket", text: "Becken, Technik, Abdeckung und Zubehör werden sinnvoll vorkonfiguriert." },
+    { title: "Faire Auswahl", text: "Wir empfehlen nur, was zu Grundstück, Budget und Nutzung passt." },
+    { title: "München & Bayern", text: "Beratung, Lieferung und Montage mit regionaler Erfahrung." },
+    { title: "Schneller Vergleich", text: "Sie sehen sofort, welche Ausstattung wirklich Mehrwert bringt." },
+  ],
+  waermepumpen: [
+    { title: "Hoher COP", text: "Inverter-Technik gewinnt aus wenig Strom viel Wärme für Ihr Wasser." },
+    { title: "Leiser Betrieb", text: "Moderne Ventilatoren und Kompressoren arbeiten angenehm zurückhaltend." },
+    { title: "Automatisch geregelt", text: "Die Zieltemperatur wird konstant gehalten – ohne tägliches Nachstellen." },
+    { title: "Bayern-tauglich", text: "Auslegung passend zu Poolgröße, Abdeckung und lokaler Witterung." },
+  ],
+  umwaelzpumpen: [
+    { title: "Strom sparen", text: "Variable Drehzahlen senken den Verbrauch im Dauerbetrieb deutlich." },
+    { title: "Klares Wasser", text: "Stabile Umwälzung verbessert Filtration und Wasserhygiene." },
+    { title: "Leise Technik", text: "Premium-Pumpen laufen vibrationsarm und unauffällig." },
+    { title: "Smart steuerbar", text: "Laufzeiten lassen sich an Filter, Heizung und Dosierung anpassen." },
+  ],
+};
+
+function benefitsFor(slug: string): ProductContent["benefits"] {
+  if (SPECIFIC_BENEFITS[slug]) return SPECIFIC_BENEFITS[slug];
+  const label = PRODUCT_LABELS[slug] ?? "diese Lösung";
+  return baseBenefits.map((benefit) => ({
+    ...benefit,
+    text: `${benefit.text} Speziell ausgelegt für ${label} und Ihre Poolsituation in Bayern.`,
+  }));
+}
+
 const make = (
   slug: string,
   title: string,
@@ -23,7 +125,7 @@ const make = (
     title,
     subtitle,
     description,
-    benefits: baseBenefits,
+    benefits: benefitsFor(slug),
     crumbs,
     related,
     faq,
