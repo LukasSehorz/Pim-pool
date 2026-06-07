@@ -24,6 +24,7 @@ import { Route as WeitereProdukteSolaranlageRouteImport } from './routes/weitere
 import { Route as WeitereProdukteReinigungsroboterRouteImport } from './routes/weitere-produkte.reinigungsroboter'
 import { Route as WeitereProduktePoolsRouteImport } from './routes/weitere-produkte.pools'
 import { Route as WeitereProduktePoolKaufenAngeboteRouteImport } from './routes/weitere-produkte.pool-kaufen-angebote'
+import { Route as WeitereProdukteFahrbaresPooldeckRouteImport } from './routes/weitere-produkte.fahrbares-pooldeck'
 import { Route as PoolueberdachungenVisualRouteImport } from './routes/poolueberdachungen.visual'
 import { Route as PoolueberdachungenTechnischeDetailsRouteImport } from './routes/poolueberdachungen.technische-details'
 import { Route as PoolueberdachungenSunSkyRouteImport } from './routes/poolueberdachungen.sun-sky'
@@ -138,6 +139,12 @@ const WeitereProduktePoolKaufenAngeboteRoute =
   WeitereProduktePoolKaufenAngeboteRouteImport.update({
     id: '/pool-kaufen-angebote',
     path: '/pool-kaufen-angebote',
+    getParentRoute: () => WeitereProdukteRoute,
+  } as any)
+const WeitereProdukteFahrbaresPooldeckRoute =
+  WeitereProdukteFahrbaresPooldeckRouteImport.update({
+    id: '/fahrbares-pooldeck',
+    path: '/fahrbares-pooldeck',
     getParentRoute: () => WeitereProdukteRoute,
   } as any)
 const PoolueberdachungenVisualRoute =
@@ -373,6 +380,7 @@ export interface FileRoutesByFullPath {
   '/poolueberdachungen/sun-sky': typeof PoolueberdachungenSunSkyRoute
   '/poolueberdachungen/technische-details': typeof PoolueberdachungenTechnischeDetailsRoute
   '/poolueberdachungen/visual': typeof PoolueberdachungenVisualRoute
+  '/weitere-produkte/fahrbares-pooldeck': typeof WeitereProdukteFahrbaresPooldeckRoute
   '/weitere-produkte/pool-kaufen-angebote': typeof WeitereProduktePoolKaufenAngeboteRoute
   '/weitere-produkte/pools': typeof WeitereProduktePoolsRoute
   '/weitere-produkte/reinigungsroboter': typeof WeitereProdukteReinigungsroboterRoute
@@ -424,6 +432,7 @@ export interface FileRoutesByTo {
   '/poolueberdachungen/sun-sky': typeof PoolueberdachungenSunSkyRoute
   '/poolueberdachungen/technische-details': typeof PoolueberdachungenTechnischeDetailsRoute
   '/poolueberdachungen/visual': typeof PoolueberdachungenVisualRoute
+  '/weitere-produkte/fahrbares-pooldeck': typeof WeitereProdukteFahrbaresPooldeckRoute
   '/weitere-produkte/pool-kaufen-angebote': typeof WeitereProduktePoolKaufenAngeboteRoute
   '/weitere-produkte/pools': typeof WeitereProduktePoolsRoute
   '/weitere-produkte/reinigungsroboter': typeof WeitereProdukteReinigungsroboterRoute
@@ -476,6 +485,7 @@ export interface FileRoutesById {
   '/poolueberdachungen/sun-sky': typeof PoolueberdachungenSunSkyRoute
   '/poolueberdachungen/technische-details': typeof PoolueberdachungenTechnischeDetailsRoute
   '/poolueberdachungen/visual': typeof PoolueberdachungenVisualRoute
+  '/weitere-produkte/fahrbares-pooldeck': typeof WeitereProdukteFahrbaresPooldeckRoute
   '/weitere-produkte/pool-kaufen-angebote': typeof WeitereProduktePoolKaufenAngeboteRoute
   '/weitere-produkte/pools': typeof WeitereProduktePoolsRoute
   '/weitere-produkte/reinigungsroboter': typeof WeitereProdukteReinigungsroboterRoute
@@ -529,6 +539,7 @@ export interface FileRouteTypes {
     | '/poolueberdachungen/sun-sky'
     | '/poolueberdachungen/technische-details'
     | '/poolueberdachungen/visual'
+    | '/weitere-produkte/fahrbares-pooldeck'
     | '/weitere-produkte/pool-kaufen-angebote'
     | '/weitere-produkte/pools'
     | '/weitere-produkte/reinigungsroboter'
@@ -580,6 +591,7 @@ export interface FileRouteTypes {
     | '/poolueberdachungen/sun-sky'
     | '/poolueberdachungen/technische-details'
     | '/poolueberdachungen/visual'
+    | '/weitere-produkte/fahrbares-pooldeck'
     | '/weitere-produkte/pool-kaufen-angebote'
     | '/weitere-produkte/pools'
     | '/weitere-produkte/reinigungsroboter'
@@ -631,6 +643,7 @@ export interface FileRouteTypes {
     | '/poolueberdachungen/sun-sky'
     | '/poolueberdachungen/technische-details'
     | '/poolueberdachungen/visual'
+    | '/weitere-produkte/fahrbares-pooldeck'
     | '/weitere-produkte/pool-kaufen-angebote'
     | '/weitere-produkte/pools'
     | '/weitere-produkte/reinigungsroboter'
@@ -769,6 +782,13 @@ declare module '@tanstack/react-router' {
       path: '/pool-kaufen-angebote'
       fullPath: '/weitere-produkte/pool-kaufen-angebote'
       preLoaderRoute: typeof WeitereProduktePoolKaufenAngeboteRouteImport
+      parentRoute: typeof WeitereProdukteRoute
+    }
+    '/weitere-produkte/fahrbares-pooldeck': {
+      id: '/weitere-produkte/fahrbares-pooldeck'
+      path: '/fahrbares-pooldeck'
+      fullPath: '/weitere-produkte/fahrbares-pooldeck'
+      preLoaderRoute: typeof WeitereProdukteFahrbaresPooldeckRouteImport
       parentRoute: typeof WeitereProdukteRoute
     }
     '/poolueberdachungen/visual': {
@@ -1153,6 +1173,7 @@ const WeitereProdukteWasserbehandlungRouteWithChildren =
   )
 
 interface WeitereProdukteRouteChildren {
+  WeitereProdukteFahrbaresPooldeckRoute: typeof WeitereProdukteFahrbaresPooldeckRoute
   WeitereProduktePoolKaufenAngeboteRoute: typeof WeitereProduktePoolKaufenAngeboteRoute
   WeitereProduktePoolsRoute: typeof WeitereProduktePoolsRoute
   WeitereProdukteReinigungsroboterRoute: typeof WeitereProdukteReinigungsroboterRoute
@@ -1163,6 +1184,7 @@ interface WeitereProdukteRouteChildren {
 }
 
 const WeitereProdukteRouteChildren: WeitereProdukteRouteChildren = {
+  WeitereProdukteFahrbaresPooldeckRoute: WeitereProdukteFahrbaresPooldeckRoute,
   WeitereProduktePoolKaufenAngeboteRoute:
     WeitereProduktePoolKaufenAngeboteRoute,
   WeitereProduktePoolsRoute: WeitereProduktePoolsRoute,
@@ -1191,3 +1213,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

@@ -27,14 +27,14 @@ const CATEGORIES = [
 ];
 
 const HIGHLIGHTS = [
-  { icon: Layers, title: "Fahrbares Pooldeck", text: "Die elegante Lösung: Terrasse und Abdeckung in einem." },
-  { icon: Waves, title: "Pools (Einstück)", text: "Hochwertige Fertigbecken in Premium-Qualität." },
-  { icon: Droplets, title: "Pool chlorfrei", text: "Kristallklares Wasser – ganz ohne Chlorgeruch." },
-  { icon: Sparkles, title: "Wasserbehandlung", text: "Profi-Dosiertechnik ASEKO – vollautomatisch." },
-  { icon: Zap, title: "Wärmepumpen", text: "Effizient heizen – ideal für das bayerische Klima." },
-  { icon: Bot, title: "Reinigungsroboter", text: "Sauberer Pool – komplett ohne Handarbeit." },
-  { icon: Sun, title: "Solaranlagen", text: "Sonnenwärme nutzen – kostenlos und nachhaltig." },
-  { icon: ShieldCheck, title: "Umwälzpumpen", text: "Leise, sparsam, langlebig – das Herz Ihres Pools." },
+  { icon: Layers, title: "Fahrbares Pooldeck", text: "Die elegante Lösung: Terrasse und Abdeckung in einem.", to: "/weitere-produkte/fahrbares-pooldeck" },
+  { icon: Waves, title: "Pools (Einstück)", text: "Hochwertige Fertigbecken in Premium-Qualität.", to: "/weitere-produkte/pools" },
+  { icon: Droplets, title: "Pool chlorfrei", text: "Kristallklares Wasser – ganz ohne Chlorgeruch.", to: "/pool-chlorfrei" },
+  { icon: Sparkles, title: "Wasserbehandlung", text: "Profi-Dosiertechnik ASEKO – vollautomatisch.", to: "/weitere-produkte/wasserbehandlung" },
+  { icon: Zap, title: "Wärmepumpen", text: "Effizient heizen – ideal für das bayerische Klima.", to: "/weitere-produkte/waermepumpen" },
+  { icon: Bot, title: "Reinigungsroboter", text: "Sauberer Pool – komplett ohne Handarbeit.", to: "/weitere-produkte/reinigungsroboter" },
+  { icon: Sun, title: "Solaranlagen", text: "Sonnenwärme nutzen – kostenlos und nachhaltig.", to: "/weitere-produkte/solaranlage" },
+  { icon: ShieldCheck, title: "Umwälzpumpen", text: "Leise, sparsam, langlebig – das Herz Ihres Pools.", to: "/weitere-produkte/umwaelzpumpen" },
 ];
 
 function HomePage() {
@@ -129,13 +129,14 @@ function HomePage() {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {HIGHLIGHTS.map((h) => (
-              <div key={h.title} className="rounded-2xl bg-card border border-border p-5 hover:shadow-card hover:-translate-y-1 transition">
+              <Link key={h.title} to={h.to} className="rounded-2xl bg-card border border-border p-5 hover:shadow-card hover:-translate-y-1 transition group">
                 <div className="size-11 rounded-xl gradient-water grid place-items-center text-primary-foreground shadow-card">
                   <h.icon className="size-5" />
                 </div>
                 <div className="mt-4 font-bold">{h.title}</div>
                 <div className="mt-1 text-sm text-muted-foreground">{h.text}</div>
-              </div>
+                <div className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary">Ansehen <ArrowRight className="size-3.5 group-hover:translate-x-1 transition" /></div>
+              </Link>
             ))}
           </div>
         </div>
