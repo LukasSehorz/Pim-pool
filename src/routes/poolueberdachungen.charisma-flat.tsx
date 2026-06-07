@@ -2,14 +2,16 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ProductPage } from "@/components/ProductPage";
 import { CONTENT } from "@/lib/content";
 
-const c = CONTENT["charisma-flat"];
-
 export const Route = createFileRoute("/poolueberdachungen/charisma-flat")({
   head: () => ({
     meta: [
-      { title: `${c.title} – POOLCAP` },
-      { name: "description", content: c.subtitle },
+      { title: `${CONTENT["charisma-flat"].title} – POOLCAP` },
+      { name: "description", content: CONTENT["charisma-flat"].subtitle },
     ],
   }),
-  component: () => <ProductPage content={c} />,
+  component: RouteComponent,
 });
+
+function RouteComponent() {
+  return <ProductPage content={CONTENT["charisma-flat"]} />;
+}
