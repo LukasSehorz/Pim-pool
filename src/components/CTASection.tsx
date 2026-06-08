@@ -3,7 +3,7 @@ import { Phone } from "lucide-react";
 import { COMPANY } from "@/lib/site";
 
 export function CTASection({
-  title = "Bereit für Ihren Traumpool?",
+  title = "Ihr Pool verdient die beste Abdeckung.",
   text = "Unsere Experten beraten Sie persönlich – unverbindlich, kompetent und kostenfrei.",
   primary = "Jetzt unverbindlich beraten lassen",
 }: { title?: string; text?: string; primary?: string }) {

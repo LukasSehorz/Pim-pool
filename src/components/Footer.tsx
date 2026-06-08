@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Phone, MapPin, Mail, Youtube, FileDown } from "lucide-react";
 import { COMPANY, NAV } from "@/lib/site";
+import logoUrl from "@/assets/logo.png";
 
 export function Footer() {
   return (
@@ -8,10 +9,14 @@ export function Footer() {
       <div className="container-page py-16">
         <div className="grid gap-12 lg:grid-cols-4">
           <div className="lg:col-span-1 space-y-5">
-            <div className="flex items-center gap-2">
-              <div className="size-10 rounded-lg bg-primary grid place-items-center font-bold">P</div>
-              <div className="font-extrabold text-xl">POOLCAP</div>
-            </div>
+            <Link to="/">
+              <img
+                src={logoUrl}
+                alt="POOLCAP"
+                className="h-14 w-auto"
+                style={{ clipPath: "ellipse(49% 47% at 50% 50%)" }}
+              />
+            </Link>
             <p className="text-sm text-primary-foreground/75 leading-relaxed">
               {COMPANY.full}. Premium Poolabdeckungen, Überdachungen und Wassertechnik –
               seit {COMPANY.since} im {COMPANY.region}.

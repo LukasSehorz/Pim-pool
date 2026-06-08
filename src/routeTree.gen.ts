@@ -48,9 +48,11 @@ import { Route as PoolabdeckungenSchaumabdeckungRouteImport } from './routes/poo
 import { Route as PoolabdeckungenRolloabdeckungenRouteImport } from './routes/poolabdeckungen.rolloabdeckungen'
 import { Route as PoolabdeckungenRandaufliegendeAbdeckungRouteImport } from './routes/poolabdeckungen.randaufliegende-abdeckung'
 import { Route as PoolabdeckungenLuftpolsterabdeckungRouteImport } from './routes/poolabdeckungen.luftpolsterabdeckung'
+import { Route as PoolabdeckungenLeiterkippgelenkeRouteImport } from './routes/poolabdeckungen.leiterkippgelenke'
 import { Route as PoolabdeckungenAircoverWinterabdeckungRouteImport } from './routes/poolabdeckungen.aircover-winterabdeckung'
 import { Route as PoolChlorfreiFaqIonisierungRouteImport } from './routes/pool-chlorfrei.faq-ionisierung'
 import { Route as WeitereProdukteWasserbehandlungIndexRouteImport } from './routes/weitere-produkte.wasserbehandlung.index'
+import { Route as WeitereProdukteWaermepumpenIndexRouteImport } from './routes/weitere-produkte.waermepumpen.index'
 import { Route as PoolabdeckungenRolloabdeckungenIndexRouteImport } from './routes/poolabdeckungen.rolloabdeckungen.index'
 import { Route as WeitereProdukteWasserbehandlungPp60PhRouteImport } from './routes/weitere-produkte.wasserbehandlung.pp-60-ph'
 import { Route as WeitereProdukteWasserbehandlungPp10FlocCRouteImport } from './routes/weitere-produkte.wasserbehandlung.pp-10-floc-c'
@@ -59,12 +61,17 @@ import { Route as WeitereProdukteWasserbehandlungAsinAquaSaltRouteImport } from 
 import { Route as WeitereProdukteWasserbehandlungAsinAquaProfiRouteImport } from './routes/weitere-produkte.wasserbehandlung.asin-aqua-profi'
 import { Route as WeitereProdukteWasserbehandlungAsinAquaOxygenRouteImport } from './routes/weitere-produkte.wasserbehandlung.asin-aqua-oxygen'
 import { Route as WeitereProdukteWasserbehandlungAsinAquaHomeRouteImport } from './routes/weitere-produkte.wasserbehandlung.asin-aqua-home'
+import { Route as WeitereProdukteWaermepumpenMrPerfectRouteImport } from './routes/weitere-produkte.waermepumpen.mr-perfect'
+import { Route as WeitereProdukteWaermepumpenDrSmartRouteImport } from './routes/weitere-produkte.waermepumpen.dr-smart'
+import { Route as WeitereProdukteWaermepumpenDrSilenceRouteImport } from './routes/weitere-produkte.waermepumpen.dr-silence'
 import { Route as PoolabdeckungenRolloabdeckungenWasIstEineRolloabdeckungRouteImport } from './routes/poolabdeckungen.rolloabdeckungen.was-ist-eine-rolloabdeckung'
+import { Route as PoolabdeckungenRolloabdeckungenUwrmEinhaengenRouteImport } from './routes/poolabdeckungen.rolloabdeckungen.uwrm-einhaengen'
 import { Route as PoolabdeckungenRolloabdeckungenUnterfluranlagenRouteImport } from './routes/poolabdeckungen.rolloabdeckungen.unterfluranlagen'
 import { Route as PoolabdeckungenRolloabdeckungenUnfallschutzRouteImport } from './routes/poolabdeckungen.rolloabdeckungen.unfallschutz'
 import { Route as PoolabdeckungenRolloabdeckungenRollladenprofileRouteImport } from './routes/poolabdeckungen.rolloabdeckungen.rollladenprofile'
 import { Route as PoolabdeckungenRolloabdeckungenOberfluranlagenRouteImport } from './routes/poolabdeckungen.rolloabdeckungen.oberfluranlagen'
 import { Route as PoolabdeckungenRolloabdeckungenEnergieeinsparungRouteImport } from './routes/poolabdeckungen.rolloabdeckungen.energieeinsparung'
+import { Route as PoolabdeckungenRolloabdeckungenAussenliegenderAntriebRouteImport } from './routes/poolabdeckungen.rolloabdeckungen.aussenliegender-antrieb'
 
 const WeitereProdukteRoute = WeitereProdukteRouteImport.update({
   id: '/weitere-produkte',
@@ -285,6 +292,12 @@ const PoolabdeckungenLuftpolsterabdeckungRoute =
     path: '/luftpolsterabdeckung',
     getParentRoute: () => PoolabdeckungenRoute,
   } as any)
+const PoolabdeckungenLeiterkippgelenkeRoute =
+  PoolabdeckungenLeiterkippgelenkeRouteImport.update({
+    id: '/leiterkippgelenke',
+    path: '/leiterkippgelenke',
+    getParentRoute: () => PoolabdeckungenRoute,
+  } as any)
 const PoolabdeckungenAircoverWinterabdeckungRoute =
   PoolabdeckungenAircoverWinterabdeckungRouteImport.update({
     id: '/aircover-winterabdeckung',
@@ -302,6 +315,12 @@ const WeitereProdukteWasserbehandlungIndexRoute =
     id: '/',
     path: '/',
     getParentRoute: () => WeitereProdukteWasserbehandlungRoute,
+  } as any)
+const WeitereProdukteWaermepumpenIndexRoute =
+  WeitereProdukteWaermepumpenIndexRouteImport.update({
+    id: '/',
+    path: '/',
+    getParentRoute: () => WeitereProdukteWaermepumpenRoute,
   } as any)
 const PoolabdeckungenRolloabdeckungenIndexRoute =
   PoolabdeckungenRolloabdeckungenIndexRouteImport.update({
@@ -351,10 +370,34 @@ const WeitereProdukteWasserbehandlungAsinAquaHomeRoute =
     path: '/asin-aqua-home',
     getParentRoute: () => WeitereProdukteWasserbehandlungRoute,
   } as any)
+const WeitereProdukteWaermepumpenMrPerfectRoute =
+  WeitereProdukteWaermepumpenMrPerfectRouteImport.update({
+    id: '/mr-perfect',
+    path: '/mr-perfect',
+    getParentRoute: () => WeitereProdukteWaermepumpenRoute,
+  } as any)
+const WeitereProdukteWaermepumpenDrSmartRoute =
+  WeitereProdukteWaermepumpenDrSmartRouteImport.update({
+    id: '/dr-smart',
+    path: '/dr-smart',
+    getParentRoute: () => WeitereProdukteWaermepumpenRoute,
+  } as any)
+const WeitereProdukteWaermepumpenDrSilenceRoute =
+  WeitereProdukteWaermepumpenDrSilenceRouteImport.update({
+    id: '/dr-silence',
+    path: '/dr-silence',
+    getParentRoute: () => WeitereProdukteWaermepumpenRoute,
+  } as any)
 const PoolabdeckungenRolloabdeckungenWasIstEineRolloabdeckungRoute =
   PoolabdeckungenRolloabdeckungenWasIstEineRolloabdeckungRouteImport.update({
     id: '/was-ist-eine-rolloabdeckung',
     path: '/was-ist-eine-rolloabdeckung',
+    getParentRoute: () => PoolabdeckungenRolloabdeckungenRoute,
+  } as any)
+const PoolabdeckungenRolloabdeckungenUwrmEinhaengenRoute =
+  PoolabdeckungenRolloabdeckungenUwrmEinhaengenRouteImport.update({
+    id: '/uwrm-einhaengen',
+    path: '/uwrm-einhaengen',
     getParentRoute: () => PoolabdeckungenRolloabdeckungenRoute,
   } as any)
 const PoolabdeckungenRolloabdeckungenUnterfluranlagenRoute =
@@ -387,6 +430,12 @@ const PoolabdeckungenRolloabdeckungenEnergieeinsparungRoute =
     path: '/energieeinsparung',
     getParentRoute: () => PoolabdeckungenRolloabdeckungenRoute,
   } as any)
+const PoolabdeckungenRolloabdeckungenAussenliegenderAntriebRoute =
+  PoolabdeckungenRolloabdeckungenAussenliegenderAntriebRouteImport.update({
+    id: '/aussenliegender-antrieb',
+    path: '/aussenliegender-antrieb',
+    getParentRoute: () => PoolabdeckungenRolloabdeckungenRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -399,6 +448,7 @@ export interface FileRoutesByFullPath {
   '/weitere-produkte': typeof WeitereProdukteRouteWithChildren
   '/pool-chlorfrei/faq-ionisierung': typeof PoolChlorfreiFaqIonisierungRoute
   '/poolabdeckungen/aircover-winterabdeckung': typeof PoolabdeckungenAircoverWinterabdeckungRoute
+  '/poolabdeckungen/leiterkippgelenke': typeof PoolabdeckungenLeiterkippgelenkeRoute
   '/poolabdeckungen/luftpolsterabdeckung': typeof PoolabdeckungenLuftpolsterabdeckungRoute
   '/poolabdeckungen/randaufliegende-abdeckung': typeof PoolabdeckungenRandaufliegendeAbdeckungRoute
   '/poolabdeckungen/rolloabdeckungen': typeof PoolabdeckungenRolloabdeckungenRouteWithChildren
@@ -424,18 +474,23 @@ export interface FileRoutesByFullPath {
   '/weitere-produkte/reinigungsroboter': typeof WeitereProdukteReinigungsroboterRoute
   '/weitere-produkte/solaranlage': typeof WeitereProdukteSolaranlageRoute
   '/weitere-produkte/umwaelzpumpen': typeof WeitereProdukteUmwaelzpumpenRoute
-  '/weitere-produkte/waermepumpen': typeof WeitereProdukteWaermepumpenRoute
+  '/weitere-produkte/waermepumpen': typeof WeitereProdukteWaermepumpenRouteWithChildren
   '/weitere-produkte/wasserbehandlung': typeof WeitereProdukteWasserbehandlungRouteWithChildren
   '/pool-chlorfrei/': typeof PoolChlorfreiIndexRoute
   '/poolabdeckungen/': typeof PoolabdeckungenIndexRoute
   '/poolueberdachungen/': typeof PoolueberdachungenIndexRoute
   '/weitere-produkte/': typeof WeitereProdukteIndexRoute
+  '/poolabdeckungen/rolloabdeckungen/aussenliegender-antrieb': typeof PoolabdeckungenRolloabdeckungenAussenliegenderAntriebRoute
   '/poolabdeckungen/rolloabdeckungen/energieeinsparung': typeof PoolabdeckungenRolloabdeckungenEnergieeinsparungRoute
   '/poolabdeckungen/rolloabdeckungen/oberfluranlagen': typeof PoolabdeckungenRolloabdeckungenOberfluranlagenRoute
   '/poolabdeckungen/rolloabdeckungen/rollladenprofile': typeof PoolabdeckungenRolloabdeckungenRollladenprofileRoute
   '/poolabdeckungen/rolloabdeckungen/unfallschutz': typeof PoolabdeckungenRolloabdeckungenUnfallschutzRoute
   '/poolabdeckungen/rolloabdeckungen/unterfluranlagen': typeof PoolabdeckungenRolloabdeckungenUnterfluranlagenRoute
+  '/poolabdeckungen/rolloabdeckungen/uwrm-einhaengen': typeof PoolabdeckungenRolloabdeckungenUwrmEinhaengenRoute
   '/poolabdeckungen/rolloabdeckungen/was-ist-eine-rolloabdeckung': typeof PoolabdeckungenRolloabdeckungenWasIstEineRolloabdeckungRoute
+  '/weitere-produkte/waermepumpen/dr-silence': typeof WeitereProdukteWaermepumpenDrSilenceRoute
+  '/weitere-produkte/waermepumpen/dr-smart': typeof WeitereProdukteWaermepumpenDrSmartRoute
+  '/weitere-produkte/waermepumpen/mr-perfect': typeof WeitereProdukteWaermepumpenMrPerfectRoute
   '/weitere-produkte/wasserbehandlung/asin-aqua-home': typeof WeitereProdukteWasserbehandlungAsinAquaHomeRoute
   '/weitere-produkte/wasserbehandlung/asin-aqua-oxygen': typeof WeitereProdukteWasserbehandlungAsinAquaOxygenRoute
   '/weitere-produkte/wasserbehandlung/asin-aqua-profi': typeof WeitereProdukteWasserbehandlungAsinAquaProfiRoute
@@ -444,6 +499,7 @@ export interface FileRoutesByFullPath {
   '/weitere-produkte/wasserbehandlung/pp-10-floc-c': typeof WeitereProdukteWasserbehandlungPp10FlocCRoute
   '/weitere-produkte/wasserbehandlung/pp-60-ph': typeof WeitereProdukteWasserbehandlungPp60PhRoute
   '/poolabdeckungen/rolloabdeckungen/': typeof PoolabdeckungenRolloabdeckungenIndexRoute
+  '/weitere-produkte/waermepumpen/': typeof WeitereProdukteWaermepumpenIndexRoute
   '/weitere-produkte/wasserbehandlung/': typeof WeitereProdukteWasserbehandlungIndexRoute
 }
 export interface FileRoutesByTo {
@@ -453,6 +509,7 @@ export interface FileRoutesByTo {
   '/kontakt': typeof KontaktRoute
   '/pool-chlorfrei/faq-ionisierung': typeof PoolChlorfreiFaqIonisierungRoute
   '/poolabdeckungen/aircover-winterabdeckung': typeof PoolabdeckungenAircoverWinterabdeckungRoute
+  '/poolabdeckungen/leiterkippgelenke': typeof PoolabdeckungenLeiterkippgelenkeRoute
   '/poolabdeckungen/luftpolsterabdeckung': typeof PoolabdeckungenLuftpolsterabdeckungRoute
   '/poolabdeckungen/randaufliegende-abdeckung': typeof PoolabdeckungenRandaufliegendeAbdeckungRoute
   '/poolabdeckungen/schaumabdeckung': typeof PoolabdeckungenSchaumabdeckungRoute
@@ -477,17 +534,21 @@ export interface FileRoutesByTo {
   '/weitere-produkte/reinigungsroboter': typeof WeitereProdukteReinigungsroboterRoute
   '/weitere-produkte/solaranlage': typeof WeitereProdukteSolaranlageRoute
   '/weitere-produkte/umwaelzpumpen': typeof WeitereProdukteUmwaelzpumpenRoute
-  '/weitere-produkte/waermepumpen': typeof WeitereProdukteWaermepumpenRoute
   '/pool-chlorfrei': typeof PoolChlorfreiIndexRoute
   '/poolabdeckungen': typeof PoolabdeckungenIndexRoute
   '/poolueberdachungen': typeof PoolueberdachungenIndexRoute
   '/weitere-produkte': typeof WeitereProdukteIndexRoute
+  '/poolabdeckungen/rolloabdeckungen/aussenliegender-antrieb': typeof PoolabdeckungenRolloabdeckungenAussenliegenderAntriebRoute
   '/poolabdeckungen/rolloabdeckungen/energieeinsparung': typeof PoolabdeckungenRolloabdeckungenEnergieeinsparungRoute
   '/poolabdeckungen/rolloabdeckungen/oberfluranlagen': typeof PoolabdeckungenRolloabdeckungenOberfluranlagenRoute
   '/poolabdeckungen/rolloabdeckungen/rollladenprofile': typeof PoolabdeckungenRolloabdeckungenRollladenprofileRoute
   '/poolabdeckungen/rolloabdeckungen/unfallschutz': typeof PoolabdeckungenRolloabdeckungenUnfallschutzRoute
   '/poolabdeckungen/rolloabdeckungen/unterfluranlagen': typeof PoolabdeckungenRolloabdeckungenUnterfluranlagenRoute
+  '/poolabdeckungen/rolloabdeckungen/uwrm-einhaengen': typeof PoolabdeckungenRolloabdeckungenUwrmEinhaengenRoute
   '/poolabdeckungen/rolloabdeckungen/was-ist-eine-rolloabdeckung': typeof PoolabdeckungenRolloabdeckungenWasIstEineRolloabdeckungRoute
+  '/weitere-produkte/waermepumpen/dr-silence': typeof WeitereProdukteWaermepumpenDrSilenceRoute
+  '/weitere-produkte/waermepumpen/dr-smart': typeof WeitereProdukteWaermepumpenDrSmartRoute
+  '/weitere-produkte/waermepumpen/mr-perfect': typeof WeitereProdukteWaermepumpenMrPerfectRoute
   '/weitere-produkte/wasserbehandlung/asin-aqua-home': typeof WeitereProdukteWasserbehandlungAsinAquaHomeRoute
   '/weitere-produkte/wasserbehandlung/asin-aqua-oxygen': typeof WeitereProdukteWasserbehandlungAsinAquaOxygenRoute
   '/weitere-produkte/wasserbehandlung/asin-aqua-profi': typeof WeitereProdukteWasserbehandlungAsinAquaProfiRoute
@@ -496,6 +557,7 @@ export interface FileRoutesByTo {
   '/weitere-produkte/wasserbehandlung/pp-10-floc-c': typeof WeitereProdukteWasserbehandlungPp10FlocCRoute
   '/weitere-produkte/wasserbehandlung/pp-60-ph': typeof WeitereProdukteWasserbehandlungPp60PhRoute
   '/poolabdeckungen/rolloabdeckungen': typeof PoolabdeckungenRolloabdeckungenIndexRoute
+  '/weitere-produkte/waermepumpen': typeof WeitereProdukteWaermepumpenIndexRoute
   '/weitere-produkte/wasserbehandlung': typeof WeitereProdukteWasserbehandlungIndexRoute
 }
 export interface FileRoutesById {
@@ -510,6 +572,7 @@ export interface FileRoutesById {
   '/weitere-produkte': typeof WeitereProdukteRouteWithChildren
   '/pool-chlorfrei/faq-ionisierung': typeof PoolChlorfreiFaqIonisierungRoute
   '/poolabdeckungen/aircover-winterabdeckung': typeof PoolabdeckungenAircoverWinterabdeckungRoute
+  '/poolabdeckungen/leiterkippgelenke': typeof PoolabdeckungenLeiterkippgelenkeRoute
   '/poolabdeckungen/luftpolsterabdeckung': typeof PoolabdeckungenLuftpolsterabdeckungRoute
   '/poolabdeckungen/randaufliegende-abdeckung': typeof PoolabdeckungenRandaufliegendeAbdeckungRoute
   '/poolabdeckungen/rolloabdeckungen': typeof PoolabdeckungenRolloabdeckungenRouteWithChildren
@@ -535,18 +598,23 @@ export interface FileRoutesById {
   '/weitere-produkte/reinigungsroboter': typeof WeitereProdukteReinigungsroboterRoute
   '/weitere-produkte/solaranlage': typeof WeitereProdukteSolaranlageRoute
   '/weitere-produkte/umwaelzpumpen': typeof WeitereProdukteUmwaelzpumpenRoute
-  '/weitere-produkte/waermepumpen': typeof WeitereProdukteWaermepumpenRoute
+  '/weitere-produkte/waermepumpen': typeof WeitereProdukteWaermepumpenRouteWithChildren
   '/weitere-produkte/wasserbehandlung': typeof WeitereProdukteWasserbehandlungRouteWithChildren
   '/pool-chlorfrei/': typeof PoolChlorfreiIndexRoute
   '/poolabdeckungen/': typeof PoolabdeckungenIndexRoute
   '/poolueberdachungen/': typeof PoolueberdachungenIndexRoute
   '/weitere-produkte/': typeof WeitereProdukteIndexRoute
+  '/poolabdeckungen/rolloabdeckungen/aussenliegender-antrieb': typeof PoolabdeckungenRolloabdeckungenAussenliegenderAntriebRoute
   '/poolabdeckungen/rolloabdeckungen/energieeinsparung': typeof PoolabdeckungenRolloabdeckungenEnergieeinsparungRoute
   '/poolabdeckungen/rolloabdeckungen/oberfluranlagen': typeof PoolabdeckungenRolloabdeckungenOberfluranlagenRoute
   '/poolabdeckungen/rolloabdeckungen/rollladenprofile': typeof PoolabdeckungenRolloabdeckungenRollladenprofileRoute
   '/poolabdeckungen/rolloabdeckungen/unfallschutz': typeof PoolabdeckungenRolloabdeckungenUnfallschutzRoute
   '/poolabdeckungen/rolloabdeckungen/unterfluranlagen': typeof PoolabdeckungenRolloabdeckungenUnterfluranlagenRoute
+  '/poolabdeckungen/rolloabdeckungen/uwrm-einhaengen': typeof PoolabdeckungenRolloabdeckungenUwrmEinhaengenRoute
   '/poolabdeckungen/rolloabdeckungen/was-ist-eine-rolloabdeckung': typeof PoolabdeckungenRolloabdeckungenWasIstEineRolloabdeckungRoute
+  '/weitere-produkte/waermepumpen/dr-silence': typeof WeitereProdukteWaermepumpenDrSilenceRoute
+  '/weitere-produkte/waermepumpen/dr-smart': typeof WeitereProdukteWaermepumpenDrSmartRoute
+  '/weitere-produkte/waermepumpen/mr-perfect': typeof WeitereProdukteWaermepumpenMrPerfectRoute
   '/weitere-produkte/wasserbehandlung/asin-aqua-home': typeof WeitereProdukteWasserbehandlungAsinAquaHomeRoute
   '/weitere-produkte/wasserbehandlung/asin-aqua-oxygen': typeof WeitereProdukteWasserbehandlungAsinAquaOxygenRoute
   '/weitere-produkte/wasserbehandlung/asin-aqua-profi': typeof WeitereProdukteWasserbehandlungAsinAquaProfiRoute
@@ -555,6 +623,7 @@ export interface FileRoutesById {
   '/weitere-produkte/wasserbehandlung/pp-10-floc-c': typeof WeitereProdukteWasserbehandlungPp10FlocCRoute
   '/weitere-produkte/wasserbehandlung/pp-60-ph': typeof WeitereProdukteWasserbehandlungPp60PhRoute
   '/poolabdeckungen/rolloabdeckungen/': typeof PoolabdeckungenRolloabdeckungenIndexRoute
+  '/weitere-produkte/waermepumpen/': typeof WeitereProdukteWaermepumpenIndexRoute
   '/weitere-produkte/wasserbehandlung/': typeof WeitereProdukteWasserbehandlungIndexRoute
 }
 export interface FileRouteTypes {
@@ -570,6 +639,7 @@ export interface FileRouteTypes {
     | '/weitere-produkte'
     | '/pool-chlorfrei/faq-ionisierung'
     | '/poolabdeckungen/aircover-winterabdeckung'
+    | '/poolabdeckungen/leiterkippgelenke'
     | '/poolabdeckungen/luftpolsterabdeckung'
     | '/poolabdeckungen/randaufliegende-abdeckung'
     | '/poolabdeckungen/rolloabdeckungen'
@@ -601,12 +671,17 @@ export interface FileRouteTypes {
     | '/poolabdeckungen/'
     | '/poolueberdachungen/'
     | '/weitere-produkte/'
+    | '/poolabdeckungen/rolloabdeckungen/aussenliegender-antrieb'
     | '/poolabdeckungen/rolloabdeckungen/energieeinsparung'
     | '/poolabdeckungen/rolloabdeckungen/oberfluranlagen'
     | '/poolabdeckungen/rolloabdeckungen/rollladenprofile'
     | '/poolabdeckungen/rolloabdeckungen/unfallschutz'
     | '/poolabdeckungen/rolloabdeckungen/unterfluranlagen'
+    | '/poolabdeckungen/rolloabdeckungen/uwrm-einhaengen'
     | '/poolabdeckungen/rolloabdeckungen/was-ist-eine-rolloabdeckung'
+    | '/weitere-produkte/waermepumpen/dr-silence'
+    | '/weitere-produkte/waermepumpen/dr-smart'
+    | '/weitere-produkte/waermepumpen/mr-perfect'
     | '/weitere-produkte/wasserbehandlung/asin-aqua-home'
     | '/weitere-produkte/wasserbehandlung/asin-aqua-oxygen'
     | '/weitere-produkte/wasserbehandlung/asin-aqua-profi'
@@ -615,6 +690,7 @@ export interface FileRouteTypes {
     | '/weitere-produkte/wasserbehandlung/pp-10-floc-c'
     | '/weitere-produkte/wasserbehandlung/pp-60-ph'
     | '/poolabdeckungen/rolloabdeckungen/'
+    | '/weitere-produkte/waermepumpen/'
     | '/weitere-produkte/wasserbehandlung/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -624,6 +700,7 @@ export interface FileRouteTypes {
     | '/kontakt'
     | '/pool-chlorfrei/faq-ionisierung'
     | '/poolabdeckungen/aircover-winterabdeckung'
+    | '/poolabdeckungen/leiterkippgelenke'
     | '/poolabdeckungen/luftpolsterabdeckung'
     | '/poolabdeckungen/randaufliegende-abdeckung'
     | '/poolabdeckungen/schaumabdeckung'
@@ -648,17 +725,21 @@ export interface FileRouteTypes {
     | '/weitere-produkte/reinigungsroboter'
     | '/weitere-produkte/solaranlage'
     | '/weitere-produkte/umwaelzpumpen'
-    | '/weitere-produkte/waermepumpen'
     | '/pool-chlorfrei'
     | '/poolabdeckungen'
     | '/poolueberdachungen'
     | '/weitere-produkte'
+    | '/poolabdeckungen/rolloabdeckungen/aussenliegender-antrieb'
     | '/poolabdeckungen/rolloabdeckungen/energieeinsparung'
     | '/poolabdeckungen/rolloabdeckungen/oberfluranlagen'
     | '/poolabdeckungen/rolloabdeckungen/rollladenprofile'
     | '/poolabdeckungen/rolloabdeckungen/unfallschutz'
     | '/poolabdeckungen/rolloabdeckungen/unterfluranlagen'
+    | '/poolabdeckungen/rolloabdeckungen/uwrm-einhaengen'
     | '/poolabdeckungen/rolloabdeckungen/was-ist-eine-rolloabdeckung'
+    | '/weitere-produkte/waermepumpen/dr-silence'
+    | '/weitere-produkte/waermepumpen/dr-smart'
+    | '/weitere-produkte/waermepumpen/mr-perfect'
     | '/weitere-produkte/wasserbehandlung/asin-aqua-home'
     | '/weitere-produkte/wasserbehandlung/asin-aqua-oxygen'
     | '/weitere-produkte/wasserbehandlung/asin-aqua-profi'
@@ -667,6 +748,7 @@ export interface FileRouteTypes {
     | '/weitere-produkte/wasserbehandlung/pp-10-floc-c'
     | '/weitere-produkte/wasserbehandlung/pp-60-ph'
     | '/poolabdeckungen/rolloabdeckungen'
+    | '/weitere-produkte/waermepumpen'
     | '/weitere-produkte/wasserbehandlung'
   id:
     | '__root__'
@@ -680,6 +762,7 @@ export interface FileRouteTypes {
     | '/weitere-produkte'
     | '/pool-chlorfrei/faq-ionisierung'
     | '/poolabdeckungen/aircover-winterabdeckung'
+    | '/poolabdeckungen/leiterkippgelenke'
     | '/poolabdeckungen/luftpolsterabdeckung'
     | '/poolabdeckungen/randaufliegende-abdeckung'
     | '/poolabdeckungen/rolloabdeckungen'
@@ -711,12 +794,17 @@ export interface FileRouteTypes {
     | '/poolabdeckungen/'
     | '/poolueberdachungen/'
     | '/weitere-produkte/'
+    | '/poolabdeckungen/rolloabdeckungen/aussenliegender-antrieb'
     | '/poolabdeckungen/rolloabdeckungen/energieeinsparung'
     | '/poolabdeckungen/rolloabdeckungen/oberfluranlagen'
     | '/poolabdeckungen/rolloabdeckungen/rollladenprofile'
     | '/poolabdeckungen/rolloabdeckungen/unfallschutz'
     | '/poolabdeckungen/rolloabdeckungen/unterfluranlagen'
+    | '/poolabdeckungen/rolloabdeckungen/uwrm-einhaengen'
     | '/poolabdeckungen/rolloabdeckungen/was-ist-eine-rolloabdeckung'
+    | '/weitere-produkte/waermepumpen/dr-silence'
+    | '/weitere-produkte/waermepumpen/dr-smart'
+    | '/weitere-produkte/waermepumpen/mr-perfect'
     | '/weitere-produkte/wasserbehandlung/asin-aqua-home'
     | '/weitere-produkte/wasserbehandlung/asin-aqua-oxygen'
     | '/weitere-produkte/wasserbehandlung/asin-aqua-profi'
@@ -725,6 +813,7 @@ export interface FileRouteTypes {
     | '/weitere-produkte/wasserbehandlung/pp-10-floc-c'
     | '/weitere-produkte/wasserbehandlung/pp-60-ph'
     | '/poolabdeckungen/rolloabdeckungen/'
+    | '/weitere-produkte/waermepumpen/'
     | '/weitere-produkte/wasserbehandlung/'
   fileRoutesById: FileRoutesById
 }
@@ -1014,6 +1103,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PoolabdeckungenLuftpolsterabdeckungRouteImport
       parentRoute: typeof PoolabdeckungenRoute
     }
+    '/poolabdeckungen/leiterkippgelenke': {
+      id: '/poolabdeckungen/leiterkippgelenke'
+      path: '/leiterkippgelenke'
+      fullPath: '/poolabdeckungen/leiterkippgelenke'
+      preLoaderRoute: typeof PoolabdeckungenLeiterkippgelenkeRouteImport
+      parentRoute: typeof PoolabdeckungenRoute
+    }
     '/poolabdeckungen/aircover-winterabdeckung': {
       id: '/poolabdeckungen/aircover-winterabdeckung'
       path: '/aircover-winterabdeckung'
@@ -1034,6 +1130,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/weitere-produkte/wasserbehandlung/'
       preLoaderRoute: typeof WeitereProdukteWasserbehandlungIndexRouteImport
       parentRoute: typeof WeitereProdukteWasserbehandlungRoute
+    }
+    '/weitere-produkte/waermepumpen/': {
+      id: '/weitere-produkte/waermepumpen/'
+      path: '/'
+      fullPath: '/weitere-produkte/waermepumpen/'
+      preLoaderRoute: typeof WeitereProdukteWaermepumpenIndexRouteImport
+      parentRoute: typeof WeitereProdukteWaermepumpenRoute
     }
     '/poolabdeckungen/rolloabdeckungen/': {
       id: '/poolabdeckungen/rolloabdeckungen/'
@@ -1091,11 +1194,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WeitereProdukteWasserbehandlungAsinAquaHomeRouteImport
       parentRoute: typeof WeitereProdukteWasserbehandlungRoute
     }
+    '/weitere-produkte/waermepumpen/mr-perfect': {
+      id: '/weitere-produkte/waermepumpen/mr-perfect'
+      path: '/mr-perfect'
+      fullPath: '/weitere-produkte/waermepumpen/mr-perfect'
+      preLoaderRoute: typeof WeitereProdukteWaermepumpenMrPerfectRouteImport
+      parentRoute: typeof WeitereProdukteWaermepumpenRoute
+    }
+    '/weitere-produkte/waermepumpen/dr-smart': {
+      id: '/weitere-produkte/waermepumpen/dr-smart'
+      path: '/dr-smart'
+      fullPath: '/weitere-produkte/waermepumpen/dr-smart'
+      preLoaderRoute: typeof WeitereProdukteWaermepumpenDrSmartRouteImport
+      parentRoute: typeof WeitereProdukteWaermepumpenRoute
+    }
+    '/weitere-produkte/waermepumpen/dr-silence': {
+      id: '/weitere-produkte/waermepumpen/dr-silence'
+      path: '/dr-silence'
+      fullPath: '/weitere-produkte/waermepumpen/dr-silence'
+      preLoaderRoute: typeof WeitereProdukteWaermepumpenDrSilenceRouteImport
+      parentRoute: typeof WeitereProdukteWaermepumpenRoute
+    }
     '/poolabdeckungen/rolloabdeckungen/was-ist-eine-rolloabdeckung': {
       id: '/poolabdeckungen/rolloabdeckungen/was-ist-eine-rolloabdeckung'
       path: '/was-ist-eine-rolloabdeckung'
       fullPath: '/poolabdeckungen/rolloabdeckungen/was-ist-eine-rolloabdeckung'
       preLoaderRoute: typeof PoolabdeckungenRolloabdeckungenWasIstEineRolloabdeckungRouteImport
+      parentRoute: typeof PoolabdeckungenRolloabdeckungenRoute
+    }
+    '/poolabdeckungen/rolloabdeckungen/uwrm-einhaengen': {
+      id: '/poolabdeckungen/rolloabdeckungen/uwrm-einhaengen'
+      path: '/uwrm-einhaengen'
+      fullPath: '/poolabdeckungen/rolloabdeckungen/uwrm-einhaengen'
+      preLoaderRoute: typeof PoolabdeckungenRolloabdeckungenUwrmEinhaengenRouteImport
       parentRoute: typeof PoolabdeckungenRolloabdeckungenRoute
     }
     '/poolabdeckungen/rolloabdeckungen/unterfluranlagen': {
@@ -1133,6 +1264,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PoolabdeckungenRolloabdeckungenEnergieeinsparungRouteImport
       parentRoute: typeof PoolabdeckungenRolloabdeckungenRoute
     }
+    '/poolabdeckungen/rolloabdeckungen/aussenliegender-antrieb': {
+      id: '/poolabdeckungen/rolloabdeckungen/aussenliegender-antrieb'
+      path: '/aussenliegender-antrieb'
+      fullPath: '/poolabdeckungen/rolloabdeckungen/aussenliegender-antrieb'
+      preLoaderRoute: typeof PoolabdeckungenRolloabdeckungenAussenliegenderAntriebRouteImport
+      parentRoute: typeof PoolabdeckungenRolloabdeckungenRoute
+    }
   }
 }
 
@@ -1151,17 +1289,21 @@ const PoolChlorfreiRouteWithChildren = PoolChlorfreiRoute._addFileChildren(
 )
 
 interface PoolabdeckungenRolloabdeckungenRouteChildren {
+  PoolabdeckungenRolloabdeckungenAussenliegenderAntriebRoute: typeof PoolabdeckungenRolloabdeckungenAussenliegenderAntriebRoute
   PoolabdeckungenRolloabdeckungenEnergieeinsparungRoute: typeof PoolabdeckungenRolloabdeckungenEnergieeinsparungRoute
   PoolabdeckungenRolloabdeckungenOberfluranlagenRoute: typeof PoolabdeckungenRolloabdeckungenOberfluranlagenRoute
   PoolabdeckungenRolloabdeckungenRollladenprofileRoute: typeof PoolabdeckungenRolloabdeckungenRollladenprofileRoute
   PoolabdeckungenRolloabdeckungenUnfallschutzRoute: typeof PoolabdeckungenRolloabdeckungenUnfallschutzRoute
   PoolabdeckungenRolloabdeckungenUnterfluranlagenRoute: typeof PoolabdeckungenRolloabdeckungenUnterfluranlagenRoute
+  PoolabdeckungenRolloabdeckungenUwrmEinhaengenRoute: typeof PoolabdeckungenRolloabdeckungenUwrmEinhaengenRoute
   PoolabdeckungenRolloabdeckungenWasIstEineRolloabdeckungRoute: typeof PoolabdeckungenRolloabdeckungenWasIstEineRolloabdeckungRoute
   PoolabdeckungenRolloabdeckungenIndexRoute: typeof PoolabdeckungenRolloabdeckungenIndexRoute
 }
 
 const PoolabdeckungenRolloabdeckungenRouteChildren: PoolabdeckungenRolloabdeckungenRouteChildren =
   {
+    PoolabdeckungenRolloabdeckungenAussenliegenderAntriebRoute:
+      PoolabdeckungenRolloabdeckungenAussenliegenderAntriebRoute,
     PoolabdeckungenRolloabdeckungenEnergieeinsparungRoute:
       PoolabdeckungenRolloabdeckungenEnergieeinsparungRoute,
     PoolabdeckungenRolloabdeckungenOberfluranlagenRoute:
@@ -1172,6 +1314,8 @@ const PoolabdeckungenRolloabdeckungenRouteChildren: PoolabdeckungenRolloabdeckun
       PoolabdeckungenRolloabdeckungenUnfallschutzRoute,
     PoolabdeckungenRolloabdeckungenUnterfluranlagenRoute:
       PoolabdeckungenRolloabdeckungenUnterfluranlagenRoute,
+    PoolabdeckungenRolloabdeckungenUwrmEinhaengenRoute:
+      PoolabdeckungenRolloabdeckungenUwrmEinhaengenRoute,
     PoolabdeckungenRolloabdeckungenWasIstEineRolloabdeckungRoute:
       PoolabdeckungenRolloabdeckungenWasIstEineRolloabdeckungRoute,
     PoolabdeckungenRolloabdeckungenIndexRoute:
@@ -1185,6 +1329,7 @@ const PoolabdeckungenRolloabdeckungenRouteWithChildren =
 
 interface PoolabdeckungenRouteChildren {
   PoolabdeckungenAircoverWinterabdeckungRoute: typeof PoolabdeckungenAircoverWinterabdeckungRoute
+  PoolabdeckungenLeiterkippgelenkeRoute: typeof PoolabdeckungenLeiterkippgelenkeRoute
   PoolabdeckungenLuftpolsterabdeckungRoute: typeof PoolabdeckungenLuftpolsterabdeckungRoute
   PoolabdeckungenRandaufliegendeAbdeckungRoute: typeof PoolabdeckungenRandaufliegendeAbdeckungRoute
   PoolabdeckungenRolloabdeckungenRoute: typeof PoolabdeckungenRolloabdeckungenRouteWithChildren
@@ -1196,6 +1341,7 @@ interface PoolabdeckungenRouteChildren {
 const PoolabdeckungenRouteChildren: PoolabdeckungenRouteChildren = {
   PoolabdeckungenAircoverWinterabdeckungRoute:
     PoolabdeckungenAircoverWinterabdeckungRoute,
+  PoolabdeckungenLeiterkippgelenkeRoute: PoolabdeckungenLeiterkippgelenkeRoute,
   PoolabdeckungenLuftpolsterabdeckungRoute:
     PoolabdeckungenLuftpolsterabdeckungRoute,
   PoolabdeckungenRandaufliegendeAbdeckungRoute:
@@ -1252,6 +1398,30 @@ const PoolueberdachungenRouteChildren: PoolueberdachungenRouteChildren = {
 const PoolueberdachungenRouteWithChildren =
   PoolueberdachungenRoute._addFileChildren(PoolueberdachungenRouteChildren)
 
+interface WeitereProdukteWaermepumpenRouteChildren {
+  WeitereProdukteWaermepumpenDrSilenceRoute: typeof WeitereProdukteWaermepumpenDrSilenceRoute
+  WeitereProdukteWaermepumpenDrSmartRoute: typeof WeitereProdukteWaermepumpenDrSmartRoute
+  WeitereProdukteWaermepumpenMrPerfectRoute: typeof WeitereProdukteWaermepumpenMrPerfectRoute
+  WeitereProdukteWaermepumpenIndexRoute: typeof WeitereProdukteWaermepumpenIndexRoute
+}
+
+const WeitereProdukteWaermepumpenRouteChildren: WeitereProdukteWaermepumpenRouteChildren =
+  {
+    WeitereProdukteWaermepumpenDrSilenceRoute:
+      WeitereProdukteWaermepumpenDrSilenceRoute,
+    WeitereProdukteWaermepumpenDrSmartRoute:
+      WeitereProdukteWaermepumpenDrSmartRoute,
+    WeitereProdukteWaermepumpenMrPerfectRoute:
+      WeitereProdukteWaermepumpenMrPerfectRoute,
+    WeitereProdukteWaermepumpenIndexRoute:
+      WeitereProdukteWaermepumpenIndexRoute,
+  }
+
+const WeitereProdukteWaermepumpenRouteWithChildren =
+  WeitereProdukteWaermepumpenRoute._addFileChildren(
+    WeitereProdukteWaermepumpenRouteChildren,
+  )
+
 interface WeitereProdukteWasserbehandlungRouteChildren {
   WeitereProdukteWasserbehandlungAsinAquaHomeRoute: typeof WeitereProdukteWasserbehandlungAsinAquaHomeRoute
   WeitereProdukteWasserbehandlungAsinAquaOxygenRoute: typeof WeitereProdukteWasserbehandlungAsinAquaOxygenRoute
@@ -1295,7 +1465,7 @@ interface WeitereProdukteRouteChildren {
   WeitereProdukteReinigungsroboterRoute: typeof WeitereProdukteReinigungsroboterRoute
   WeitereProdukteSolaranlageRoute: typeof WeitereProdukteSolaranlageRoute
   WeitereProdukteUmwaelzpumpenRoute: typeof WeitereProdukteUmwaelzpumpenRoute
-  WeitereProdukteWaermepumpenRoute: typeof WeitereProdukteWaermepumpenRoute
+  WeitereProdukteWaermepumpenRoute: typeof WeitereProdukteWaermepumpenRouteWithChildren
   WeitereProdukteWasserbehandlungRoute: typeof WeitereProdukteWasserbehandlungRouteWithChildren
   WeitereProdukteIndexRoute: typeof WeitereProdukteIndexRoute
 }
@@ -1308,7 +1478,8 @@ const WeitereProdukteRouteChildren: WeitereProdukteRouteChildren = {
   WeitereProdukteReinigungsroboterRoute: WeitereProdukteReinigungsroboterRoute,
   WeitereProdukteSolaranlageRoute: WeitereProdukteSolaranlageRoute,
   WeitereProdukteUmwaelzpumpenRoute: WeitereProdukteUmwaelzpumpenRoute,
-  WeitereProdukteWaermepumpenRoute: WeitereProdukteWaermepumpenRoute,
+  WeitereProdukteWaermepumpenRoute:
+    WeitereProdukteWaermepumpenRouteWithChildren,
   WeitereProdukteWasserbehandlungRoute:
     WeitereProdukteWasserbehandlungRouteWithChildren,
   WeitereProdukteIndexRoute: WeitereProdukteIndexRoute,
@@ -1331,3 +1502,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

@@ -79,7 +79,15 @@ export const NAV: NavChild[] = [
       { label: "Pool Reinigungsroboter", to: "/weitere-produkte/reinigungsroboter" },
       { label: "Pools (Einstück-Fertigbecken)", to: "/weitere-produkte/pools" },
       { label: "Pool kaufen – Angebote", to: "/weitere-produkte/pool-kaufen-angebote" },
-      { label: "Wärmepumpen", to: "/weitere-produkte/waermepumpen" },
+      {
+        label: "Wärmepumpen",
+        to: "/weitere-produkte/waermepumpen",
+        children: [
+          { label: "Dr. Silence", to: "/weitere-produkte/waermepumpen/dr-silence" },
+          { label: "Dr. Smart", to: "/weitere-produkte/waermepumpen/dr-smart" },
+          { label: "Mr. Perfect", to: "/weitere-produkte/waermepumpen/mr-perfect" },
+        ],
+      },
       { label: "Umwälzpumpen", to: "/weitere-produkte/umwaelzpumpen" },
       {
         label: "Wasserbehandlung (ASEKO)",

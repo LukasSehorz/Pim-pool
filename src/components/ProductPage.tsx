@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Check, Image as ImageIcon, ChevronRight } from "lucide-react";
+import { Check, ChevronRight } from "lucide-react";
 import { PageHero, type Crumb } from "./PageHero";
 import { CTASection } from "./CTASection";
 
@@ -16,20 +16,26 @@ export type ProductContent = {
 
 import { useState } from "react";
 
-export function ProductPage({ content }: { content: ProductContent }) {
+export function ProductPage({ content, video, heroTitle, beigeRight, beforeCTA }: { content: ProductContent; video?: string; heroTitle?: string; beigeRight?: boolean; beforeCTA?: React.ReactNode }) {
   return (
     <article>
       <PageHero
         eyebrow={content.eyebrow}
         title={content.title}
+        heroTitle={heroTitle}
         subtitle={content.subtitle}
         crumbs={content.crumbs}
+        video={video}
       />
 
-      <section className="container-page py-16 grid lg:grid-cols-[1.4fr_1fr] gap-12">
+      <section className="relative overflow-hidden">
+        {beigeRight && (
+          <div className="absolute right-0 top-0 bottom-0 w-[25%] pointer-events-none" style={{ backgroundColor: "#c9b99a" }} />
+        )}
+        <div className="container-page relative py-16 grid lg:grid-cols-[1.4fr_1fr] gap-12">
         <div className="space-y-5 text-foreground/85 leading-relaxed">
           {content.description.map((p, i) => (
-            <p key={i} className="text-base md:text-lg">{p}</p>
+            <p key={i} className={`text-base md:text-lg${p.startsWith("Dann") ? " font-bold text-foreground" : ""}`}>{p}</p>
           ))}
         </div>
         <aside className="rounded-2xl border border-border bg-card p-6 shadow-card h-fit sticky top-24">
@@ -50,6 +56,7 @@ export function ProductPage({ content }: { content: ProductContent }) {
             <li className="flex items-center gap-2"><Check className="size-4 text-primary" /> Made for Bayern</li>
           </ul>
         </aside>
+        </div>
       </section>
 
       <section className="container-page pb-8">
@@ -66,23 +73,6 @@ export function ProductPage({ content }: { content: ProductContent }) {
         </div>
       </section>
 
-      <section className="container-page py-12">
-        <h3 className="text-2xl font-bold mb-5">Bildergalerie</h3>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {[0, 1, 2, 3, 4, 5].map((i) => (
-            <div
-              key={i}
-              className="aspect-[4/3] rounded-2xl gradient-soft border border-border grid place-items-center text-muted-foreground"
-            >
-              <div className="flex flex-col items-center gap-1.5">
-                <ImageIcon className="size-7 opacity-50" />
-                <span className="text-xs">Bild folgt</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {content.faq && content.faq.length > 0 && (
         <section className="container-page py-12">
           <h3 className="text-2xl font-bold mb-6">Häufige Fragen</h3>
@@ -94,23 +84,7 @@ export function ProductPage({ content }: { content: ProductContent }) {
         </section>
       )}
 
-      {content.related && content.related.length > 0 && (
-        <section className="container-page py-12">
-          <h3 className="text-2xl font-bold mb-6">Das könnte Sie ebenfalls interessieren</h3>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {content.related.map((r) => (
-              <Link
-                key={r.to}
-                to={r.to}
-                className="group flex items-center justify-between rounded-2xl border border-border bg-card p-5 hover:border-primary hover:shadow-card transition"
-              >
-                <span className="font-medium">{r.label}</span>
-                <ChevronRight className="size-4 text-muted-foreground group-hover:text-primary transition" />
-              </Link>
-            ))}
-          </div>
-        </section>
-      )}
+      {beforeCTA}
 
       <CTASection />
     </article>

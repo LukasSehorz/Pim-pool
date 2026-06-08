@@ -53,9 +53,16 @@ const PRODUCT_LABELS: Record<string, string> = {
   "asin-aqua-profi": "ASIN AQUA Profi",
   "pp-60-ph": "PP 60 pH",
   "pp-10-floc-c": "PP 10 Floc+C",
+  "waermepumpe-dr-silence": "Wärmepumpe Dr. Silence",
+  "waermepumpe-dr-smart": "Wärmepumpe Dr. Smart",
+  "waermepumpe-mr-perfect": "Wärmepumpe Mr. Perfect",
+  "aussenliegender-antrieb": "Außenliegender Antrieb",
+  "uwrm-einhaengen": "Unterfluranlage zum Einhängen",
+  leiterkippgelenke: "Leiterkippgelenke",
 };
 
 const SPECIFIC_BENEFITS: Record<string, ProductContent["benefits"]> = {
+  poolabdeckungen: [],
   "fahrbares-pooldeck": [
     { title: "Mehr Gartenfläche", text: "Der Pool verschwindet unter einer nutzbaren Terrasse – ideal für kompakte Grundstücke." },
     { title: "Maximale Sicherheit", text: "Geschlossen entsteht eine stabile, harte Fläche statt offener Wasserfläche." },
@@ -97,6 +104,30 @@ const SPECIFIC_BENEFITS: Record<string, ProductContent["benefits"]> = {
     { title: "Klares Wasser", text: "Stabile Umwälzung verbessert Filtration und Wasserhygiene." },
     { title: "Leise Technik", text: "Premium-Pumpen laufen vibrationsarm und unauffällig." },
     { title: "Smart steuerbar", text: "Laufzeiten lassen sich an Filter, Heizung und Dosierung anpassen." },
+  ],
+  "waermepumpe-dr-silence": [
+    { title: "COP bis 15", text: "1 kW Strom erzeugt bis zu 15 kW Wärme – maximale Effizienz durch Full-Inverter-Technologie." },
+    { title: "Leise wie ein Kühlschrank", text: "Patentiertes Inverpad-Design mit innenliegendem Lüfter – nur ca. 40 dB." },
+    { title: "Smart WIFI Control", text: "Per App von überall steuerbar – Temperatur prüfen und Programm anpassen." },
+    { title: "7 Jahre Garantie", text: "7 Jahre auf Wärmetauscher und Kompressor, 3 Jahre Gesamtgarantie." },
+  ],
+  "waermepumpe-dr-smart": [
+    { title: "COP bis 13,5", text: "Stufenloser DC-Inverter mit EEV-Technologie – bis zu 20 % höherer COP-Wert." },
+    { title: "Titan-Wärmetauscher", text: "40 % höherer Wirkungsgrad als normale Wärmetauscher – UV-beständig und rostfrei." },
+    { title: "Heißgasabtauung", text: "4-Wege-Ventil für schnelles und effizientes Abtauen – betriebssicher bis –5°C." },
+    { title: "5 Jahre Garantie", text: "5 Jahre auf Wärmetauscher und Kompressor, 3 Jahre Gesamtgarantie." },
+  ],
+  "waermepumpe-mr-perfect": [
+    { title: "COP bis 16", text: "Der höchste Wirkungsgrad unserer Modelle – 1 kW erzeugt bis zu 16 kW Wärme." },
+    { title: "TurboFan-Luftstromsystem", text: "Größere Wärmetauscherfläche durch neues Luftstromsystem – maximale Leistung auch bei Kälte." },
+    { title: "Betrieb bis –15°C", text: "Ganzjährig geeignet – mit automatischer Abtaufunktion und R32-Kältemittel." },
+    { title: "7 Jahre Garantie", text: "7 Jahre auf Wärmetauscher und Kompressor – für Pools bis 200 m³." },
+  ],
+  leiterkippgelenke: [
+    { title: "Keine Leiterausschnitte", text: "Die Abdeckung liegt randdicht auf – kein Ausschnitt um die Leiter nötig." },
+    { title: "Schnell kippbar", text: "Leiter anheben, 90° umklappen, vorschieben und arretieren – werkzeuglos in Sekunden." },
+    { title: "Edelstahl V2A / V4A", text: "Alle Kippgelenke aus hochwertigem, poolbeständigem Edelstahl." },
+    { title: "Viele Holm-Maße", text: "Passend für Ø 40, 43 und 48 mm – zur Flanschmontage oder für Einbauhülsen." },
   ],
 };
 
@@ -172,8 +203,13 @@ export const CONTENT: Record<string, ProductContent> = Object.fromEntries([
     "Vom motorisierten Rollladen bis zur klassischen Winterabdeckung – wir finden die perfekte Lösung für Ihren Pool.",
     "Übersicht",
     [
-      "Eine hochwertige Poolabdeckung ist die wirtschaftlichste Investition in Ihren Pool: Sie spart Heiz- und Wasserkosten, hält Schmutz draußen und erhöht spürbar die Sicherheit.",
-      "Bei POOLCAP profitieren Sie von über 25 Jahren Erfahrung. Wir beraten Sie ehrlich und liefern ausschließlich Systeme in geprüfter Hersteller-Qualität.",
+      "Sie verschwenden kostbare Energie?",
+      "Sie genießen selten richtig warmes Wasser?",
+      "Sie brauchen viel Chemie?",
+      "Sie haben immer wieder viel Schmutz im Pool?",
+      "Sie haben ein unbehagliches Gefühl beim Thema Sicherheit?",
+      "Sie nutzen Ihren Pool so richtig nur zwischen Mitte Juni und August?",
+      "Dann befassen Sie sich soeben mit dem richtigen Thema!",
     ],
     [{ label: "Poolabdeckungen" }],
     [
@@ -211,6 +247,11 @@ export const CONTENT: Record<string, ProductContent> = Object.fromEntries([
       { label: "Poolabdeckungen", to: "/poolabdeckungen" },
       { label: "Rolloabdeckungen", to: "/poolabdeckungen/rolloabdeckungen" },
       { label: "Unterfluranlagen" },
+    ],
+    [
+      { label: "Außenliegender Antrieb", to: "/poolabdeckungen/rolloabdeckungen/aussenliegender-antrieb" },
+      { label: "UWRM zum Einhängen", to: "/poolabdeckungen/rolloabdeckungen/uwrm-einhaengen" },
+      { label: "Oberfluranlagen", to: "/poolabdeckungen/rolloabdeckungen/oberfluranlagen" },
     ],
   ),
   make(
@@ -315,6 +356,11 @@ export const CONTENT: Record<string, ProductContent> = Object.fromEntries([
       "Auf Wunsch mit begehbarer Ausführung als zusätzlicher Sicherheitsfaktor.",
     ],
     [{ label: "Poolabdeckungen", to: "/poolabdeckungen" }, { label: "Randaufliegende Abdeckung" }],
+    [
+      { label: "Leiterkippgelenke", to: "/poolabdeckungen/leiterkippgelenke" },
+      { label: "Rolloabdeckungen", to: "/poolabdeckungen/rolloabdeckungen" },
+      { label: "Schutz- & Sicherheitsnetz", to: "/poolabdeckungen/schutz-winter-sicherheitsnetz" },
+    ],
   ),
   make(
     "luftpolsterabdeckung",
@@ -498,8 +544,14 @@ export const CONTENT: Record<string, ProductContent> = Object.fromEntries([
     "Wärmepumpe",
     [
       "Eine moderne Inverter-Wärmepumpe holt aus 1 kWh Strom bis zu 6 kWh Wärme – die wirtschaftlichste Form der Poolheizung.",
+      "Wir führen die Inverquark-Linie mit drei Modellen für unterschiedliche Anforderungen: Dr. Silence für maximale Laufruhe, Dr. Smart als effiziente Mittelklasse und Mr. Perfect als leistungsstarkes Flaggschiff für große Pools.",
     ],
     [{ label: "Weitere Produkte", to: "/weitere-produkte" }, { label: "Wärmepumpen" }],
+    [
+      { label: "Dr. Silence", to: "/weitere-produkte/waermepumpen/dr-silence" },
+      { label: "Dr. Smart", to: "/weitere-produkte/waermepumpen/dr-smart" },
+      { label: "Mr. Perfect", to: "/weitere-produkte/waermepumpen/mr-perfect" },
+    ],
   ),
   make(
     "umwaelzpumpen",
@@ -535,6 +587,158 @@ export const CONTENT: Record<string, ProductContent> = Object.fromEntries([
     ["pp-60-ph", "ASEKO PP 60 pH", "Präzise Dosierpumpe für die pH-Regulierung."],
     ["pp-10-floc-c", "ASEKO PP 10 Floc+C", "Dosierpumpe für Flockungsmittel und Chlor."],
   ]),
+
+  // === WÄRMEPUMPEN-MODELLE ===
+  make(
+    "waermepumpe-dr-silence",
+    "Wärmepumpe Dr. Silence: Die leiseste Inverter-Pumpe am Markt",
+    "Sie setzen 1 kW in das System ein und erhalten bis zu 15 kW daraus. Patentiertes Design ohne Frontlüfter – leise wie ein Kühlschrank.",
+    "Wärmepumpe",
+    [
+      "Dr. Silence von Inverquark ist die wahrscheinlich leiseste Inverter-Wärmepumpe auf dem Markt. Dank des patentierten Inverpad-Designs mit innenliegendem Lüfter – anstelle des klassischen Frontlüfters – erreicht sie nur ca. 40 dB. Das entspricht dem Geräuschpegel eines Kühlschranks.",
+      "Die Full-Inverter-Technologie passt die Leistung stufenlos an die Wassertemperatur an. Herkömmliche Wärmepumpen laufen mit voller Leistung; Dr. Silence misst, regelt und hält die Zieltemperatur mit minimalem Stromverbrauch aufrecht. Bis zu 50 % Kostenersparnis gegenüber Standard-EIN/AUS-Wärmepumpen.",
+      "Für Pools bis 120 m³ geeignet. Geliefert mit Winterhaube und Stellfüßen. Das formschöne Anthrazit-Aluminiumgehäuse lässt sich auf kleinem Stellplatz – ab 0,5 m Seitenabstand – installieren und arbeitet bis –10°C.",
+    ],
+    [
+      { label: "Weitere Produkte", to: "/weitere-produkte" },
+      { label: "Wärmepumpen", to: "/weitere-produkte/waermepumpen" },
+      { label: "Dr. Silence" },
+    ],
+    [
+      { label: "Wärmepumpe Dr. Smart", to: "/weitere-produkte/waermepumpen/dr-smart" },
+      { label: "Wärmepumpe Mr. Perfect", to: "/weitere-produkte/waermepumpen/mr-perfect" },
+      { label: "Beratung anfragen", to: "/kontakt" },
+    ],
+    [
+      { q: "Für welche Poolgröße ist Dr. Silence geeignet?", a: "Für Pools bis 120 m³ Volumen – damit deckt sie die meisten privaten Schwimmbäder ab." },
+      { q: "Funktioniert die Pumpe auch im Winter?", a: "Ja, Dr. Silence arbeitet bis zu –10°C mit automatischer Abtaufunktion und Heiz- sowie Kühlfunktion." },
+      { q: "Wie laut ist Dr. Silence wirklich?", a: "Nur ca. 40 dB – vergleichbar mit einem leisen Kühlschrank. Das patentierte Inverpad-Design hält den Schall im Gehäuse." },
+    ],
+  ),
+  make(
+    "waermepumpe-dr-smart",
+    "Wärmepumpe Dr. Smart: Effiziente Inverter-Pumpe für Pools bis 90 m³",
+    "Sie setzen 1 kW in das System ein und erhalten bis zu 13,5 kW daraus. UV-beständig, rostfrei, mit Titan-Wärmetauscher.",
+    "Wärmepumpe",
+    [
+      "Dr. Smart verbindet einen stufenlosen DC-Inverter mit EEV-Technologie (Electronic Expansion Valve), die den Gasfluss präzise anpasst und den COP-Wert um bis zu 20 % gegenüber herkömmlichen Systemen steigert.",
+      "Das ABS-Kunststoffgehäuse ist UV-beständig und rostfrei. Der Titan-Rohrwärmetauscher bietet 40 % höheren Wirkungsgrad als normale Wärmetauscher und ist dauerhaft chemikalienbeständig.",
+      "Für Pools bis 90 m³ – in drei Leistungsklassen erhältlich: 13 kW (35–65 m³), 16 kW (40–75 m³) und 20 kW (50–90 m³). Steuerbar per App und Touch-Panel. Betrieb bis –5°C mit schneller Heißgasabtauung via Saginomiya 4-Wege-Ventil.",
+    ],
+    [
+      { label: "Weitere Produkte", to: "/weitere-produkte" },
+      { label: "Wärmepumpen", to: "/weitere-produkte/waermepumpen" },
+      { label: "Dr. Smart" },
+    ],
+    [
+      { label: "Wärmepumpe Dr. Silence", to: "/weitere-produkte/waermepumpen/dr-silence" },
+      { label: "Wärmepumpe Mr. Perfect", to: "/weitere-produkte/waermepumpen/mr-perfect" },
+      { label: "Beratung anfragen", to: "/kontakt" },
+    ],
+    [
+      { q: "Welche Leistungsstufen gibt es?", a: "13 kW (35–65 m³), 16 kW (40–75 m³) und 20 kW (50–90 m³) – jeweils mit passenden Maßen." },
+      { q: "Kann ich Dr. Smart per App steuern?", a: "Ja, per WLAN-Verbindung ist die Steuerung über die mobile Anwendung jederzeit möglich." },
+      { q: "Bis zu welcher Außentemperatur arbeitet Dr. Smart?", a: "Bis –5°C, mit effizientem Saginomiya 4-Wege-Ventil für schnelles Abtauen." },
+    ],
+  ),
+  make(
+    "waermepumpe-mr-perfect",
+    "Wärmepumpe Mr. Perfect: Full Inverter mit TurboFan – COP bis 16",
+    "Sie setzen 1 kW in das System ein und erhalten bis zu 16 kW daraus. Innovatives TurboFan-Design für Pools bis 200 m³.",
+    "Wärmepumpe",
+    [
+      "Mr. Perfect ist das leistungsstärkste Modell unserer Wärmepumpen-Linie. Das patentierte TurboFan-Luftstromsystem vergrößert die Wärmetauscherfläche und maximiert den Wärmeertrag – besonders bei kaltem Wetter ein entscheidender Vorteil.",
+      "Als Full-Inverter-Wärmepumpe passt Mr. Perfect die Leistung stufenlos an und spart bis zu 50 % gegenüber Ein/Aus-Wärmepumpen. Der COP von bis zu 16 bedeutet: aus 1 kW Strom entstehen bis zu 16 kW Wärme.",
+      "Für Pools bis 200 m³ konzipiert und bis –15°C betriebssicher – ganzjährig einsetzbar. Steuerung per InverGo App und vollflächig gehärtetem Glas-Touchpanel. Geliefert mit Winterhaube und Stellfüßen.",
+    ],
+    [
+      { label: "Weitere Produkte", to: "/weitere-produkte" },
+      { label: "Wärmepumpen", to: "/weitere-produkte/waermepumpen" },
+      { label: "Mr. Perfect" },
+    ],
+    [
+      { label: "Wärmepumpe Dr. Silence", to: "/weitere-produkte/waermepumpen/dr-silence" },
+      { label: "Wärmepumpe Dr. Smart", to: "/weitere-produkte/waermepumpen/dr-smart" },
+      { label: "Beratung anfragen", to: "/kontakt" },
+    ],
+    [
+      { q: "Für welche Poolgröße ist Mr. Perfect geeignet?", a: "Für Pools bis 200 m³ – damit ist er auch für große Privatanlagen und exklusive Wellnessbereiche geeignet." },
+      { q: "Was bringt das TurboFan-System?", a: "Das neue Luftstromsystem vergrößert die aktive Wärmetauscherfläche und liefert hervorragende Leistung selbst bei niedrigen Außentemperaturen." },
+      { q: "Bis zu welcher Außentemperatur arbeitet Mr. Perfect?", a: "Bis –15°C – einer der größten Kältebereiche in dieser Geräteklasse." },
+    ],
+  ),
+
+  // === UNTERFLUR-BILDERGALERIEN ===
+  make(
+    "aussenliegender-antrieb",
+    "Außenliegender Antrieb (Retro): Wartungsfreundlich und bewährt",
+    "Der Retro-Antrieb ist außenliegend montiert – besonders wartungsfreundlich und günstiger als Unterwasser-Varianten.",
+    "Unterfluranlage",
+    [
+      "Bei der Unterfluranlage mit außenliegendem Retro-Antrieb befindet sich der Motor außerhalb des Wassers – an der Wand oder einem Sockel neben dem Pool. Dadurch ist er leicht zugänglich, einfach zu warten und bei Bedarf unkompliziert zu tauschen.",
+      "Diese Variante eignet sich besonders für Neubauten, bei denen Platz und Budget bewusst geplant werden sollen. Die Montage ist geradlinig, die Technik erprobt und die Instandhaltung auch für Laien überschaubar.",
+    ],
+    [
+      { label: "Poolabdeckungen", to: "/poolabdeckungen" },
+      { label: "Rolloabdeckungen", to: "/poolabdeckungen/rolloabdeckungen" },
+      { label: "Unterfluranlagen", to: "/poolabdeckungen/rolloabdeckungen/unterfluranlagen" },
+      { label: "Außenliegender Antrieb" },
+    ],
+    [
+      { label: "Unterfluranlagen", to: "/poolabdeckungen/rolloabdeckungen/unterfluranlagen" },
+      { label: "UWRM zum Einhängen", to: "/poolabdeckungen/rolloabdeckungen/uwrm-einhaengen" },
+      { label: "Rolloabdeckungen", to: "/poolabdeckungen/rolloabdeckungen" },
+    ],
+  ),
+  make(
+    "uwrm-einhaengen",
+    "Unterfluranlage zum Einhängen: Unkomplizierte Nachrüstlösung",
+    "Die UWRM-Unterfluranlage zum Einhängen eignet sich besonders für eine unkomplizierte Nachrüstung in einem bestehenden Pool.",
+    "Unterfluranlage",
+    [
+      "Die UWRM-Unterfluranlage zum Einhängen wurde entwickelt, um auch in bestehenden Pools nachträglich eine elegante Rolloabdeckung zu integrieren – ohne aufwändige Umbaumaßnahmen.",
+      "Der Unterwasser-Rohrmotor-Antrieb macht diese Lösung besonders kompakt und platzsparend. Ideal für Sanierungen und Pools, bei denen die ursprüngliche Planung keine Unterfluranlage vorgesehen hatte.",
+    ],
+    [
+      { label: "Poolabdeckungen", to: "/poolabdeckungen" },
+      { label: "Rolloabdeckungen", to: "/poolabdeckungen/rolloabdeckungen" },
+      { label: "Unterfluranlagen", to: "/poolabdeckungen/rolloabdeckungen/unterfluranlagen" },
+      { label: "Zum Einhängen" },
+    ],
+    [
+      { label: "Unterfluranlagen", to: "/poolabdeckungen/rolloabdeckungen/unterfluranlagen" },
+      { label: "Außenliegender Antrieb", to: "/poolabdeckungen/rolloabdeckungen/aussenliegender-antrieb" },
+      { label: "Rolloabdeckungen", to: "/poolabdeckungen/rolloabdeckungen" },
+    ],
+  ),
+
+  // === LEITERKIPPGELENKE ===
+  make(
+    "leiterkippgelenke",
+    "Leiterkippgelenke: Poolleiter einfach kippbar machen",
+    "Eine kippbare Poolleiter erspart den Leiterausschnitt – die Abdeckung kann den Pool vollständig und ohne Unterbrechung abdecken.",
+    "Zubehör",
+    [
+      "Leiterkippgelenke dienen zum Umrüsten einer starren Edelstahl-Einbauleiter in eine hochklappbare Leiter. Die Leiter wird angehoben, 90° umgeklappt und durch Vorschieben arretiert – ohne Werkzeug, schnell und sicher.",
+      "Besonders wichtig bei randaufliegenden Sicherheitsabdeckungen: Durch die klappbare Leiter liegt die Abdeckung ohne Ausschnitt randdicht auf dem Beckenrand. Wir empfehlen Edelstahlleitern der Variante »weit« – diese haben größeren Abstand vom Beckenrand und bieten der Abdeckung mehr Platz in der Randauflage.",
+      "Wir führen Kippgelenke für Holme Ø 40, 43 und 48 mm – zur Flanschbefestigung oder für Einbauhülsen, in Edelstahl V2A oder V4A. Bei vielen Varianten müssen keine Löcher in die Leiterholme gebohrt werden; die Befestigung erfolgt durch einen Spreizmechanismus.",
+    ],
+    [
+      { label: "Poolabdeckungen", to: "/poolabdeckungen" },
+      { label: "Randaufliegende Abdeckung", to: "/poolabdeckungen/randaufliegende-abdeckung" },
+      { label: "Leiterkippgelenke" },
+    ],
+    [
+      { label: "Randaufliegende Abdeckung", to: "/poolabdeckungen/randaufliegende-abdeckung" },
+      { label: "Rolloabdeckungen", to: "/poolabdeckungen/rolloabdeckungen" },
+      { label: "Beratung anfragen", to: "/kontakt" },
+    ],
+    [
+      { q: "Muss ich Löcher in die Leiterholme bohren?", a: "Bei vielen unserer Modelle nein – die Befestigung erfolgt durch einen einfachen Spreizmechanismus im Holm." },
+      { q: "Für welche Holm-Durchmesser sind Kippgelenke erhältlich?", a: "Wir führen Gelenke für Ø 40, 43 und 48 mm – für Flanschmontage und für Einbauhülsen." },
+      { q: "Welches Material wird verwendet?", a: "Edelstahl V2A oder V4A – je nach Modell. Rostfrei, poolbeständig und langlebig." },
+    ],
+  ),
 ]);
 
 function modelLineup(arr: [string, string, string][]) {

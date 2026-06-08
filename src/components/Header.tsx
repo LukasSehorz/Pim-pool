@@ -2,6 +2,9 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, Phone, X, ChevronDown } from "lucide-react";
 import { NAV, COMPANY, type NavChild } from "@/lib/site";
+import logoUrl from "@/assets/logo.png";
+
+const NAV_BG = "#29ABE2";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -17,23 +20,14 @@ export function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full transition-all ${
-        scrolled
-          ? "bg-background/90 backdrop-blur-lg border-b border-border shadow-sm"
-          : "bg-background/70 backdrop-blur-md"
+      className={`sticky top-0 z-50 w-full transition-all duration-500 ${
+        scrolled ? "shadow-md" : ""
       }`}
+      style={{ backgroundColor: scrolled ? NAV_BG : "transparent" }}
     >
       <div className="container-page flex h-18 items-center justify-between py-3">
-        <Link to="/" className="flex items-center gap-2 group">
-          <div className="size-9 rounded-lg gradient-water grid place-items-center text-primary-foreground font-bold shadow-card">
-            P
-          </div>
-          <div className="leading-tight">
-            <div className="font-extrabold text-lg tracking-tight">POOLCAP</div>
-            <div className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
-              Schwimmbad & Wassertechnik
-            </div>
-          </div>
+        <Link to="/" className="flex items-center">
+          <img src={logoUrl} alt="POOLCAP" className="h-11 w-auto" style={{ clipPath: "ellipse(49% 47% at 50% 50%)", filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.4))" }} />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-1">
@@ -45,21 +39,22 @@ export function Header() {
         <div className="hidden lg:flex items-center gap-3">
           <a
             href={COMPANY.phoneHref}
-            className="flex items-center gap-2 text-sm font-medium text-foreground hover:text-primary transition-colors"
+            className="flex items-center text-white hover:text-white/80 transition-colors [filter:drop-shadow(0_1px_4px_rgba(0,0,0,0.5))]"
+            aria-label={COMPANY.phone}
           >
-            <Phone className="size-4" />
-            {COMPANY.phone}
+            <Phone className="size-5" />
           </a>
           <Link
             to="/kontakt"
-            className="inline-flex items-center rounded-full gradient-water px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-card hover:opacity-95 transition"
+            className="inline-flex items-center rounded-full bg-white px-5 py-2.5 text-sm font-semibold transition hover:bg-white/90"
+            style={{ color: NAV_BG }}
           >
             Angebot anfordern
           </Link>
         </div>
 
         <button
-          className="lg:hidden p-2 -mr-2"
+          className="lg:hidden p-2 -mr-2 text-white"
           onClick={() => setOpen((v) => !v)}
           aria-label="Menü"
         >
@@ -68,7 +63,7 @@ export function Header() {
       </div>
 
       {open && (
-        <div className="lg:hidden border-t border-border bg-background max-h-[80vh] overflow-y-auto">
+        <div className="lg:hidden border-t border-white/20 bg-white max-h-[80vh] overflow-y-auto">
           <div className="container-page py-4 space-y-1">
             {NAV.map((item) => (
               <div key={item.to} className="border-b border-border/60 pb-1">
@@ -92,7 +87,7 @@ export function Header() {
               <a href={COMPANY.phoneHref} className="flex items-center justify-center gap-2 rounded-full border border-border px-4 py-3 font-medium">
                 <Phone className="size-4" /> {COMPANY.phone}
               </a>
-              <Link to="/kontakt" onClick={() => setOpen(false)} className="rounded-full gradient-water px-4 py-3 text-center font-semibold text-primary-foreground">
+              <Link to="/kontakt" onClick={() => setOpen(false)} className="rounded-full px-4 py-3 text-center font-semibold text-white" style={{ backgroundColor: NAV_BG }}>
                 Angebot anfordern
               </Link>
             </div>
@@ -140,20 +135,20 @@ function MegaItem({ item }: { item: NavChild }) {
     >
       <Link
         to={item.to}
-        className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-foreground/80 hover:text-primary transition rounded-md"
-        activeProps={{ className: "text-primary" }}
+        className="flex items-center gap-1 px-3 py-2 text-base font-semibold text-white hover:text-white/80 transition rounded-md [text-shadow:0_2px_8px_rgba(0,0,0,0.7),0_1px_3px_rgba(0,0,0,0.5)]"
+        activeProps={{ className: "text-white" }}
       >
         {item.label}
         {item.children && <ChevronDown className="size-3.5 opacity-70" />}
       </Link>
       {item.children && open && (
         <div className="absolute left-1/2 -translate-x-1/2 top-full pt-3 z-50">
-          <div className="w-[320px] rounded-2xl border border-border bg-popover shadow-elegant p-3 grid">
+          <div className="w-auto min-w-max rounded-2xl border border-border bg-popover shadow-elegant p-3 grid">
             {item.children.map((c) => (
               <div key={c.to} className="group">
                 <Link
                   to={c.to}
-                  className="block rounded-lg px-3 py-2 text-sm font-medium hover:bg-accent hover:text-primary transition"
+                  className="block rounded-lg px-3 py-2 text-base font-medium whitespace-nowrap hover:bg-accent hover:text-primary transition"
                 >
                   {c.label}
                 </Link>
@@ -163,7 +158,7 @@ function MegaItem({ item }: { item: NavChild }) {
                       <Link
                         key={cc.to}
                         to={cc.to}
-                        className="block rounded-md px-3 py-1.5 text-xs text-muted-foreground hover:text-primary"
+                        className="block rounded-md px-3 py-1.5 text-sm whitespace-nowrap text-muted-foreground hover:text-primary"
                       >
                         {cc.label}
                       </Link>
