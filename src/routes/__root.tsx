@@ -77,12 +77,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "POOLCAP – Poolabdeckungen, Überdachungen & Wassertechnik | Bayern" },
-      { name: "description", content: "POOLCAP aus Baierbrunn: Premium Poolabdeckungen, Poolüberdachungen, Wärmepumpen und Wassertechnik im Großraum München – seit 2000." },
-      { property: "og:title", content: "POOLCAP – Premium Pooltechnik aus Bayern" },
-      { property: "og:description", content: "Poolabdeckungen, Überdachungen, chlorfreie Wasseraufbereitung – persönliche Beratung im Großraum München." },
+      { title: "FuchsPools – Premium-Pools nach Maß aus Niederbayern" },
+      { name: "description", content: "FuchsPools UG aus Reisbach: Wir planen, bauen und montieren premium Pools ganz nach Ihren Wünschen – Traum-Pools aus Niederbayern." },
+      { property: "og:title", content: "FuchsPools – Traum-Pools aus Niederbayern" },
+      { property: "og:description", content: "Premium-Pools nach Maß aus Reisbach – persönliche Beratung, Planung und Montage in Niederbayern." },
       { property: "og:type", content: "website" },
-      { property: "og:site_name", content: "POOLCAP" },
+      { property: "og:site_name", content: "FuchsPools" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [

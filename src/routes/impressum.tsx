@@ -3,7 +3,7 @@ import { PageHero } from "@/components/PageHero";
 import { COMPANY } from "@/lib/site";
 
 export const Route = createFileRoute("/impressum")({
-  head: () => ({ meta: [{ title: "Impressum – POOLCAP" }] }),
+  head: () => ({ meta: [{ title: "Impressum – FuchsPools" }] }),
   component: () => (
     <>
       <PageHero title="Impressum" crumbs={[{ label: "Impressum" }]} />
@@ -13,8 +13,24 @@ export const Route = createFileRoute("/impressum")({
           <p className="mt-2">{COMPANY.full}<br />{COMPANY.street}<br />{COMPANY.zip} {COMPANY.city}<br />Deutschland</p>
         </div>
         <div>
+          <h2 className="text-xl font-bold">Vertreten durch</h2>
+          <p className="mt-2">Geschäftsführer: {COMPANY.owner}<br />Berufsbezeichnung: Poolbauer (Deutschland)</p>
+        </div>
+        <div>
           <h2 className="text-xl font-bold">Kontakt</h2>
           <p className="mt-2">Telefon: {COMPANY.phone}<br />E-Mail: {COMPANY.email}</p>
+        </div>
+        <div>
+          <h2 className="text-xl font-bold">Umsatzsteuer-ID</h2>
+          <p className="mt-2">Umsatzsteuer-Identifikationsnummer gemäß § 27 a UStG:<br />{COMPANY.vatId}</p>
+        </div>
+        <div>
+          <h2 className="text-xl font-bold">Aufsichtsbehörde</h2>
+          <p className="mt-2">Bayerisches Landesamt für Datenschutzaufsicht (BayLDA)<br />Postfach 1349, 91504 Ansbach<br /><a href="https://www.lda.bayern.de" className="text-primary hover:underline" target="_blank" rel="noreferrer">www.lda.bayern.de</a></p>
+        </div>
+        <div>
+          <h2 className="text-xl font-bold">EU-Streitschlichtung</h2>
+          <p className="mt-2">Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
         </div>
         <div>
           <h2 className="text-xl font-bold">Haftungshinweis</h2>

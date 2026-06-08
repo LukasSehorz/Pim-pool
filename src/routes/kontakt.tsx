@@ -1,14 +1,15 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Phone, Mail, MapPin, Clock, Check } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
+import { useReveal } from "@/lib/useReveal";
 import { COMPANY } from "@/lib/site";
 
 export const Route = createFileRoute("/kontakt")({
   head: () => ({
     meta: [
-      { title: "Kontakt – POOLCAP Baierbrunn" },
-      { name: "description", content: "Schreiben Sie uns oder rufen Sie an. Persönliche Beratung im Großraum München." },
+      { title: "Kontakt – FuchsPools Reisbach" },
+      { name: "description", content: "Schreiben Sie uns oder rufen Sie an. Persönliche Beratung rund um Ihren Traum-Pool in Niederbayern." },
     ],
   }),
   component: KontaktPage,
@@ -16,17 +17,23 @@ export const Route = createFileRoute("/kontakt")({
 
 function KontaktPage() {
   const [sent, setSent] = useState(false);
+  const rootRef = useRef<HTMLDivElement>(null);
+  useReveal(rootRef);
   return (
-    <>
+    <div ref={rootRef}>
       <PageHero
         eyebrow="Kontakt"
         title="Sprechen Sie mit unseren Pool-Profis"
         subtitle="Unverbindlich, kostenfrei und kompetent – wir freuen uns auf Sie."
         crumbs={[{ label: "Kontakt" }]}
+        image="/images/Kontakt Hero Section.png"
+        ctaLabel="Jetzt Termin vereinbaren"
+        ctaHref="#angebot"
       />
 
-      <section className="container-page py-16 grid lg:grid-cols-[1.3fr_1fr] gap-10">
+      <section id="angebot" className="container-page py-16 grid lg:grid-cols-[1.3fr_1fr] gap-10 scroll-mt-24">
         <form
+          data-reveal="left"
           className="rounded-3xl border border-border bg-card p-8 shadow-card"
           onSubmit={(e) => { e.preventDefault(); setSent(true); }}
         >
@@ -58,8 +65,8 @@ function KontaktPage() {
           )}
         </form>
 
-        <aside className="space-y-6">
-          <div className="rounded-3xl gradient-deep text-primary-foreground p-8 shadow-elegant">
+        <aside data-reveal-group className="space-y-6">
+          <div data-reveal-item className="rounded-3xl gradient-deep text-primary-foreground p-8 shadow-elegant">
             <h3 className="text-xl font-bold">So erreichen Sie uns</h3>
             <ul className="mt-5 space-y-4 text-sm">
               <li className="flex items-start gap-3"><MapPin className="size-5 text-primary mt-0.5" /><span>{COMPANY.street}<br />{COMPANY.zip} {COMPANY.city}</span></li>
@@ -68,7 +75,7 @@ function KontaktPage() {
             </ul>
           </div>
 
-          <div className="rounded-3xl border border-border bg-card p-8">
+          <div data-reveal-item className="rounded-3xl border border-border bg-card p-8">
             <h3 className="text-lg font-bold flex items-center gap-2"><Clock className="size-5 text-primary" /> Öffnungszeiten</h3>
             <ul className="mt-4 space-y-2 text-sm">
               {COMPANY.hours.map((h) => (
@@ -79,17 +86,17 @@ function KontaktPage() {
             </ul>
           </div>
 
-          <div className="rounded-3xl overflow-hidden border border-border aspect-[4/3]">
+          <div data-reveal-item className="rounded-3xl overflow-hidden border border-border aspect-[4/3]">
             <iframe
               title="Karte"
               className="size-full"
               loading="lazy"
-              src={`https://www.openstreetmap.org/export/embed.html?bbox=11.46%2C48.04%2C11.52%2C48.07&layer=mapnik&marker=48.0535%2C11.4897`}
+              src={`https://www.openstreetmap.org/export/embed.html?bbox=12.59%2C48.54%2C12.67%2C48.59&layer=mapnik&marker=48.5662%2C12.6293`}
             />
           </div>
         </aside>
       </section>
-    </>
+    </div>
   );
 }
 

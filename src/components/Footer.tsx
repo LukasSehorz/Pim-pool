@@ -1,7 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { Phone, MapPin, Mail, Youtube, FileDown } from "lucide-react";
+import { Phone, MapPin, Mail } from "lucide-react";
 import { COMPANY, NAV } from "@/lib/site";
-import logoUrl from "@/assets/logo.png";
 
 export function Footer() {
   return (
@@ -11,54 +10,30 @@ export function Footer() {
           <div className="lg:col-span-1 space-y-5">
             <Link to="/">
               <img
-                src={logoUrl}
-                alt="POOLCAP"
-                className="h-14 w-auto"
-                style={{ clipPath: "ellipse(49% 47% at 50% 50%)" }}
+                src="/images/Logo.jpg"
+                alt="FuchsPools"
+                className="h-16 w-auto rounded-md"
               />
             </Link>
             <p className="text-sm text-primary-foreground/75 leading-relaxed">
-              {COMPANY.full}. Premium Poolabdeckungen, Überdachungen und Wassertechnik –
-              seit {COMPANY.since} im {COMPANY.region}.
+              {COMPANY.full}. Premium-Pools nach Maß – geplant, gebaut und montiert in {COMPANY.region}.
             </p>
             <div className="space-y-2 text-sm">
               <div className="flex items-start gap-2"><MapPin className="size-4 mt-0.5 text-primary" />{COMPANY.street}, {COMPANY.zip} {COMPANY.city}</div>
               <a href={COMPANY.phoneHref} className="flex items-center gap-2 hover:text-primary"><Phone className="size-4 text-primary" />{COMPANY.phone}</a>
               <a href={`mailto:${COMPANY.email}`} className="flex items-center gap-2 hover:text-primary"><Mail className="size-4 text-primary" />{COMPANY.email}</a>
-              <a href={COMPANY.youtube} target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-primary"><Youtube className="size-4 text-primary" />YouTube-Kanal</a>
             </div>
-            <a
-              href="#"
-              className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:opacity-90"
-            >
-              <FileDown className="size-4" /> Komplettes Angebot als PDF
-            </a>
           </div>
 
-          <div className="lg:col-span-3 grid gap-8 sm:grid-cols-2 lg:grid-cols-4 text-sm">
-            {NAV.filter((n) => n.children).map((sec) => (
-              <div key={sec.to}>
-                <Link to={sec.to} className="font-semibold mb-3 inline-block hover:text-primary">{sec.label}</Link>
-                <ul className="space-y-1.5">
-                  {sec.children!.map((c) => (
-                    <li key={c.to}>
-                      <Link to={c.to} className="text-primary-foreground/70 hover:text-primary">{c.label}</Link>
-                      {c.children && (
-                        <ul className="pl-3 mt-1 space-y-1">
-                          {c.children.map((cc) => (
-                            <li key={cc.to}>
-                              <Link to={cc.to} className="text-primary-foreground/55 hover:text-primary text-xs">
-                                {cc.label}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+          <div className="lg:col-span-3 text-sm">
+            <span className="font-semibold mb-3 inline-block">Navigation</span>
+            <ul className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+              {NAV.map((item) => (
+                <li key={item.to}>
+                  <Link to={item.to} className="text-primary-foreground/70 hover:text-primary">{item.label}</Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 

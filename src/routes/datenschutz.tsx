@@ -3,7 +3,7 @@ import { PageHero } from "@/components/PageHero";
 import { COMPANY } from "@/lib/site";
 
 export const Route = createFileRoute("/datenschutz")({
-  head: () => ({ meta: [{ title: "Datenschutz – POOLCAP" }] }),
+  head: () => ({ meta: [{ title: "Datenschutz – FuchsPools" }] }),
   component: () => (
     <>
       <PageHero title="Datenschutzerklärung" crumbs={[{ label: "Datenschutz" }]} />

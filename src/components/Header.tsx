@@ -2,9 +2,8 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, Phone, X, ChevronDown } from "lucide-react";
 import { NAV, COMPANY, type NavChild } from "@/lib/site";
-import logoUrl from "@/assets/logo.png";
 
-const NAV_BG = "#29ABE2";
+const ORANGE = "#F15A22";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -18,43 +17,49 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const textColor = scrolled ? "#1a1a1a" : "#ffffff";
+  const textShadow = scrolled ? "none" : "0 2px 8px rgba(0,0,0,0.7),0 1px 3px rgba(0,0,0,0.5)";
+
   return (
     <header
-      className={`sticky top-0 z-50 w-full transition-all duration-500 ${
-        scrolled ? "shadow-md" : ""
-      }`}
-      style={{ backgroundColor: scrolled ? NAV_BG : "transparent" }}
+      className={`sticky top-0 z-50 w-full transition-all duration-500 ${scrolled ? "shadow-md" : ""}`}
+      style={{ backgroundColor: scrolled ? "#ffffff" : "transparent", borderBottom: scrolled ? "1px solid #e5e5e5" : "none" }}
     >
       <div className="container-page flex h-18 items-center justify-between py-3">
         <Link to="/" className="flex items-center">
-          <img src={logoUrl} alt="POOLCAP" className="h-11 w-auto" style={{ clipPath: "ellipse(49% 47% at 50% 50%)", filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.4))" }} />
+          <img src="/images/Logo.jpg" alt="FuchsPools" className="h-12 w-auto rounded-md" style={{ filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.25))" }} />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-1">
           {NAV.map((item) => (
-            <MegaItem key={item.to} item={item} />
+            <MegaItem key={item.to} item={item} scrolled={scrolled} />
           ))}
         </nav>
 
         <div className="hidden lg:flex items-center gap-3">
           <a
             href={COMPANY.phoneHref}
-            className="flex items-center text-white hover:text-white/80 transition-colors [filter:drop-shadow(0_1px_4px_rgba(0,0,0,0.5))]"
+            className="flex items-center transition-colors hover:opacity-70"
+            style={{ color: textColor, filter: scrolled ? "none" : "drop-shadow(0 1px 4px rgba(0,0,0,0.5))" }}
             aria-label={COMPANY.phone}
           >
             <Phone className="size-5" />
           </a>
           <Link
             to="/kontakt"
-            className="inline-flex items-center rounded-full bg-white px-5 py-2.5 text-sm font-semibold transition hover:bg-white/90"
-            style={{ color: NAV_BG }}
+            className="inline-flex items-center rounded-full px-5 py-2.5 text-sm font-semibold transition hover:opacity-90"
+            style={scrolled
+              ? { backgroundColor: ORANGE, color: "#ffffff" }
+              : { backgroundColor: "#ffffff", color: ORANGE }
+            }
           >
             Angebot anfordern
           </Link>
         </div>
 
         <button
-          className="lg:hidden p-2 -mr-2 text-white"
+          className="lg:hidden p-2 -mr-2 transition-colors"
+          style={{ color: textColor }}
           onClick={() => setOpen((v) => !v)}
           aria-label="Menü"
         >
@@ -63,7 +68,7 @@ export function Header() {
       </div>
 
       {open && (
-        <div className="lg:hidden border-t border-white/20 bg-white max-h-[80vh] overflow-y-auto">
+        <div className="lg:hidden border-t border-border/40 bg-white max-h-[80vh] overflow-y-auto">
           <div className="container-page py-4 space-y-1">
             {NAV.map((item) => (
               <div key={item.to} className="border-b border-border/60 pb-1">
@@ -71,7 +76,12 @@ export function Header() {
                   className="w-full flex items-center justify-between py-2 text-left font-medium"
                   onClick={() => setOpenMobile(openMobile === item.to ? null : item.to)}
                 >
-                  <Link to={item.to} onClick={() => setOpen(false)}>{item.label}</Link>
+                  <Link
+                    to={item.to}
+                    activeOptions={item.to === "/" ? { exact: true } : undefined}
+                    onClick={() => setOpen(false)}
+                    activeProps={{ style: { color: ORANGE, fontWeight: 700 } }}
+                  >{item.label}</Link>
                   {item.children && <ChevronDown className={`size-4 transition ${openMobile === item.to ? "rotate-180" : ""}`} />}
                 </button>
                 {item.children && openMobile === item.to && (
@@ -87,7 +97,7 @@ export function Header() {
               <a href={COMPANY.phoneHref} className="flex items-center justify-center gap-2 rounded-full border border-border px-4 py-3 font-medium">
                 <Phone className="size-4" /> {COMPANY.phone}
               </a>
-              <Link to="/kontakt" onClick={() => setOpen(false)} className="rounded-full px-4 py-3 text-center font-semibold text-white" style={{ backgroundColor: NAV_BG }}>
+              <Link to="/kontakt" onClick={() => setOpen(false)} className="rounded-full px-4 py-3 text-center font-semibold text-white" style={{ backgroundColor: ORANGE }}>
                 Angebot anfordern
               </Link>
             </div>
@@ -125,8 +135,12 @@ function MobileSub({ item, onPick }: { item: NavChild; onPick: () => void }) {
   );
 }
 
-function MegaItem({ item }: { item: NavChild }) {
+function MegaItem({ item, scrolled }: { item: NavChild; scrolled: boolean }) {
   const [open, setOpen] = useState(false);
+
+  const color = scrolled ? "#1a1a1a" : "#ffffff";
+  const shadow = scrolled ? "none" : "0 2px 8px rgba(0,0,0,0.7),0 1px 3px rgba(0,0,0,0.5)";
+
   return (
     <div
       className="relative"
@@ -135,8 +149,10 @@ function MegaItem({ item }: { item: NavChild }) {
     >
       <Link
         to={item.to}
-        className="flex items-center gap-1 px-3 py-2 text-base font-semibold text-white hover:text-white/80 transition rounded-md [text-shadow:0_2px_8px_rgba(0,0,0,0.7),0_1px_3px_rgba(0,0,0,0.5)]"
-        activeProps={{ className: "text-white" }}
+        activeOptions={item.to === "/" ? { exact: true } : undefined}
+        className="flex items-center gap-1 px-3 py-2 text-base font-semibold transition rounded-md hover:opacity-70"
+        style={{ color, textShadow: shadow }}
+        activeProps={{ style: { color: ORANGE, textShadow: "none", fontWeight: 700 } }}
       >
         {item.label}
         {item.children && <ChevronDown className="size-3.5 opacity-70" />}

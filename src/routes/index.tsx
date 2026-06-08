@@ -1,134 +1,108 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
-import { ShieldCheck, Sun, Zap, Droplets, Bot, Layers, Waves, Sparkles, ArrowRight } from "lucide-react";
-import heroPool from "@/assets/hero.png";
-import aboutPool from "@/assets/about-pool.png";
-import leistungenBg from "@/assets/leistungen-bg.png";
-import ref9 from "@/assets/ref9.avif";
-import ref10 from "@/assets/ref10.avif";
-import ref11 from "@/assets/ref11.avif";
-import ref12 from "@/assets/ref12.avif";
-import ref13 from "@/assets/ref13.avif";
-import ref14 from "@/assets/ref14.avif";
-import ref15 from "@/assets/ref15.avif";
-import ref16 from "@/assets/ref16.avif";
-import ref17 from "@/assets/ref17.avif";
-import bild19 from "@/assets/bild19.png";
-import highlight1 from "@/assets/highlight1.png";
-import highlight2 from "@/assets/highlight2.png";
-import highlight3 from "@/assets/highlight3.png";
-import highlight4 from "@/assets/highlight4.png";
+import { useRef, useState } from "react";
+import { Layers, Waves, ArrowRight, Palette, Wrench, Blocks, Settings, Sparkles, PencilRuler } from "lucide-react";
 import { CTASection } from "@/components/CTASection";
 import { TrustBar } from "@/components/TrustBar";
+import { useReveal } from "@/lib/useReveal";
+import leistungenBg from "@/assets/leistungen-bg.png";
+
+// Bilder von fuchspools.com (public/images/fuchs)
+const aboutPool = "/images/fuchs/image.jpeg";
+const ref9 = "/images/fuchs/45.jpg";
+const ref10 = "/images/fuchs/6-2.jpg";
+const ref11 = "/images/fuchs/5.jpg";
+const ref12 = "/images/fuchs/image.jpeg";
+const ref13 = "/images/fuchs/image2.jpeg";
+const ref14 = "/images/fuchs/FE592FEA-A015-45D7-9FAF-1B13C13E1C2C-002.jpg";
+const ref15 = "/images/fuchs/IMG_1267.jpg";
+const ref16 = "/images/fuchs/f9ca32df-39d1-4363-a935-a85accb0fb69.jpg";
+const ref17 = "/images/fuchs/B45E53E1-220B-4FA9-9C60-17C21E7F26F9.jpg";
+const bild19 = "/images/fuchs/landing-bottom.jpg";
+const highlight1 = "/images/fuchs/5.jpg";
+const highlight2 = "/images/fuchs/image2.jpeg";
+const highlight3 = "/images/fuchs/FE592FEA-A015-45D7-9FAF-1B13C13E1C2C-002.jpg";
+const highlight4 = "/images/fuchs/45.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "POOLCAP – Poolabdeckungen, Überdachungen & Wassertechnik | Baierbrunn" },
-      { name: "description", content: "Premium Poolabdeckungen, Poolüberdachungen, Wärmepumpen und chlorfreie Wasseraufbereitung im Großraum München – seit 2000." },
+      { title: "FuchsPools – Traum-Pools nach Maß aus Niederbayern" },
+      { name: "description", content: "FuchsPools UG aus Reisbach plant, baut und montiert premium Pools ganz nach Ihren Wünschen – Ihr Poolbauer in Niederbayern." },
     ],
   }),
   component: HomePage,
 });
 
+// PLATZHALTER – bitte durch echte FuchsPools-Kundenbewertungen ersetzen.
 const REVIEWS = [
   {
-    text: "Nach längerem Suchen – und negativer Erfahrung – sind wir zum Glück auf die Firma Poolcap gestoßen. Das Preis-Leistungsverhältnis stimmt. Mit dem Service waren wir voll zufrieden. Genaue Maße wurden mit dem Lasermessgerät genommen, sodass die Plane dann auch genau passte. Die Lieferzeit wurde eingehalten, ebenso wie der Zeitpunkt der Montage, was heutzutage nicht unbedingt selbstverständlich ist. Auch wurde das Verpackungsmaterial noch am selben Tag mitgenommen. So können wir die Firma – Hr. Regul – Baierbrunn, nicht zuletzt wegen Ihrer Akkuratesse wirklich empfehlen.",
-    name: "C. und W. Pade, Forstenried",
+    text: "Von der ersten Beratung bis zur Fertigstellung lief alles professionell und zuverlässig. Unser Pool ist genau so geworden, wie wir ihn uns vorgestellt haben.",
+    name: "",
     source: "",
   },
   {
-    text: "Eine der informativsten Webseiten zu Schwimmbad-Abdeckungen, die ich finden konnte.",
-    name: "Michael Koitzsch",
-    source: "Rezension aus Google · 5/5 · vor einem Jahr",
+    text: "Top Qualität, faire Beratung und saubere Montage – wir können FuchsPools uneingeschränkt weiterempfehlen.",
+    name: "",
+    source: "",
   },
   {
-    text: "Alles zur Zufriedenheit ausgeführt.",
+    text: "Individuelle Planung ganz nach unseren Wünschen. Das Ergebnis kann sich sehen lassen.",
     name: "",
-    source: "5/5",
+    source: "",
   },
-];
-
-const PARTNER_SLIDES = [
-  [
-    { name: "BAYROL", tagline: "your pool & spa water expert", serif: false },
-    { name: "BEHNCKE", tagline: "GmbH", serif: false },
-    { name: "bsw", tagline: "Bundesverband Schwimmbad & Wellness e.V.", serif: true },
-    { name: "ASEKO", tagline: "water treatment", serif: false },
-    { name: "FLUIDRA", tagline: "Pool & Wellness", serif: false },
-  ],
-  [
-    { name: "PAHLEN", tagline: "Pool Technology", serif: false },
-    { name: "CERTIKIN", tagline: "Pool & Spa Products", serif: false },
-    { name: "HAYWARD", tagline: "Pool Equipment", serif: false },
-    { name: "MAYTRONICS", tagline: "Dolphin Robotics", serif: false },
-    { name: "ZODIAC", tagline: "Pool & Spa", serif: false },
-  ],
-  [
-    { name: "PENTAIR", tagline: "Water Treatment", serif: false },
-    { name: "SPECK", tagline: "Pumpen GmbH", serif: false },
-    { name: "ELECRO", tagline: "Pool Heating", serif: false },
-    { name: "COVERSTAR", tagline: "Pool Covers", serif: false },
-    { name: "AQUA-PLUS", tagline: "Schwimmbadtechnik", serif: false },
-  ],
 ];
 
 const LEISTUNGEN = [
-  { icon: ShieldCheck, title: "Poolabdeckungen", text: "Rolloabdeckungen, Solar- und Sicherheitsabdeckungen nach Maß – für maximalen Schutz und bis zu 70 % Energieersparnis.", to: "/poolabdeckungen" },
-  { icon: Layers, title: "Poolüberdachungen", text: "Von flach bis begehbar: 14 Premiummodelle für jeden Pool und Geschmack – individuell geplant und montiert.", to: "/poolueberdachungen" },
-  { icon: Droplets, title: "Pool chlorfrei", text: "Kristallklares, hautschonendes Wasser durch modernste Ionisierungstechnik – ganz ohne Chlorgeruch.", to: "/pool-chlorfrei" },
-  { icon: Zap, title: "Wärmepumpen", text: "Effizient heizen, länger schwimmen: Unsere Wärmepumpen verlängern die Badesaison – ideal für Bayern.", to: "/weitere-produkte/waermepumpen" },
-  { icon: Waves, title: "Wasserbehandlung", text: "Vollautomatische ASEKO-Dosiertechnik für perfekte Wasserqualität – rund um die Uhr, ohne Aufwand.", to: "/weitere-produkte/wasserbehandlung" },
-  { icon: Bot, title: "Reinigungsroboter", text: "Sauberer Pool ohne Handarbeit: Unsere Roboter reinigen Boden und Wände vollautomatisch und gründlich.", to: "/weitere-produkte/reinigungsroboter" },
-];
-
-const HIGHLIGHTS = [
-  { icon: Layers, title: "Fahrbares Pooldeck", text: "Die elegante Lösung: Terrasse und Abdeckung in einem.", to: "/weitere-produkte/fahrbares-pooldeck" },
-  { icon: Waves, title: "Pools (Einstück)", text: "Hochwertige Fertigbecken in Premium-Qualität.", to: "/weitere-produkte/pools" },
-  { icon: Droplets, title: "Pool chlorfrei", text: "Kristallklares Wasser – ganz ohne Chlorgeruch.", to: "/pool-chlorfrei" },
-  { icon: Sparkles, title: "Wasserbehandlung", text: "Profi-Dosiertechnik ASEKO – vollautomatisch.", to: "/weitere-produkte/wasserbehandlung" },
-  { icon: Zap, title: "Wärmepumpen", text: "Effizient heizen – ideal für das bayerische Klima.", to: "/weitere-produkte/waermepumpen" },
-  { icon: Bot, title: "Reinigungsroboter", text: "Sauberer Pool – komplett ohne Handarbeit.", to: "/weitere-produkte/reinigungsroboter" },
-  { icon: Sun, title: "Solaranlagen", text: "Sonnenwärme nutzen – kostenlos und nachhaltig.", to: "/weitere-produkte/solaranlage" },
-  { icon: ShieldCheck, title: "Umwälzpumpen", text: "Leise, sparsam, langlebig – das Herz Ihres Pools.", to: "/weitere-produkte/umwaelzpumpen" },
+  { icon: Waves, title: "Pools nach Maß", text: "Individuell geplante und gebaute Pools – Form, Größe und Tiefe ganz nach Ihren Wünschen.", to: "/poolabdeckungen" },
+  { icon: Wrench, title: "Aufbau & Montage", text: "Vom Aushub über den Beckenbau aus robusten Styroporsteinen bis zur Technik – alles aus einer Hand.", to: "/aufbau-unserer-pools" },
+  { icon: Palette, title: "Folien & Design", text: "Hochwertige Alkorplan-Folien in vielen Farben und Oberflächen – auf Wunsch in edler Steinoptik.", to: "/folien-farben-design" },
+  { icon: Layers, title: "Pool-Überdachungen", text: "Schützen Sie Ihren Pool und verlängern Sie die Badesaison mit einer passenden Überdachung.", to: "/daecher" },
+  { icon: Blocks, title: "Treppen & Einbauteile", text: "Formschöne Treppen sowie Skimmer, Düsen und Scheinwerfer – sauber in den Pool integriert.", to: "/aufbau-unserer-pools" },
+  { icon: Settings, title: "Pooltechnik", text: "Filter, Umwälzpumpen und Heizung – effiziente Technik, fachgerecht installiert.", to: "/kontakt" },
+  { icon: Sparkles, title: "Sanierung & Renovierung", text: "Ihr Pool ist in die Jahre gekommen? Wir erneuern Folie, Technik und Optik.", to: "/kontakt" },
+  { icon: PencilRuler, title: "Beratung & Planung", text: "Von der ersten Idee bis zum fertigen Konzept – persönliche Beratung in Niederbayern.", to: "/kontakt" },
 ];
 
 function HomePage() {
-  const [partnerSlide, setPartnerSlide] = useState(0);
   const [reviewSlide, setReviewSlide] = useState(0);
+  const rootRef = useRef<HTMLDivElement>(null);
+  useReveal(rootRef);
 
   return (
-    <>
+    <div ref={rootRef}>
       {/* HERO */}
       <section className="relative isolate overflow-hidden -mt-18 min-h-screen flex items-center justify-center">
         <div className="absolute inset-0 -z-10">
-          <img src={heroPool} alt="" width={1920} height={1080} className="size-full object-cover" />
-          <div className="absolute inset-0 bg-black/68" />
+          <img src="/images/Hero Section Hintergrund.png" alt="" width={1920} height={1080} className="size-full object-cover" />
+          <div className="absolute inset-0 bg-black/55" />
         </div>
-        <div className="flex flex-col items-center text-center px-6 pt-48 pb-24 text-white">
+        <div data-hero className="flex flex-col items-center text-center px-6 pt-48 pb-24 text-white">
           <h1
-            className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-wide uppercase"
-            style={{ fontFamily: "'Playfair Display', serif", textShadow: "0 2px 12px rgba(0,0,0,0.8), 0 1px 4px rgba(0,0,0,0.6)" }}
+            data-hero-item
+            className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-wide"
+            style={{ fontFamily: "'Playfair Display', serif", textShadow: "0 2px 12px rgba(0,0,0,0.8), 0 1px 4px rgba(0,0,0,0.6)", textTransform: "none" }}
           >
-            POOLABDECKUNGEN<br />NACH MAß
+            TRAUM-POOLS<br />NACH MAß
           </h1>
           <p
+            data-hero-item
             className="mt-5 text-lg md:text-2xl font-medium tracking-widest uppercase text-white/90"
             style={{ fontFamily: "'Playfair Display', serif", textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}
           >
-            Ihr Spezialist für Ihre individuelle<br />Schwimmbadabdeckung
+            Ihr Spezialist für Ihren individuellen<br />Premium-Pool aus Niederbayern
           </p>
-          <p className="mt-5 text-base md:text-lg text-white/75 max-w-xl" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.7)" }}>
-            Wir führen sämtliche Produkte für Ihren Pool, kontaktieren Sie uns!
+          <p data-hero-item className="mt-5 text-base md:text-lg text-white/75 max-w-xl" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.7)" }}>
+            Wir bauen Ihren Traum-Pool ganz nach Ihren Wünschen – kontaktieren Sie uns!
           </p>
           <Link
             to="/kontakt"
+            data-hero-item
             className="mt-8 inline-flex items-center gap-2 rounded-full bg-white px-8 py-3.5 text-sm font-semibold transition hover:bg-white/90"
-            style={{ color: "#29ABE2" }}
+            style={{ color: "#F15A22" }}
           >
-            Jetzt Angebot anfordern <ArrowRight className="size-4" />
+            Jetzt Termin für Erstberatung vereinbaren <ArrowRight className="size-4" />
           </Link>
-          <div className="mt-10 opacity-60">
+          <div data-hero-item className="mt-10 opacity-60">
             <svg width="180" height="48" viewBox="0 0 180 48" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M5 16 C 30 2, 60 30, 90 16 C 120 2, 150 30, 175 16" stroke="white" strokeWidth="1.8" fill="none" strokeLinecap="round"/>
               <path d="M5 28 C 30 14, 60 42, 90 28 C 120 14, 150 42, 175 28" stroke="white" strokeWidth="1.8" fill="none" strokeLinecap="round"/>
@@ -143,31 +117,31 @@ function HomePage() {
       {/* ÜBER UNS */}
       <section className="mt-20 grid lg:grid-cols-[3fr_1.2fr] overflow-hidden">
         {/* Text links */}
-        <div className="flex flex-col justify-center px-8 md:px-16 lg:px-24 py-16 lg:py-24 bg-white">
+        <div data-reveal="left" className="flex flex-col justify-center px-8 md:px-16 lg:px-24 py-16 lg:py-24 bg-white">
           <h2
             className="text-2xl md:text-3xl lg:text-[1.9rem] font-bold leading-tight text-foreground"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
-            POOLCAP aus Baierbrunn schützt und pflegt Ihren Pool
+            FuchsPools aus Reisbach baut Ihren Traum-Pool
           </h2>
-          <div className="mt-8 border-l-2 pl-6 space-y-3 leading-relaxed" style={{ fontFamily: "'Playfair Display', serif", borderColor: "#c9b99a" }}>
+          <div className="mt-8 border-l-2 pl-6 space-y-3 leading-relaxed" style={{ fontFamily: "'Playfair Display', serif", borderColor: "#16B5C0" }}>
             <p className="text-base text-muted-foreground">
-              Seit über 25 Jahren beraten, liefern und montieren wir hochwertige Poolabdeckungen, Überdachungen und Wassertechnik im Großraum München. Das macht uns zu Ihrem kompetenten und persönlichen Ansprechpartner rund um Ihren Pool.
+              Wir sind ein mittelständisches Unternehmen aus Reisbach und bauen seit mehreren Jahren premium Pools ganz nach Ihren Wünschen. Das macht uns zu Ihrem kompetenten und persönlichen Ansprechpartner rund um Ihren Pool in Niederbayern.
             </p>
             <p className="text-base text-muted-foreground">
-              Ob Rolloabdeckung nach Maß, elegante Poolüberdachung oder chlorfreie Wasseraufbereitung – jede Lösung wird individuell auf Ihre Wünsche abgestimmt. Wir führen ausschließlich geprüfte Markenprodukte und begleiten Sie von der Erstberatung bis zur Montage.
+              Ob individueller Aufbau, Folien in Ihrer Wunschfarbe oder die passende Überdachung – jede Lösung wird exakt auf Ihre Wünsche abgestimmt. Wir begleiten Sie von der Erstberatung über die Planung bis zur fachgerechten Montage.
             </p>
             <p className="text-base text-muted-foreground">
-              Selbstverständlich kümmern wir uns auch um Heiztechnik, Solaranlagen und Reinigungstechnik – für einen gepflegten Pool das ganze Jahr über.
+              Selbstverständlich kümmern wir uns auch um Folienfarben, Design und Dächer – für einen Pool, an dem Sie das ganze Jahr über Freude haben.
             </p>
           </div>
         </div>
 
         {/* Bild rechts */}
-        <div className="relative min-h-[520px]" style={{ backgroundColor: "#c9b99a" }}>
+        <div data-reveal="right" className="relative min-h-[520px]" style={{ backgroundColor: "#16B5C0" }}>
           <div className="absolute inset-8 border border-white/50 pointer-events-none z-10" />
           <div className="absolute top-10 -left-10 right-10 bottom-10 shadow-2xl overflow-hidden">
-            <img src={aboutPool} alt="POOLCAP Pool" className="w-full h-full object-cover" />
+            <img src={aboutPool} alt="FuchsPools Pool" className="w-full h-full object-cover" />
           </div>
         </div>
       </section>
@@ -181,19 +155,20 @@ function HomePage() {
 
         <div className="container-page relative z-10">
           <h2
+            data-reveal
             className="text-center text-4xl md:text-5xl font-bold mb-16 text-foreground"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
-            POOLCAP Leistungen
+            FuchsPools Leistungen
           </h2>
-          <div className="grid md:grid-cols-3 gap-x-16 gap-y-14">
+          <div data-reveal-group className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-12">
             {LEISTUNGEN.map((item) => (
-              <Link key={item.to} to={item.to} className="group">
+              <Link key={item.title} to={item.to} data-reveal-item className="group">
                 <div className="flex items-start justify-between gap-4 mb-3">
                   <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition">
                     {item.title}
                   </h3>
-                  <item.icon className="size-10 shrink-0 mt-0.5" strokeWidth={1} style={{ color: "#c9b99a" }} />
+                  <item.icon className="size-10 shrink-0 mt-0.5" strokeWidth={1} style={{ color: "#16B5C0" }} />
                 </div>
                 <p className="text-sm text-muted-foreground leading-relaxed">{item.text}</p>
               </Link>
@@ -205,97 +180,54 @@ function HomePage() {
       {/* HIGHLIGHTS */}
       <section>
         <div className="py-16 text-center" style={{ backgroundColor: "#f5f5f3" }}>
-          <div className="text-xs font-semibold uppercase tracking-wider text-primary mb-3">Highlights</div>
+          <div data-reveal className="text-xs font-semibold uppercase tracking-wider text-primary mb-3">Highlights</div>
           <h2
+            data-reveal
+            data-reveal-delay="0.08"
             className="text-3xl md:text-4xl font-bold"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
             Premiumprodukte, die Sie sofort begeistern
           </h2>
         </div>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-8" style={{ backgroundColor: "#f5f5f3" }}>
+        <div data-reveal-group className="grid grid-cols-2 lg:grid-cols-4 gap-y-8" style={{ backgroundColor: "#f5f5f3" }}>
           {/* Zeile 1 */}
-          <div className="bg-[#f5f5f3] flex flex-col items-center justify-center px-8 py-16 min-h-[480px]">
-            <Layers className="size-16 mb-6" strokeWidth={1} style={{ color: "#c9b99a" }} />
-            <h3 className="text-xl font-bold text-center mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>Fahrbares Pooldeck</h3>
-            <p className="text-sm text-muted-foreground text-center leading-relaxed">Die elegante Lösung: Terrasse und Abdeckung in einem – sicher, platzsparend und ästhetisch.</p>
-            <Link to="/weitere-produkte/fahrbares-pooldeck" className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline">Mehr erfahren <ArrowRight className="size-3.5" /></Link>
+          <div data-reveal-item className="bg-[#f5f5f3] flex flex-col items-center justify-center px-8 py-16 min-h-[480px]">
+            <Waves className="size-16 mb-6" strokeWidth={1} style={{ color: "#16B5C0" }} />
+            <h3 className="text-xl font-bold text-center mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>Pools nach Maß</h3>
+            <p className="text-sm text-muted-foreground text-center leading-relaxed">Jeder Pool wird individuell geplant und gebaut – Form, Größe und Tiefe ganz nach Ihren Wünschen.</p>
+            <Link to="/poolabdeckungen" className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline">Mehr erfahren <ArrowRight className="size-3.5" /></Link>
           </div>
-          <div className="min-h-[480px] overflow-hidden">
+          <div data-reveal-item className="min-h-[480px] overflow-hidden">
             <img src={highlight1} alt="" className="w-full h-full object-cover" />
           </div>
-          <div className="bg-[#f5f5f3] flex flex-col items-center justify-center px-8 py-16 min-h-[480px]">
-            <Droplets className="size-16 mb-6" strokeWidth={1} style={{ color: "#c9b99a" }} />
-            <h3 className="text-xl font-bold text-center mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>Pool chlorfrei</h3>
-            <p className="text-sm text-muted-foreground text-center leading-relaxed">Kristallklares, hautschonendes Wasser durch Ionisierung – ganz ohne Chlorgeruch.</p>
-            <Link to="/pool-chlorfrei" className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline">Mehr erfahren <ArrowRight className="size-3.5" /></Link>
+          <div data-reveal-item className="bg-[#f5f5f3] flex flex-col items-center justify-center px-8 py-16 min-h-[480px]">
+            <Palette className="size-16 mb-6" strokeWidth={1} style={{ color: "#16B5C0" }} />
+            <h3 className="text-xl font-bold text-center mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>Folien & Design</h3>
+            <p className="text-sm text-muted-foreground text-center leading-relaxed">Hochwertige Alkorplan-Folien in vielen Farben und Oberflächen – für genau Ihren Wunsch-Look.</p>
+            <Link to="/folien-farben-design" className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline">Mehr erfahren <ArrowRight className="size-3.5" /></Link>
           </div>
-          <div className="min-h-[480px] overflow-hidden">
+          <div data-reveal-item className="min-h-[480px] overflow-hidden">
             <img src={highlight2} alt="" className="w-full h-full object-cover" />
           </div>
           {/* Zeile 2 */}
-          <div className="bg-[#f5f5f3] flex flex-col items-center justify-center px-8 py-16 min-h-[480px]">
-            <Zap className="size-16 mb-6" strokeWidth={1} style={{ color: "#c9b99a" }} />
-            <h3 className="text-xl font-bold text-center mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>Wärmepumpen</h3>
-            <p className="text-sm text-muted-foreground text-center leading-relaxed">Effizient heizen, länger schwimmen – unsere Wärmepumpen verlängern die Badesaison in Bayern.</p>
-            <Link to="/weitere-produkte/waermepumpen" className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline">Mehr erfahren <ArrowRight className="size-3.5" /></Link>
+          <div data-reveal-item className="bg-[#f5f5f3] flex flex-col items-center justify-center px-8 py-16 min-h-[480px]">
+            <Layers className="size-16 mb-6" strokeWidth={1} style={{ color: "#16B5C0" }} />
+            <h3 className="text-xl font-bold text-center mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>Pool-Überdachungen</h3>
+            <p className="text-sm text-muted-foreground text-center leading-relaxed">Schützen Sie Ihren Pool und verlängern Sie die Badesaison mit einer passenden Überdachung.</p>
+            <Link to="/daecher" className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline">Mehr erfahren <ArrowRight className="size-3.5" /></Link>
           </div>
-          <div className="min-h-[480px] overflow-hidden">
+          <div data-reveal-item className="min-h-[480px] overflow-hidden">
             <img src={highlight3} alt="" className="w-full h-full object-cover" />
           </div>
-          <div className="bg-[#f5f5f3] flex flex-col items-center justify-center px-8 py-16 min-h-[480px]">
-            <Bot className="size-16 mb-6" strokeWidth={1} style={{ color: "#c9b99a" }} />
-            <h3 className="text-xl font-bold text-center mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>Reinigungsroboter</h3>
-            <p className="text-sm text-muted-foreground text-center leading-relaxed">Sauberer Pool ohne Handarbeit – vollautomatische Reinigung von Boden und Wänden.</p>
-            <Link to="/weitere-produkte/reinigungsroboter" className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline">Mehr erfahren <ArrowRight className="size-3.5" /></Link>
+          <div data-reveal-item className="bg-[#f5f5f3] flex flex-col items-center justify-center px-8 py-16 min-h-[480px]">
+            <Wrench className="size-16 mb-6" strokeWidth={1} style={{ color: "#16B5C0" }} />
+            <h3 className="text-xl font-bold text-center mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>Aufbau & Montage</h3>
+            <p className="text-sm text-muted-foreground text-center leading-relaxed">Vom Aushub über den Beckenbau bis zur Technik – alles fachgerecht aus einer Hand.</p>
+            <Link to="/aufbau-unserer-pools" className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline">Mehr erfahren <ArrowRight className="size-3.5" /></Link>
           </div>
-          <div className="min-h-[480px] overflow-hidden">
+          <div data-reveal-item className="min-h-[480px] overflow-hidden">
             <img src={highlight4} alt="" className="w-full h-full object-cover" />
-          </div>
-        </div>
-      </section>
-
-      {/* PARTNERFIRMEN */}
-      <section className="py-24" style={{ backgroundColor: "#f2f2f0" }}>
-        <div className="container-page text-center">
-          <h2
-            className="text-4xl md:text-5xl mb-20 text-foreground"
-            style={{ fontFamily: "'Playfair Display', serif" }}
-          >
-            Unsere Partnerfirmen
-          </h2>
-          <div className="relative overflow-hidden min-h-[80px]">
-            {PARTNER_SLIDES.map((slide, si) => (
-              <div
-                key={si}
-                className="flex items-center justify-center gap-14 flex-wrap grayscale opacity-60 transition-all duration-500 absolute inset-0"
-                style={{ opacity: si === partnerSlide ? 0.6 : 0, pointerEvents: si === partnerSlide ? "auto" : "none" }}
-              >
-                {slide.map((p) => (
-                  <div key={p.name} className="flex flex-col items-center">
-                    <span
-                      className="text-3xl font-bold tracking-widest text-foreground"
-                      style={p.serif ? { fontFamily: "'Playfair Display', serif", fontSize: "2rem" } : {}}
-                    >
-                      {p.name}
-                    </span>
-                    <span className="text-[11px] tracking-wider text-foreground/60 mt-0.5 max-w-[110px] leading-tight text-center">
-                      {p.tagline}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            ))}
-          </div>
-          <div className="flex justify-center gap-2 mt-16">
-            {PARTNER_SLIDES.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setPartnerSlide(i)}
-                className={`rounded-full transition-all ${i === partnerSlide ? "size-2.5 bg-foreground/50" : "size-2 bg-foreground/20 hover:bg-foreground/35"}`}
-                aria-label={`Partner-Seite ${i + 1}`}
-              />
-            ))}
           </div>
         </div>
       </section>
@@ -305,7 +237,7 @@ function HomePage() {
         {/* Split-Hintergrund über die gesamte Sektionshöhe */}
         <div className="absolute inset-0 grid grid-cols-[42%_58%] pointer-events-none" aria-hidden="true">
           <div className="bg-white" />
-          <div style={{ backgroundColor: "#c9b99a" }} />
+          <div style={{ backgroundColor: "#16B5C0" }} />
         </div>
 
         {/* Inhalt */}
@@ -313,6 +245,7 @@ function HomePage() {
           {/* Heading-Bereich: "Referenzen" links, beige rechts sichtbar */}
           <div className="px-16 py-24">
             <h2
+              data-reveal
               className="text-5xl font-bold text-foreground"
               style={{ fontFamily: "'Playfair Display', serif" }}
             >
@@ -321,10 +254,10 @@ function HomePage() {
           </div>
 
           {/* Bild-Grid – spannt über weiße UND beige Seite */}
-          <div className="grid grid-cols-3 gap-3 px-28 pb-16">
+          <div data-reveal-group className="grid grid-cols-3 gap-3 px-28 pb-16">
             {[ref9, ref10, ref11, ref12, ref13, ref14, ref15, ref16, ref17].map((src, i) => (
-              <div key={i} className="aspect-[4/3] overflow-hidden">
-                <img src={src} alt="" loading="lazy" className="w-full h-full object-cover" />
+              <div key={i} data-reveal-item className="aspect-[4/3] overflow-hidden group">
+                <img src={src} alt="" loading="lazy" className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" />
               </div>
             ))}
           </div>
@@ -340,6 +273,7 @@ function HomePage() {
 
         <div className="relative max-w-4xl mx-auto text-center">
           <h2
+            data-reveal
             className="text-5xl font-bold text-foreground mb-14"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
@@ -347,7 +281,7 @@ function HomePage() {
           </h2>
 
           {/* Zitat-Box mit feiner brauner Umrandung */}
-          <div className="px-14 py-12" style={{ border: "1px solid #c9b99a" }}>
+          <div data-reveal data-reveal-delay="0.1" className="px-14 py-12" style={{ border: "1px solid #16B5C0" }}>
             <div className="min-h-[140px] flex flex-col justify-center">
               <p
                 className="text-xl leading-relaxed text-foreground/80 italic"
@@ -383,7 +317,7 @@ function HomePage() {
           <Link
             to="/kontakt"
             className="mt-10 inline-flex items-center px-6 py-3 text-white font-medium transition hover:opacity-90"
-            style={{ backgroundColor: "#29ABE2", fontFamily: "'Playfair Display', serif" }}
+            style={{ backgroundColor: "#F15A22", fontFamily: "'Playfair Display', serif" }}
           >
             Kontakt aufnehmen
           </Link>
@@ -393,12 +327,12 @@ function HomePage() {
       {/* ÜBER UNS – Bild links / Text rechts */}
       <section className="grid lg:grid-cols-2 overflow-hidden">
         {/* Bild – randlos links */}
-        <div className="relative min-h-[600px]">
-          <img src={bild19} alt="POOLCAP – Ihr Poolspezialist" className="absolute inset-0 w-full h-full object-cover" />
+        <div data-reveal="left" className="relative min-h-[600px]">
+          <img src={bild19} alt="FuchsPools – Ihr Poolspezialist" className="absolute inset-0 w-full h-full object-cover" />
         </div>
 
         {/* Text rechts */}
-        <div className="flex flex-col justify-center px-14 lg:px-20 py-20 bg-white">
+        <div data-reveal="right" className="flex flex-col justify-center px-14 lg:px-20 py-20 bg-white">
           <h2
             className="text-4xl font-bold text-foreground mb-8"
             style={{ fontFamily: "'Playfair Display', serif" }}
@@ -406,11 +340,11 @@ function HomePage() {
             Über uns
           </h2>
           <p className="text-base text-muted-foreground leading-relaxed mb-10">
-            Seit über 25 Jahren sind wir Ihr zuverlässiger Ansprechpartner rund um den Pool im Großraum München. Von der individuellen Beratung über die Maßfertigung bis zur fachgerechten Montage – bei POOLCAP erhalten Sie alles aus einer Hand. Unser Team berät Sie persönlich und findet für jeden Pool die optimale Lösung.
+            Seit mehreren Jahren sind wir Ihr zuverlässiger Ansprechpartner rund um den Pool in Niederbayern. Von der individuellen Beratung über die Planung bis zur fachgerechten Montage – bei FuchsPools erhalten Sie alles aus einer Hand. Unser Team berät Sie persönlich und findet für jeden Pool die optimale Lösung.
           </p>
 
           {/* Callout mit linkem Balken */}
-          <div className="border-l-[3px] pl-5 mb-6" style={{ borderColor: "#c9b99a" }}>
+          <div className="border-l-[3px] pl-5 mb-6" style={{ borderColor: "#16B5C0" }}>
             <p className="text-base font-bold text-foreground" style={{ fontFamily: "'Playfair Display', serif" }}>
               Unsere Leistungen auf einen Blick:
             </p>
@@ -419,8 +353,8 @@ function HomePage() {
           {/* 2-spaltige Liste – klickbar */}
           <div className="grid grid-cols-2 gap-x-6 gap-y-3">
             {LEISTUNGEN.map((item) => (
-              <Link key={item.to} to={item.to} className="flex items-center gap-3 group">
-                <div className="size-3 shrink-0 transition group-hover:opacity-70" style={{ backgroundColor: "#c9b99a" }} />
+              <Link key={item.title} to={item.to} className="flex items-center gap-3 group">
+                <div className="size-3 shrink-0 transition group-hover:opacity-70" style={{ backgroundColor: "#16B5C0" }} />
                 <span className="text-sm text-foreground group-hover:text-primary transition">{item.title}</span>
               </Link>
             ))}
@@ -429,6 +363,6 @@ function HomePage() {
       </section>
 
       <CTASection />
-    </>
+    </div>
   );
 }
