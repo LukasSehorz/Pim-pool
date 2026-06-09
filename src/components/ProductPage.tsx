@@ -30,7 +30,7 @@ export function ProductPage({ content, video, heroTitle, beigeRight, beforeCTA }
 
       <section className="relative overflow-hidden">
         {beigeRight && (
-          <div className="absolute right-0 top-0 bottom-0 w-[25%] pointer-events-none" style={{ backgroundColor: "#16B5C0" }} />
+          <div className="absolute right-0 top-0 bottom-0 w-[25%] pointer-events-none" style={{ backgroundColor: "#C49A3C" }} />
         )}
         <div className="container-page relative py-16 grid lg:grid-cols-[1.4fr_1fr] gap-12">
         <div className="space-y-5 text-foreground/85 leading-relaxed">
@@ -53,7 +53,7 @@ export function ProductPage({ content, video, heroTitle, beigeRight, beforeCTA }
           <ul className="mt-5 space-y-2 text-sm text-muted-foreground">
             <li className="flex items-center gap-2"><Check className="size-4 text-primary" /> Unverbindlich & kostenfrei</li>
             <li className="flex items-center gap-2"><Check className="size-4 text-primary" /> Beratung durch Spezialisten</li>
-            <li className="flex items-center gap-2"><Check className="size-4 text-primary" /> Aus Niederbayern</li>
+            <li className="flex items-center gap-2"><Check className="size-4 text-primary" /> Aus Oberbayern</li>
           </ul>
         </aside>
         </div>

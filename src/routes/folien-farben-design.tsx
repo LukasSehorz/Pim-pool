@@ -7,11 +7,11 @@ import { CTASection } from "@/components/CTASection";
 export const Route = createFileRoute("/folien-farben-design")({
   head: () => ({
     meta: [
-      { title: "Folien Farben/Design – FuchsPools" },
+      { title: "Folien Farben/Design – pim POOL" },
       {
         name: "description",
         content:
-          "Hochwertige Alkorplan 2000 Poolfolien – glasfaserverstärkt, robust und in vielen Farben & Oberflächen. Finden Sie Ihre Wunschfolie bei FuchsPools.",
+          "Hochwertige RENOLIT Alkorplan Poolfolien, glasfaserverstärkt, robust und in vielen Farben und Oberflächen. Als zertifizierter RENOLIT Fachverleger finden wir Ihre Wunschfolie.",
       },
     ],
   }),
@@ -24,7 +24,7 @@ function FolienPage() {
       <PageHero
         eyebrow="Folien Farben/Design"
         title="Folien, Farben & Design"
-        subtitle="Robuste Alkorplan-Folien – für ein langlebiges, stilvolles Poolerlebnis."
+        subtitle="Als zertifizierter RENOLIT Fachverleger kleiden wir Ihr Becken in robusten Folien aus, für ein langlebiges und stilvolles Poolerlebnis."
         crumbs={[{ label: "Folien Farben/Design" }]}
         image="/images/Folien Design/Hero Section Folien & Design.png"
         ctaLabel="Jetzt Wunsch-Design auswählen"

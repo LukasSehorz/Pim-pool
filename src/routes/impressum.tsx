@@ -3,7 +3,7 @@ import { PageHero } from "@/components/PageHero";
 import { COMPANY } from "@/lib/site";
 
 export const Route = createFileRoute("/impressum")({
-  head: () => ({ meta: [{ title: "Impressum – FuchsPools" }] }),
+  head: () => ({ meta: [{ title: "Impressum – pim POOL" }] }),
   component: () => (
     <>
       <PageHero title="Impressum" crumbs={[{ label: "Impressum" }]} />
@@ -14,7 +14,11 @@ export const Route = createFileRoute("/impressum")({
         </div>
         <div>
           <h2 className="text-xl font-bold">Vertreten durch</h2>
-          <p className="mt-2">Geschäftsführer: {COMPANY.owner}<br />Berufsbezeichnung: Poolbauer (Deutschland)</p>
+          <p className="mt-2">Geschäftsführer: {COMPANY.owner}</p>
+        </div>
+        <div>
+          <h2 className="text-xl font-bold">Registereintrag</h2>
+          <p className="mt-2">Eintragung im Handelsregister<br />Registergericht: {COMPANY.registerCourt}<br />Registernummer: {COMPANY.register}</p>
         </div>
         <div>
           <h2 className="text-xl font-bold">Kontakt</h2>

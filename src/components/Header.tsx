@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import { Menu, Phone, X, ChevronDown } from "lucide-react";
 import { NAV, COMPANY, type NavChild } from "@/lib/site";
 
-const ORANGE = "#F15A22";
+const ACCENT = "#16527A";
+const GOLD = "#C49A3C";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -27,7 +28,11 @@ export function Header() {
     >
       <div className="container-page flex h-18 items-center justify-between py-3">
         <Link to="/" className="flex items-center">
-          <img src="/images/Logo.jpg" alt="FuchsPools" className="h-12 w-auto rounded-md" style={{ filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.25))" }} />
+          <img
+            src="/images/pim-logo.png"
+            alt="pim POOL"
+            className={`w-auto transition-all duration-500 ${scrolled ? "h-12" : "h-14 rounded-lg bg-white/92 px-3 py-1.5 shadow-md"}`}
+          />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-1">
@@ -49,8 +54,8 @@ export function Header() {
             to="/kontakt"
             className="inline-flex items-center rounded-full px-5 py-2.5 text-sm font-semibold transition hover:opacity-90"
             style={scrolled
-              ? { backgroundColor: ORANGE, color: "#ffffff" }
-              : { backgroundColor: "#ffffff", color: ORANGE }
+              ? { backgroundColor: ACCENT, color: "#ffffff" }
+              : { backgroundColor: "#ffffff", color: ACCENT }
             }
           >
             Angebot anfordern
@@ -80,7 +85,7 @@ export function Header() {
                     to={item.to}
                     activeOptions={item.to === "/" ? { exact: true } : undefined}
                     onClick={() => setOpen(false)}
-                    activeProps={{ style: { color: ORANGE, fontWeight: 700 } }}
+                    activeProps={{ style: { color: GOLD, fontWeight: 700 } }}
                   >{item.label}</Link>
                   {item.children && <ChevronDown className={`size-4 transition ${openMobile === item.to ? "rotate-180" : ""}`} />}
                 </button>
@@ -97,7 +102,7 @@ export function Header() {
               <a href={COMPANY.phoneHref} className="flex items-center justify-center gap-2 rounded-full border border-border px-4 py-3 font-medium">
                 <Phone className="size-4" /> {COMPANY.phone}
               </a>
-              <Link to="/kontakt" onClick={() => setOpen(false)} className="rounded-full px-4 py-3 text-center font-semibold text-white" style={{ backgroundColor: ORANGE }}>
+              <Link to="/kontakt" onClick={() => setOpen(false)} className="rounded-full px-4 py-3 text-center font-semibold text-white" style={{ backgroundColor: ACCENT }}>
                 Angebot anfordern
               </Link>
             </div>
@@ -150,9 +155,9 @@ function MegaItem({ item, scrolled }: { item: NavChild; scrolled: boolean }) {
       <Link
         to={item.to}
         activeOptions={item.to === "/" ? { exact: true } : undefined}
-        className="flex items-center gap-1 px-3 py-2 text-base font-semibold transition rounded-md hover:opacity-70"
+        className="flex items-center gap-1 px-2 py-2 text-sm font-semibold transition rounded-md hover:opacity-70 whitespace-nowrap"
         style={{ color, textShadow: shadow }}
-        activeProps={{ style: { color: ORANGE, textShadow: "none", fontWeight: 700 } }}
+        activeProps={{ style: { color: GOLD, textShadow: "none", fontWeight: 700 } }}
       >
         {item.label}
         {item.children && <ChevronDown className="size-3.5 opacity-70" />}

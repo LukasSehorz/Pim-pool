@@ -2,8 +2,8 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-const TURQ = "#16B5C0";
-const ORANGE = "#F15A22";
+const TURQ = "#C49A3C";
+const ORANGE = "#16527A";
 const PLAYFAIR = "'Playfair Display', serif";
 
 export function FolienFaecher() {
@@ -32,7 +32,7 @@ export function FolienFaecher() {
     <section ref={rootRef} className="relative overflow-hidden bg-white py-20 md:py-28">
       {/* weicher Hintergrund-Glow */}
       <div className="absolute inset-0 pointer-events-none opacity-70" aria-hidden="true">
-        <div className="absolute left-0 top-1/2 size-[42rem] -translate-x-1/4 -translate-y-1/2 rounded-full bg-[#16B5C0]/10 blur-3xl" />
+        <div className="absolute left-0 top-1/2 size-[42rem] -translate-x-1/4 -translate-y-1/2 rounded-full bg-[#C49A3C]/10 blur-3xl" />
       </div>
 
       <div className="container-page relative">
@@ -51,12 +51,12 @@ export function FolienFaecher() {
           {/* Links: großes, gerahmtes Foto */}
           <div className="folien-img relative">
             {/* versetzter Akzentblock hinter dem Bild */}
-            <div className="absolute -bottom-5 -right-5 h-2/3 w-2/3 rounded-3xl bg-[#16B5C0]/15" aria-hidden="true" />
+            <div className="absolute -bottom-5 -right-5 h-2/3 w-2/3 rounded-3xl bg-[#C49A3C]/15" aria-hidden="true" />
             {/* Passepartout-Rahmen */}
             <div className="relative overflow-hidden rounded-3xl border border-border bg-white p-3 shadow-elegant ring-1 ring-black/5">
               <img
                 src="/images/folien/folien-bild.jpg"
-                alt="Alkorplan 2000 Farbfächer mit Renolit-Folienmustern"
+                alt="RENOLIT Alkorplan Farbfächer mit Folienmustern"
                 className="block h-auto w-full rounded-2xl"
               />
             </div>
@@ -65,14 +65,14 @@ export function FolienFaecher() {
           {/* Rechts: Beschreibung */}
           <div className="folien-text space-y-8">
             <div className="border-l-2 pl-6" style={{ borderColor: TURQ }}>
-              <h3 className="text-xl font-bold" style={{ fontFamily: PLAYFAIR }}>Alkorplan 2000</h3>
+              <h3 className="text-xl font-bold" style={{ fontFamily: PLAYFAIR }}>RENOLIT Alkorplan 2000</h3>
               <p className="mt-2.5 text-base leading-relaxed text-muted-foreground">
                 Glasfaserverstärkt und mit einer Stärke von{" "}
                 <span className="font-semibold text-foreground">1,5&nbsp;mm – 1,8&nbsp;mm</span> – sehr robust!
               </p>
             </div>
             <div className="border-l-2 pl-6" style={{ borderColor: ORANGE }}>
-              <h3 className="text-xl font-bold" style={{ fontFamily: PLAYFAIR }}>Alkorplan Touch</h3>
+              <h3 className="text-xl font-bold" style={{ fontFamily: PLAYFAIR }}>RENOLIT Alkorplan Touch</h3>
               <p className="mt-2.5 text-base leading-relaxed text-muted-foreground">
                 „Die mit Abstand beste Poolfolie auf dem Markt" – mit einer Stärke von{" "}
                 <span className="font-semibold text-foreground">2&nbsp;mm</span> fast unzerstörbar und im Design

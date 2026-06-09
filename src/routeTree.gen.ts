@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SchwimmteichRouteImport } from './routes/schwimmteich'
 import { Route as PoolabdeckungenRouteImport } from './routes/poolabdeckungen'
 import { Route as KontaktRouteImport } from './routes/kontakt'
 import { Route as ImpressumRouteImport } from './routes/impressum'
@@ -19,6 +20,11 @@ import { Route as AufbauUnsererPoolsRouteImport } from './routes/aufbau-unserer-
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PoolabdeckungenIndexRouteImport } from './routes/poolabdeckungen.index'
 
+const SchwimmteichRoute = SchwimmteichRouteImport.update({
+  id: '/schwimmteich',
+  path: '/schwimmteich',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PoolabdeckungenRoute = PoolabdeckungenRouteImport.update({
   id: '/poolabdeckungen',
   path: '/poolabdeckungen',
@@ -74,6 +80,7 @@ export interface FileRoutesByFullPath {
   '/impressum': typeof ImpressumRoute
   '/kontakt': typeof KontaktRoute
   '/poolabdeckungen': typeof PoolabdeckungenRouteWithChildren
+  '/schwimmteich': typeof SchwimmteichRoute
   '/poolabdeckungen/': typeof PoolabdeckungenIndexRoute
 }
 export interface FileRoutesByTo {
@@ -84,6 +91,7 @@ export interface FileRoutesByTo {
   '/folien-farben-design': typeof FolienFarbenDesignRoute
   '/impressum': typeof ImpressumRoute
   '/kontakt': typeof KontaktRoute
+  '/schwimmteich': typeof SchwimmteichRoute
   '/poolabdeckungen': typeof PoolabdeckungenIndexRoute
 }
 export interface FileRoutesById {
@@ -96,6 +104,7 @@ export interface FileRoutesById {
   '/impressum': typeof ImpressumRoute
   '/kontakt': typeof KontaktRoute
   '/poolabdeckungen': typeof PoolabdeckungenRouteWithChildren
+  '/schwimmteich': typeof SchwimmteichRoute
   '/poolabdeckungen/': typeof PoolabdeckungenIndexRoute
 }
 export interface FileRouteTypes {
@@ -109,6 +118,7 @@ export interface FileRouteTypes {
     | '/impressum'
     | '/kontakt'
     | '/poolabdeckungen'
+    | '/schwimmteich'
     | '/poolabdeckungen/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -119,6 +129,7 @@ export interface FileRouteTypes {
     | '/folien-farben-design'
     | '/impressum'
     | '/kontakt'
+    | '/schwimmteich'
     | '/poolabdeckungen'
   id:
     | '__root__'
@@ -130,6 +141,7 @@ export interface FileRouteTypes {
     | '/impressum'
     | '/kontakt'
     | '/poolabdeckungen'
+    | '/schwimmteich'
     | '/poolabdeckungen/'
   fileRoutesById: FileRoutesById
 }
@@ -142,10 +154,18 @@ export interface RootRouteChildren {
   ImpressumRoute: typeof ImpressumRoute
   KontaktRoute: typeof KontaktRoute
   PoolabdeckungenRoute: typeof PoolabdeckungenRouteWithChildren
+  SchwimmteichRoute: typeof SchwimmteichRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/schwimmteich': {
+      id: '/schwimmteich'
+      path: '/schwimmteich'
+      fullPath: '/schwimmteich'
+      preLoaderRoute: typeof SchwimmteichRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/poolabdeckungen': {
       id: '/poolabdeckungen'
       path: '/poolabdeckungen'
@@ -233,6 +253,7 @@ const rootRouteChildren: RootRouteChildren = {
   ImpressumRoute: ImpressumRoute,
   KontaktRoute: KontaktRoute,
   PoolabdeckungenRoute: PoolabdeckungenRouteWithChildren,
+  SchwimmteichRoute: SchwimmteichRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

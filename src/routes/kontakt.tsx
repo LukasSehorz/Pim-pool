@@ -8,8 +8,8 @@ import { COMPANY } from "@/lib/site";
 export const Route = createFileRoute("/kontakt")({
   head: () => ({
     meta: [
-      { title: "Kontakt – FuchsPools Reisbach" },
-      { name: "description", content: "Schreiben Sie uns oder rufen Sie an. Persönliche Beratung rund um Ihren Traum-Pool in Niederbayern." },
+      { title: "Kontakt – pim POOL Hohenpolding" },
+      { name: "description", content: "Schreiben Sie uns oder rufen Sie an. Persönliche Beratung rund um Ihre Wasserlandschaft in Oberbayern." },
     ],
   }),
   component: KontaktPage,
@@ -23,10 +23,10 @@ function KontaktPage() {
     <div ref={rootRef}>
       <PageHero
         eyebrow="Kontakt"
-        title="Sprechen Sie mit unseren Pool-Profis"
-        subtitle="Unverbindlich, kostenfrei und kompetent – wir freuen uns auf Sie."
+        title="Lassen Sie uns über Ihr Wasser sprechen"
+        subtitle="Unverbindlich, kostenfrei und persönlich. Wir freuen uns auf Sie."
         crumbs={[{ label: "Kontakt" }]}
-        image="/images/Kontakt Hero Section.png"
+        image="/images/pim/schwimmteich_start.jpg"
         ctaLabel="Jetzt Termin vereinbaren"
         ctaHref="#angebot"
       />
@@ -91,7 +91,7 @@ function KontaktPage() {
               title="Karte"
               className="size-full"
               loading="lazy"
-              src={`https://www.openstreetmap.org/export/embed.html?bbox=12.59%2C48.54%2C12.67%2C48.59&layer=mapnik&marker=48.5662%2C12.6293`}
+              src={`https://www.openstreetmap.org/export/embed.html?bbox=12.03%2C48.28%2C12.11%2C48.32&layer=mapnik&marker=48.3017%2C12.0683`}
             />
           </div>
         </aside>

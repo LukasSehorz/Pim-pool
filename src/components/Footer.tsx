@@ -10,13 +10,13 @@ export function Footer() {
           <div className="lg:col-span-1 space-y-5">
             <Link to="/">
               <img
-                src="/images/Logo.jpg"
-                alt="FuchsPools"
-                className="h-16 w-auto rounded-md"
+                src="/images/pim-logo.png"
+                alt="pim POOL"
+                className="h-16 w-auto rounded-lg bg-white px-3 py-2"
               />
             </Link>
             <p className="text-sm text-primary-foreground/75 leading-relaxed">
-              {COMPANY.full}. Premium-Pools nach Maß – geplant, gebaut und montiert in {COMPANY.region}.
+              {COMPANY.full}. Individuelle Pools und Schwimmteiche, geplant und gebaut in {COMPANY.region}. Aus Begeisterung für Wasser.
             </p>
             <div className="space-y-2 text-sm">
               <div className="flex items-start gap-2"><MapPin className="size-4 mt-0.5 text-primary" />{COMPANY.street}, {COMPANY.zip} {COMPANY.city}</div>

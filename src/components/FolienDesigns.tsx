@@ -4,8 +4,8 @@ import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-const ORANGE = "#F15A22";
-const TURQ = "#16B5C0";
+const ORANGE = "#16527A";
+const TURQ = "#C49A3C";
 const PLAYFAIR = "'Playfair Display', serif";
 
 type Design = { name: string; tagline: string; img: string };
@@ -93,8 +93,8 @@ export function FolienDesigns() {
     >
       {/* dezente Akzent-Glows (hell) */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div className="absolute -top-24 right-0 size-[34rem] rounded-full bg-[#16B5C0]/12 blur-3xl" />
-        <div className="absolute -bottom-32 -left-16 size-[30rem] rounded-full bg-[#F15A22]/8 blur-3xl" />
+        <div className="absolute -top-24 right-0 size-[34rem] rounded-full bg-[#C49A3C]/12 blur-3xl" />
+        <div className="absolute -bottom-32 -left-16 size-[30rem] rounded-full bg-[#16527A]/8 blur-3xl" />
       </div>
 
       <div className="relative mx-auto w-full max-w-[112rem] px-6 md:px-10">
@@ -121,7 +121,7 @@ export function FolienDesigns() {
                   type="button"
                   onClick={() => setOpen(i)}
                   aria-label={`${d.name} vergrößern`}
-                  className="group relative block w-full cursor-pointer text-left outline-none focus-visible:ring-2 focus-visible:ring-[#16B5C0] focus-visible:ring-offset-2 rounded-2xl"
+                  className="group relative block w-full cursor-pointer text-left outline-none focus-visible:ring-2 focus-visible:ring-[#C49A3C] focus-visible:ring-offset-2 rounded-2xl"
                 >
                   {/* heller Passepartout-Rahmen */}
                   <div className="overflow-hidden rounded-2xl border border-black/[0.06] bg-white p-2.5 shadow-[0_22px_50px_-24px_rgba(15,45,50,0.45)] transition-all duration-500 ease-out group-hover:-translate-y-2.5 group-hover:shadow-[0_38px_70px_-26px_rgba(15,45,50,0.6)]">

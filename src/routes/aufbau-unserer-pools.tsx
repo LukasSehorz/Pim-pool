@@ -8,15 +8,15 @@ import { CTASection } from "@/components/CTASection";
 export const Route = createFileRoute("/aufbau-unserer-pools")({
   head: () => ({
     meta: [
-      { title: "Aufbau unserer Pools – FuchsPools" },
-      { name: "description", content: "So entsteht Ihr Traum-Pool bei FuchsPools – von der Bodenplatte über robuste Styroporsteine bis zum fertigen, folierten Becken. Schritt für Schritt erklärt." },
+      { title: "Aufbau unserer Pools – pim POOL" },
+      { name: "description", content: "So entsteht Ihr Pool bei pim POOL. Von der Bodenplatte über robuste Styroporsteine bis zum fertigen, folierten Becken, Schritt für Schritt erklärt." },
     ],
   }),
   component: AufbauPage,
 });
 
-const ORANGE = "#F15A22";
-const TURQ = "#16B5C0";
+const ORANGE = "#16527A";
+const TURQ = "#C49A3C";
 const PLAYFAIR = "'Playfair Display', serif";
 
 const STEPS = [
@@ -25,7 +25,7 @@ const STEPS = [
   { n: "03", img: "/images/aufbau/step-3.jpg", title: "Reihe für Reihe aufbauen", text: "Reihe für Reihe bis zu einer Höhe von max. 1,5 m. Mit Rundstahlstangen werden die Kammern vertikal und horizontal bewehrt." },
   { n: "04", img: "/images/aufbau/step-4.png", title: "Einbauteile setzen & befüllen", text: "Skimmer, Düsen, Scheinwerfer und weitere Einbauteile werden montiert – anschließend werden die Steine mit Beton befüllt." },
   { n: "05", img: "/images/aufbau/step-5.jpg", title: "Treppenbau", text: "Eine vernünftige und formschöne Treppe darf natürlich nicht fehlen." },
-  { n: "06", img: "/images/aufbau/step-6.jpg", title: "Verputzen & vorbereiten", text: "Das Becken wird verputzt, desinfiziert und mit einem Spezial-Vlies beklebt." },
+  { n: "06", img: "/images/Pim pool/Schritt 06 Verputzen.png", title: "Verputzen & vorbereiten", text: "Das Becken wird verputzt, desinfiziert und mit einem Spezial-Vlies beklebt." },
   { n: "07", img: "/images/aufbau/step-7.jpg", title: "Folie nach Wunsch", text: "Zum Schluss wird das Becken mit der Wunschfolie ausgekleidet und verschweißt – ganz nach Kundenwunsch." },
   { n: "08", img: "/images/aufbau/step-8.jpeg", title: "Fertiges Becken", text: "Und schon ist das Becken fertig – jetzt kann die Gartengestaltung beginnen." },
 ];
@@ -101,10 +101,10 @@ function AufbauPage() {
             Aufbau unserer Pools
           </div>
           <h1 className="hero-reveal text-4xl md:text-5xl lg:text-6xl font-bold leading-tight" style={{ fontFamily: PLAYFAIR, textShadow: "0 2px 14px rgba(0,0,0,0.8)" }}>
-            So entsteht Ihr Traum-Pool
+            So entsteht Ihr Pool
           </h1>
           <p className="hero-reveal mt-5 text-lg text-white/85 max-w-2xl mx-auto" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.7)" }}>
-            Von der Bodenplatte bis zum fertigen Becken – ein Blick hinter die Kulissen unserer Poolbau-Schritte.
+            Von der Bodenplatte bis zum fertigen Becken. Ein Blick hinter die Kulissen, wie wir Ihren Pool Stein für Stein bauen.
           </p>
         </div>
       </section>
@@ -156,7 +156,7 @@ function AufbauPage() {
               Der Weg zu Ihrem Pool
             </h2>
             <p className="mt-5 text-base text-muted-foreground leading-relaxed">
-              Jeder FuchsPool entsteht in sorgfältiger Handarbeit. So läuft der Aufbau bei uns ab:
+              Jeder pim POOL entsteht in sorgfältiger Handarbeit. So läuft der Aufbau bei uns ab:
             </p>
           </div>
 

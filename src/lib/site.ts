@@ -1,20 +1,22 @@
 export type NavChild = { label: string; to: string; children?: NavChild[] };
 
 export const COMPANY = {
-  name: "FuchsPools",
-  full: "FuchsPools UG",
-  street: "Krankenhausstraße 31",
-  zip: "94419",
-  city: "Reisbach",
-  region: "Niederbayern",
-  phone: "0170 1149416",
-  phoneHref: "tel:+491701149416",
-  email: "info@fuchspools.de",
-  owner: "Oliver Fuchs",
-  vatId: "DE343137726",
+  name: "pim POOL",
+  full: "Pim Pool GmbH",
+  street: "Sulding 18",
+  zip: "84432",
+  city: "Hohenpolding",
+  region: "Oberbayern",
+  phone: "08705 939951",
+  phoneHref: "tel:+498705939951",
+  email: "info@pim-pool.de",
+  owner: "Pim van der Poel",
+  vatId: "DE341248097",
+  register: "HRB 264284",
+  registerCourt: "Amtsgericht München",
   youtube: "https://www.youtube.com/",
   hours: [
-    { d: "Mo – Fr", h: "Nach Vereinbarung" },
+    { d: "Mo bis Fr", h: "Nach Vereinbarung" },
     { d: "Sa", h: "Nach Vereinbarung" },
     { d: "So", h: "Geschlossen" },
   ],
@@ -22,9 +24,15 @@ export const COMPANY = {
 
 export const NAV: NavChild[] = [
   { label: "Startseite", to: "/" },
+  {
+    label: "Leistungen",
+    to: "/poolabdeckungen",
+    children: [
+      { label: "Pool", to: "/poolabdeckungen" },
+      { label: "Schwimmteich", to: "/schwimmteich" },
+    ],
+  },
   { label: "Aufbau unserer Pools", to: "/aufbau-unserer-pools" },
   { label: "Folien Farben/Design", to: "/folien-farben-design" },
-  { label: "Unsere Pools", to: "/poolabdeckungen" },
-  { label: "Dächer", to: "/daecher" },
   { label: "Kontakt", to: "/kontakt" },
 ];

@@ -6,8 +6,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { COMPANY } from "@/lib/site";
 
 export function CTASection({
-  title = "Ihr Pool verdient die beste Abdeckung.",
-  text = "Unsere Experten beraten Sie persönlich – unverbindlich, kompetent und kostenfrei.",
+  title = "Bringen wir Wasser in Ihren Garten.",
+  text = "Erzählen Sie uns von Ihren Vorstellungen und wir entwickeln gemeinsam Ihre ganz persönliche Wasserlandschaft. Die Beratung ist für Sie unverbindlich und kostenfrei.",
   primary = "Jetzt unverbindlich beraten lassen",
 }: { title?: string; text?: string; primary?: string }) {
   const ref = useRef<HTMLElement>(null);

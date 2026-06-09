@@ -1,23 +1,23 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
-import { ShieldCheck, Wrench, Sparkles } from "lucide-react";
+import { ShieldCheck, Thermometer, Smartphone } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { PageHero } from "@/components/PageHero";
 import { CTASection } from "@/components/CTASection";
 
-const TURQ = "#16B5C0";
-const ORANGE = "#F15A22";
+const TURQ = "#C49A3C";
+const ORANGE = "#16527A";
 const PLAYFAIR = "'Playfair Display', serif";
 
 export const Route = createFileRoute("/daecher")({
   head: () => ({
     meta: [
-      { title: "Pooldächer von Popp – FuchsPools" },
+      { title: "Überdachungen & Abdeckungen – pim POOL" },
       {
         name: "description",
         content:
-          "Premium-Poolüberdachungen von Popp – langlebig, elegant und exakt auf Ihren Pool abgestimmt. Modelle line PRESTIGE & line LIVING bei FuchsPools.",
+          "Verschiebbare Terrasse, Glasüberdachung oder Rollabdeckung. pim POOL plant die passende Abdeckung für Ihren Pool, schützt das Wasser und verlängert Ihre Badesaison.",
       },
     ],
   }),
@@ -25,23 +25,29 @@ export const Route = createFileRoute("/daecher")({
 });
 
 const VORTEILE = [
-  { icon: ShieldCheck, title: "Qualität", text: "Hochwertige Materialien und saubere Verarbeitung – für viele Jahre Freude." },
-  { icon: Wrench, title: "Konstruktion", text: "Durchdachte, robuste Technik, die zuverlässig läuft und Schutz bietet." },
-  { icon: Sparkles, title: "Design", text: "Klare, elegante Linien, die sich harmonisch in Ihren Garten einfügen." },
+  { icon: ShieldCheck, title: "Schutz", text: "Laub, Schmutz und neugierige Blicke bleiben draußen, das Wasser bleibt sauber und sicher." },
+  { icon: Thermometer, title: "Wärme", text: "Eine geschlossene Abdeckung hält die Wärme im Becken und verlängert Ihre Badesaison spürbar." },
+  { icon: Smartphone, title: "Komfort", text: "Auf Wunsch öffnen und schließen Sie Ihre Abdeckung bequem per App oder über Ihren Smart Home Manager." },
 ];
 
 const MODELLE = [
   {
-    name: "line PRESTIGE",
-    label: "Flach & dezent",
-    text: "Eine niedrige Schiebeüberdachung, die sich nahezu unsichtbar in Ihren Garten einfügt – und Ihren Pool zuverlässig schützt.",
-    img: "/images/daecher/dach-1.jpg",
+    name: "Flache Schiebeüberdachung",
+    label: "Nahezu unsichtbar",
+    text: "Eine niedrige Überdachung aus Glas fügt sich dezent in den Garten ein und lässt sich bei schönem Wetter einfach zur Seite schieben.",
+    img: "/images/pim/glass-enclosure.webp",
   },
   {
-    name: "line LIVING",
-    label: "Begehbar & geräumig",
-    text: "Die geräumige, begehbare Variante – wird zum lichtdurchfluteten Wohlfühlraum am Pool und verlängert Ihre Badesaison spürbar.",
-    img: "/images/daecher/dach-2.jpg",
+    name: "Überdachung im Garten",
+    label: "Schutz & Eleganz",
+    text: "Eine feste oder schiebbare Glasüberdachung verwandelt den Poolbereich in einen lichtdurchfluteten Wohlfühlraum und schützt zuverlässig vor Wind und Wetter.",
+    img: "/images/pim/pool_2.jpg",
+  },
+  {
+    name: "Hohe Überdachung",
+    label: "Begehbarer Komfort",
+    text: "Eine hohe Überdachung schafft echten Raum am Wasser. Auch bei kühlem Wetter baden Sie im warmen, stimmungsvoll beleuchteten Becken.",
+    img: "/images/pim/pool_start.jpg",
   },
 ];
 
@@ -72,11 +78,11 @@ function DaecherPage() {
   return (
     <div ref={rootRef}>
       <PageHero
-        eyebrow="Dächer"
-        title="Poolüberdachungen von Popp"
-        subtitle="Premium-Überdachungen, die Ihre Badesaison verlängern – langlebig, elegant und exakt auf Ihren Pool abgestimmt."
-        crumbs={[{ label: "Dächer" }]}
-        image="/images/Dächer Hero Section.png"
+        eyebrow="Überdachungen"
+        title="Schützen Sie Ihr Wasser, verlängern Sie die Saison"
+        subtitle="Ob verschiebbare Terrasse, elegante Glasüberdachung oder praktische Rollabdeckung. Wir finden die Lösung, die zu Ihrem Pool und Ihrem Garten passt."
+        crumbs={[{ label: "Überdachungen" }]}
+        image="/images/pim/pool_3.jpg"
         ctaLabel="Jetzt beraten lassen"
         ctaTo="/kontakt"
       />
@@ -87,18 +93,19 @@ function DaecherPage() {
           {/* Text */}
           <div className="reveal-up">
             <p className="mb-3 text-xs font-semibold uppercase tracking-widest" style={{ color: TURQ }}>
-              Spezialisiert auf Popp
+              Technik mit Raffinesse
             </p>
             <h2 className="text-3xl font-bold leading-tight md:text-4xl" style={{ fontFamily: PLAYFAIR }}>
-              Nur Dächer, von denen wir zu 100 % überzeugt sind
+              Eine Abdeckung, die zu Ihrem Leben passt
             </h2>
             <p className="mt-6 text-base leading-relaxed text-muted-foreground">
-              Bei Pooldächern setzen wir bewusst auf einen einzigen Hersteller: <span className="font-semibold text-foreground">Popp</span>.
-              Denn wir vertreiben ausschließlich Produkte, hinter denen wir voll und ganz stehen.
+              Bei der Abdeckung lassen sich allerlei technische Raffinessen verwirklichen. Eine per App verschiebbare
+              Terrasse macht aus der Wasserfläche wertvollen Lebensraum, eine Glasüberdachung holt Licht und Wärme in
+              den Poolbereich und eine Rollabdeckung sorgt mit einem Knopfdruck für Sicherheit.
             </p>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-              Popp-Überdachungen sind nicht die günstigsten am Markt – aber in Qualität, Konstruktion und Design
-              das Optimum. Eine Investition, an der Sie viele Jahre Freude haben.
+              Wir beraten Sie ehrlich, welche Variante zu Ihrem Becken, Ihrem Budget und den örtlichen Gegebenheiten
+              passt, und binden sie auf Wunsch in Ihren Smart Home Manager ein.
             </p>
 
             {/* Vorteile */}
@@ -115,18 +122,18 @@ function DaecherPage() {
 
           {/* Bild + Zitat */}
           <div className="phil-img relative">
-            <div className="absolute -bottom-5 -left-5 h-2/3 w-2/3 rounded-3xl bg-[#16B5C0]/15" aria-hidden="true" />
+            <div className="absolute -bottom-5 -left-5 h-2/3 w-2/3 rounded-3xl bg-[#C49A3C]/15" aria-hidden="true" />
             <div className="relative overflow-hidden rounded-3xl border border-border bg-white p-3 shadow-elegant ring-1 ring-black/5">
               <img
-                src="/images/daecher/dach-3.jpg"
-                alt="Realisierte Pooldach-Überdachung von Popp"
+                src="/images/pim/glass-enclosure.webp"
+                alt="Pool mit hochwertiger Glasüberdachung von pim POOL"
                 className="block h-auto w-full rounded-2xl"
               />
             </div>
             {/* Zitat-Badge */}
             <div className="absolute -bottom-6 right-4 max-w-xs rounded-2xl bg-white px-5 py-4 shadow-card ring-1 ring-black/5 md:right-8">
               <p className="text-sm font-medium italic leading-snug text-foreground" style={{ fontFamily: PLAYFAIR }}>
-                „Wir vertreiben nur Dächer, von denen wir zu 100 % überzeugt sind."
+                „Wir planen jede Abdeckung passend zu Ihrem Pool und Ihrem Alltag."
               </p>
             </div>
           </div>
@@ -134,24 +141,24 @@ function DaecherPage() {
       </section>
 
       {/* MODELLE */}
-      <section className="py-20 md:py-28" style={{ backgroundColor: "#f7f9f9" }}>
+      <section className="py-20 md:py-28" style={{ backgroundColor: "#f4f7fa" }}>
         <div className="container-page">
           <div className="reveal-up mx-auto max-w-2xl text-center">
             <p className="mb-3 text-xs font-semibold uppercase tracking-widest" style={{ color: ORANGE }}>
-              Unsere Modelle
+              Unsere Möglichkeiten
             </p>
             <h2 className="text-3xl font-bold leading-tight md:text-5xl" style={{ fontFamily: PLAYFAIR }}>
-              Für jeden Pool die passende Linie
+              Für jeden Pool die passende Lösung
             </h2>
           </div>
 
-          <div className="mt-14 grid gap-8 md:mt-20 md:grid-cols-2">
+          <div className="mt-14 grid gap-8 md:mt-20 md:grid-cols-3">
             {MODELLE.map((m) => (
               <article key={m.name} className="reveal-up group overflow-hidden rounded-3xl border border-border bg-white shadow-card transition-shadow duration-500 hover:shadow-elegant">
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <img
                     src={m.img}
-                    alt={`Popp Poolüberdachung ${m.name}`}
+                    alt={`Poolabdeckung ${m.name}`}
                     loading="lazy"
                     className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                   />
@@ -170,9 +177,9 @@ function DaecherPage() {
       </section>
 
       <CTASection
-        title="Welches Dach passt zu Ihrem Pool?"
-        text="Wir beraten Sie persönlich zu Modellen, Maßen und Möglichkeiten – unverbindlich und kostenfrei."
-        primary="Jetzt Dach-Beratung anfragen"
+        title="Welche Abdeckung passt zu Ihrem Pool?"
+        text="Wir beraten Sie persönlich zu verschiebbaren Terrassen, Glasüberdachungen und Rollabdeckungen, unverbindlich und kostenfrei."
+        primary="Jetzt Beratung anfragen"
       />
     </div>
   );

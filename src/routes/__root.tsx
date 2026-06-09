@@ -4,6 +4,7 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useLocation,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
@@ -77,19 +78,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "FuchsPools – Premium-Pools nach Maß aus Niederbayern" },
-      { name: "description", content: "FuchsPools UG aus Reisbach: Wir planen, bauen und montieren premium Pools ganz nach Ihren Wünschen – Traum-Pools aus Niederbayern." },
-      { property: "og:title", content: "FuchsPools – Traum-Pools aus Niederbayern" },
-      { property: "og:description", content: "Premium-Pools nach Maß aus Reisbach – persönliche Beratung, Planung und Montage in Niederbayern." },
+      { title: "pim POOL – Individuelle Pools und Schwimmteiche aus Oberbayern" },
+      { name: "description", content: "Pim Pool GmbH aus Hohenpolding plant und baut individuelle Pools und Schwimmteiche ganz nach Ihren Wünschen. 30 Jahre Erfahrung mit Wasserlandschaften im Großraum München und Erding." },
+      { property: "og:title", content: "pim POOL – Wasserlandschaften, die faszinieren" },
+      { property: "og:description", content: "Individuelle Pools und Schwimmteiche aus Hohenpolding. Persönliche Beratung, 3D-Planung und Umsetzung aus einer Hand in Oberbayern." },
       { property: "og:type", content: "website" },
-      { property: "og:site_name", content: "FuchsPools" },
+      { property: "og:site_name", content: "pim POOL" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" },
     ],
   }),
   shellComponent: RootShell,
@@ -100,7 +101,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="de">
       <head>
         <HeadContent />
       </head>
@@ -116,11 +117,20 @@ import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { MobileCTA } from "../components/MobileCTA";
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, [pathname]);
+  return null;
+}
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
   return (
     <QueryClientProvider client={queryClient}>
+      <ScrollToTop />
       <div className="flex min-h-screen flex-col">
         <Header />
         <main className="flex-1">
