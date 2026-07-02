@@ -12,4 +12,9 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  // Deploy target: Netlify. Without an explicit `nitro` option the config skips
+  // the nitro deploy plugin outside a Lovable sandbox, which leaves Netlify with
+  // a static-only build and no SSR handler (→ "Page not found" on every route).
+  // Pinning the preset builds Netlify functions + the publish dir for SSR.
+  nitro: { preset: "netlify" },
 });

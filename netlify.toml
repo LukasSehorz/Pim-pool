@@ -1,0 +1,19 @@
+# Netlify deploy config for this TanStack Start (Nitro SSR) app.
+#
+# The build runs `vite build`, which — with `nitro: { preset: "netlify" }` set in
+# vite.config.ts — emits:
+#   - dist/                                   static client assets (publish dir)
+#   - .netlify/functions-internal/server/     SSR handler as a Netlify Functions v2
+#                                             entry (server.mjs, config.path = "/*",
+#                                             preferStatic: true)
+#
+# Netlify auto-detects `.netlify/functions-internal`, so no _redirects/[[redirects]]
+# rule is needed: the v2 function claims "/*" and serves static files first.
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  # Match the Node version used in development (see deploy log / @types/node ^22).
+  NODE_VERSION = "22"
