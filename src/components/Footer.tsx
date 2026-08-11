@@ -45,6 +45,10 @@ export function Footer() {
             <Link to="/kontakt" className="hover:text-primary">Kontakt</Link>
           </div>
         </div>
+
+        <div className="mt-4 text-xs text-primary-foreground/60">
+          Teile der Inhalte dieser Website wurden mit Unterstützung von KI erstellt.
+        </div>
       </div>
     </footer>
   );
